@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './html/default.html',
-  styleUrls: ['./css/style.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
   title = 'aluas-app';
