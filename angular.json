@@ -14,7 +14,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/aluas-app",
-            "index": "src/index.html",
+            "index": "html/default.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
@@ -78,10 +78,15 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
-            "styles": [
+            "styles": ["node-modules/bootstrap/dist/css/bootstramp.css",
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+                "node_modules/jquery/dist/jquery.js",
+                "node_modules/popper.js/dist/umd/popper.js",
+                "node_module/bootstrap/dist/js/bootstrap.js"
+
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
