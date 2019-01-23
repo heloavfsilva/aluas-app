@@ -5,13 +5,11 @@ import {
   EventEmitter
 } from '@angular/core';
 
-
 @Component({
-  selector: 'app-board',
-  templateUrl: './board.component.html'
+  selector: 'app-list',
+  templateUrl: './list.component.html'
 })
-
-export class BoardComponent {
+export class ListComponent {
   @Input() aptList;
   @Output() deleteEvt = new EventEmitter();
   @Output() updateEvt = new EventEmitter();

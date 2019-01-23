@@ -45,6 +45,23 @@ export class AppComponent implements OnInit {
       aptInfo.newValue;
   }
 
+  searchApt(theQuery: string) {
+    this.modifiedList = this.theList.filter(eachItem => {
+      return (
+        eachItem['petName']
+          .toLowerCase()
+          .includes(theQuery.toLowerCase()) ||
+        eachItem['ownerName']
+          .toLowerCase()
+          .includes(theQuery.toLowerCase()) ||
+        eachItem['aptNotes']
+          .toLowerCase()
+          .includes(theQuery.toLowerCase())
+      );
+    });
+    this.sortItems();
+  }
+
   sortItems() {
     let order: number;
     if (this.orderType === 'asc') {
@@ -67,6 +84,12 @@ export class AppComponent implements OnInit {
     });
   }
 
+  orderApt(orderObj) {
+    this.orderBy = orderObj.orderBy;
+    this.orderType = orderObj.orderType;
+
+    this.sortItems();
+  }
 
   constructor(private http: HttpClient) {
     this.orderBy = 'petName';

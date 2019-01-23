@@ -1,4 +1,4 @@
-<div class="card textcenter mt-3" [ngClass]="{'add-appointment': showForm}">
+<div class="card textcenter mt-3"  [ngClass]="{'add-appointment': showForm}">
 
   <div class="apt-addheading card-header bg-primary text-white"
        (click)="toggleAptDisplay()">
@@ -6,11 +6,9 @@
   </div><!-- card-header -->
 
   <div class="card-body">
-
     <form id="aptForm" novalidate
           (ngSubmit)="handleAdd(aptForm.value)"
-          #aptForm="ngForm"
-    >
+          #aptForm="ngForm">
 
       <div class="form-group form-row">
         <label class="col-md-2 col-form-label text-md-right" for="petName">Pet Name</label>
