@@ -1,6 +1,9 @@
 package br.com.aluasdev.model;
 
-public class Atividade {
+import org.springframework.stereotype.Service;
+
+@Service
+public class Atividade{
 	private int id;
 	private String titulo;
 	private String descricao;
