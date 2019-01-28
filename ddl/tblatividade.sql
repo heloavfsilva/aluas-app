@@ -6,23 +6,24 @@ Descrição: Criação da tabela Atividade
 Atualização: 
 Data		Responsável			Descrição	
 31/12/2018	Heloa Silva			Primeira versão
+28/01/2019	Heloa Silva			Trigramação
 ----------------------------------------------'
 
 CREATE TABLE atividade (
-    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    titulo VARCHAR(50),
-    descricao VARCHAR(150),
-    idgravidade INTEGER,
-    idurgencia INTEGER,
-    idtendencia INTEGER,
-    idclassificacao INTEGER,
-    score INTEGER,
-    idcontrole INTEGER
+    tvdd_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    tvdd_titulo VARCHAR(50),
+    tvdd_descricao VARCHAR(150),
+    gvdd_id INTEGER,
+    rgnc_id INTEGER,
+    tdnc_id INTEGER,
+    cfcs_id INTEGER,
+    tvdd_score INTEGER,
+    ctrl_id INTEGER
 );
 
-ALTER TABLE atividade ADD FOREIGN KEY (idgravidade) REFERENCES gravidade (id);
-ALTER TABLE atividade ADD FOREIGN KEY (idurgencia) REFERENCES urgencia (id);
-ALTER TABLE atividade ADD FOREIGN KEY (idtendencia) REFERENCES tendencia (id);
-ALTER TABLE atividade ADD FOREIGN KEY (idclassificacao) REFERENCES classificacao (id);
-ALTER TABLE atividade ADD FOREIGN KEY (idcontrole) REFERENCES controle (id);
+ALTER TABLE atividade ADD FOREIGN KEY (gvdd_id) REFERENCES gravidade (gvdd_id);
+ALTER TABLE atividade ADD FOREIGN KEY (rgnc_id) REFERENCES urgencia (rgnc_id);
+ALTER TABLE atividade ADD FOREIGN KEY (tdnc_id) REFERENCES tendencia (tdnc_id);
+ALTER TABLE atividade ADD FOREIGN KEY (cfcs_id) REFERENCES classificacao (cfcs_id);
+ALTER TABLE atividade ADD FOREIGN KEY (ctrl_id) REFERENCES controle (ctrl_id);
 

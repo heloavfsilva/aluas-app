@@ -6,13 +6,14 @@ Descrição: Criação da tabela Classificação
 Atualização: 
 Data		Responsável			Descrição	
 31/12/2018	Heloa Silva			Primeira versão 
+28/01/2019	Heloa Silva			Trigramação
 ----------------------------------------------'
 
 
 CREATE TABLE classificacao (
-    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(50),
-    descricao VARCHAR(150),
-    limitesuperior INTEGER,
-    limiteinferior INTEGER
+    cfcs_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    cfcs_nome VARCHAR(50),
+    cfcs_descricao VARCHAR(150),
+    cfcs_limite_superior INTEGER,
+    cfcs_limite_inferior INTEGER
 );

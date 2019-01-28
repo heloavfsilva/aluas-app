@@ -6,17 +6,18 @@ Descrição: Criação da tabela Controle
 Atualização: 
 Data		Responsável			Descrição	
 31/12/2018	Heloa Silva			Primeira versão
+28/01/2019	Heloa Silva			Trigramação
 ----------------------------------------------'
 
 CREATE TABLE controle (
-    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    idatividade INTEGER,
-    idusuario INTEGER,
-    idstatus INTEGER,
-    descricao VARCHAR(150),
-    date DATETIME
+    ctrl_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    tvdd_id INTEGER,
+    usu_id INTEGER,
+    stts_id INTEGER,
+    ctrl_descricao VARCHAR(150),
+    ctrl_date DATETIME
 );
 
-ALTER TABLE controle ADD FOREIGN KEY (idatividade) REFERENCES atividade(id);
-ALTER TABLE controle ADD FOREIGN KEY (idusuario) REFERENCES usuario(id);
-ALTER TABLE controle ADD FOREIGN KEY (idstatus) REFERENCES status(id);
+ALTER TABLE controle ADD FOREIGN KEY (tvdd_id) REFERENCES atividade(tvdd_id);
+ALTER TABLE controle ADD FOREIGN KEY (usu_id) REFERENCES usuario(usu_id);
+ALTER TABLE controle ADD FOREIGN KEY (stts_id) REFERENCES status(stts_id);
