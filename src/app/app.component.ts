@@ -98,7 +98,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.lastIndex = 0;
-    this.http.get<Object[]>('http://localhost:8080/rest/atividade').subscribe(data => {
+    this.http.get<Object[]>('http://localhost:8080/rest').subscribe(data => {
       this.theList = data.map((item: any) => {
         item.aptId = this.lastIndex++;
         return item;

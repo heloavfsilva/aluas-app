@@ -12,7 +12,7 @@
       <div class="pet-head d-flex">
         <span class="pet-name" contenteditable="true"
               #petName (blur)="handleUpdate(item, 'petName', petName.innerText)">{{item.petName}}</span>
-        <span class="apt-date ml-auto">{{item.aptDate | date: 'M-d h:mm a'}}</span>
+        <span class="apt-date ml-auto">{{item.titulo | date: 'M-d h:mm a'}}</span>
       </div><!-- pet-head -->
 
       <div class="owner-name">
