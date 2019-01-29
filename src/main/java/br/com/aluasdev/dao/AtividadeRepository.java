@@ -1,17 +1,12 @@
 package br.com.aluasdev.dao;
-import org.springframework.data.repository.Repository;
-import java.util.List;
 
 
-public interface AtividadeDAO extends Repository {
 
-  void delete(User user);
+public interface AtividadeRepository  {
 
-  List findAll();
 
-  User findOne(int id);
 
-  User save(User user);
+
 }
 
 /*	public boolean adiciona(Atividade atividade) throws SQLException {
