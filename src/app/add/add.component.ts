@@ -30,7 +30,7 @@ export class AddComponent implements OnInit {
   }
 
   constructor() {
-    this.showForm = true;
+    this.showForm = false;
   }
 
   ngOnInit() {}
