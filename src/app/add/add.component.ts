@@ -5,6 +5,7 @@ import {
   EventEmitter
 } from '@angular/core';
 
+
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html'
@@ -20,10 +21,11 @@ export class AddComponent implements OnInit {
 
   handleAdd(formInfo: any) {
     const tempItem: object = {
-      petName: formInfo.petName,
-      ownerName: formInfo.ownerName,
-      aptDate: formInfo.aptDate + ' ' + formInfo.aptTime,
-      aptNotes: formInfo.aptNotes
+      tvddtitulo: formInfo.tvddtitulo,
+      tvdddescricao: formInfo.tvdddescricao,
+      gvddqtdinput: formInfo.gvddqtdinput,
+      rgncqtdinput: formInfo.rgncqtdinput,
+      tdncqtdinput: formInfo.tdncqtdinput
     };
     this.addEvt.emit(tempItem);
     this.showForm = !this.showForm;

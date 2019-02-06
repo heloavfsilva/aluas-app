@@ -14,11 +14,14 @@ public class AtividadeController {
 
   @RequestMapping (method = RequestMethod.GET)
   public List<Atividade> findAll(){
-    Atividade a = new Atividade();
-    a.setTitulo("Hello A");
     ArrayList<Atividade> retorno = new ArrayList<Atividade>();
-    retorno.add(a);
 
     return retorno;
+  }
+
+  @RequestMapping(value = "/addAtividade",method = RequestMethod.POST)
+  public void addAtividade (@RequestParam(name = "atividade") Atividade atividade){
+    System.out.println(atividade.getTvdd_titulo());
+
   }
 }

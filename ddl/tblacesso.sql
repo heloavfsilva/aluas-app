@@ -13,7 +13,7 @@ CREATE TABLE acesso (
     acesso_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     usu_id INTEGER,
     acesso_entrada DATETIME,
-    acesso_saida DATETIME,
+    acesso_saida DATETIME
 );
 
 ALTER TABLE acesso ADD FOREIGN KEY (usu_id) REFERENCES usuario (usu_id);

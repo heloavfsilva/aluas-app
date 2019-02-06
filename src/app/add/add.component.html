@@ -12,41 +12,86 @@
           #aptForm="ngForm">
 
       <div class="form-group form-row">
-        <label class="col-md-2 col-form-label text-md-right" for="tvdd_titulo">Título</label>
+        <label class="col-md-2 col-form-label text-md-right" for="tvddtitulo">Título</label>
         <div class="col-md-10">
-          <input type="text" class="form-control" name="tvdd_titulo" id="tvdd_titulo" placeholder="Título da Atividade"
+          <input type="text" class="form-control" name="tvddtitulo" id="tvddtitulo" placeholder="Título da Atividade"
                  ngModel>
         </div><!-- col-md-10 -->
       </div><!-- form-group -->
 
       <div class="form-group form-row">
         <label class="col-md-2 col-form-label text-md-right"
-               for="tvdd_descricao">Descrição</label>
+               for="tvdddescricao">Descrição</label>
         <div class="col-md-10">
-          <input type="text" class="form-control" name="tvdd_descricao"
-                 id="tvdd_descricao" placeholder="Descrição" ngModel>
+          <input type="text" class="form-control" name="tvdddescricao"
+                 id="tvdddescricao" placeholder="Descrição" ngModel>
         </div><!-- col-md-10 -->
       </div><!-- form-group -->
 
 
       <div class="form-group form-row">
-        <label class="col-md-2 text-md-right" >Gravidade</label>
-        <div class="col-md-10">
-          <mat-slider min="1" max="5"> </mat-slider>
+        <label class="col-md-2 col-form-label text-md-right">Gravidade</label>
+        <div class="col-md-4">
+          <div class="input-group">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" id="gvddminusbtn">
+                <i class="fa fa-minus-square"></i>
+              </button>
+            </div>
+            <input type="text" id="gvddqtdinput" class="form-control input-number" value="1" min="1" max="5">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" id="gvddplusbtn">
+                <i class="fa fa-plus-square"></i>
+              </button>
+            </div>
+          </div>
+          <div class="text-md-center">
+            <p class="gvdd-desc">Desc Gravidade</p>
+          </div>
         </div><!-- col-md-10 -->
       </div><!-- form-group -->
 
       <div class="form-group form-row">
         <label class="col-md-2 text-md-right">Urgencia</label>
-        <div class="col-md-10">
-          <mat-slider min="1" max="5"> </mat-slider>
+        <div class="col-md-4">
+          <div class="input-group">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" id="rgncminusbtn">
+                <i class="fa fa-minus-square"></i>
+              </button>
+            </div>
+            <input type="text" id="rgncqtdinput" class="form-control input-number" value="1" min="1" max="5">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" id="rgncplusbtn">
+                <i class="fa fa-plus-square"></i>
+              </button>
+            </div>
+          </div>
+          <div class="text-md-center">
+            <p class="rgnc-desc"> Desc Urgencia</p>
+          </div>
         </div><!-- col-md-10 -->
       </div><!-- form-group -->
 
       <div class="form-group form-row">
-        <label class="col-md-2 text-md-right"d>Tendencia</label>
-        <div class="col-md-10">
-          <mat-slider min="1" max="5"> </mat-slider>
+        <label class="col-md-2 text-md-right" d>Tendencia</label>
+        <div class="col-md-4">
+          <div class="input-group">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" id="tdncminusbtn">
+                <i class="fa fa-minus-square"></i>
+              </button>
+            </div>
+            <input type="text" id="tdncqtdinput" class="form-control input-number" value="1" min="1" max="5">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" id="tdncplusbtn">
+                <i class="fa fa-plus-square"></i>
+              </button>
+            </div>
+          </div>
+          <div class="text-md-center">
+            <p class="tdnc-desc">Desc Urgencia</p>
+          </div>
         </div><!-- col-md-10 -->
       </div><!-- form-group -->
 

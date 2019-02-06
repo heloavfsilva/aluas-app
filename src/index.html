@@ -1,110 +1,115 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Aluas</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <base href="/">
-  </head>
+<head>
+  <meta charset="utf-8">
+  <title>Aluas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <base href="/">
+</head>
 
-  <style>
+<style>
     html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-  </style>
 
-  <body class="w3-light-grey">
 
-  <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
-    <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-    <span class="w3-bar-item w3-right"><img src='assets/simple.png' style="width:125px"></span>
+</style>
+
+<body class="w3-light-grey">
+
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i
+    class="fa fa-bars"></i>  Menu
+  </button>
+  <span class="w3-bar-item w3-right"><img src='assets/simple.png' style="width:125px"></span>
+</div>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+    <div class="w3-col s4">
+      <img src="assets/photo.JPG" class="w3-circle w3-margin-right" style="width:100px;">
+    </div>
+    <div class="w3-col s8 w3-bar w3-center">
+      <span>Welcome, <strong>Heloa</strong></span><br>
+      <a href="#" class="w3-button"><i class="fa fa-envelope"></i></a>
+      <a href="#" class="w3-button"><i class="fa fa-user"></i></a>
+      <a href="#" class="w3-button"><i class="fa fa-cog"></i></a>
+      <a href="#" class="w3-padding-16 w3-blue w3-button" style='border-radius: 12px;'>Add activity <i
+        class="fa fa-plus-circle"></i></a>
+    </div>
   </div>
 
-  <!-- Sidebar/menu -->
-  <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
-    <div class="w3-container w3-row">
-      <div class="w3-col s4">
-        <img src="assets/photo.JPG" class="w3-circle w3-margin-right" style="width:100px;">
-      </div>
-      <div class="w3-col s8 w3-bar w3-center">
-        <span>Welcome, <strong>Heloa</strong></span><br>
-        <a href="#" class="w3-button"><i class="fa fa-envelope"></i></a>
-        <a href="#" class="w3-button"><i class="fa fa-user"></i></a>
-        <a href="#" class="w3-button"><i class="fa fa-cog"></i></a>
-        <a href="#" class="w3-padding-16 w3-blue w3-button" style='border-radius: 12px;'>Add activity <i class="fa fa-plus-circle"></i></a>
-      </div>
-    </div>
-
-    <div class="w3-bar-block">
-      <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-      <a href="home.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-area-chart fa-fw"></i>  Overview</a>
-      <a href="board.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-dashboard fa-fw"></i>  Dashboard</a>
-    </div>
-  </nav>
+  <div class="w3-bar-block">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
+       onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="home.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-area-chart fa-fw"></i>  Overview</a>
+    <a href="board.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-dashboard fa-fw"></i>  Dashboard</a>
+  </div>
+</nav>
 
 
-  <!-- Overlay effect when opening sidebar on small screens -->
-  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+     title="close side menu" id="myOverlay"></div>
 
-  <div class="w3-main" style="margin-left:300px;margin-top:50px;">
-    <!-- Header -->
-    <header class="w3-container" style="padding-top:22px">
-      <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
-    </header>
-    <!-- class="w3-row-padding w3-margin-bottom" -->
-    <div  class="w3-row-padding w3-margin-bottom">
-      <div class="w3-third">
-        <div class="w3-container w3-red w3-padding-16">
-          <div class="w3-left"><i class="fa fa-exclamation-triangle w3-xxxlarge"></i></div>
-          <div class="w3-right">
-            <h3>2</h3>
-          </div>
-          <div class="w3-clear">
-            <h4>Get it done</h4>
-          </div>
-      </div>
-    </div>
-      <div class="w3-third">
-        <div class="w3-container w3-blue w3-padding-16">
-          <div class="w3-left"><i class="fa fa-send w3-xxxlarge"></i></div>
-          <div class="w3-right">
-            <h3>6</h3>
-          </div>
-          <div class="w3-clear">
-            <h4>Delegate</h4>
-          </div>
+<div class="w3-main" style="margin-left:300px;margin-top:50px;">
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:22px">
+    <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
+  </header>
+  <!-- class="w3-row-padding w3-margin-bottom" -->
+  <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-third">
+      <div class="w3-container w3-red w3-padding-16">
+        <div class="w3-left"><i class="fa fa-exclamation-triangle w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>2</h3>
         </div>
-      </div>
-      <div class="w3-third">
-        <div class="w3-container w3-green w3-padding-16">
-          <div class="w3-left"><i class="fa fa-clock-o  w3-xxxlarge"></i></div>
-          <div class="w3-right">
-            <h3>15</h3>
-          </div>
-          <div class="w3-clear">
-            <h4>When possible</h4>
-          </div>
+        <div class="w3-clear">
+          <h4>Get it done</h4>
         </div>
       </div>
     </div>
-
-    <app-root></app-root>
+    <div class="w3-third">
+      <div class="w3-container w3-blue w3-padding-16">
+        <div class="w3-left"><i class="fa fa-send w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>6</h3>
+        </div>
+        <div class="w3-clear">
+          <h4>Delegate</h4>
+        </div>
+      </div>
+    </div>
+    <div class="w3-third">
+      <div class="w3-container w3-green w3-padding-16">
+        <div class="w3-left"><i class="fa fa-clock-o  w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>15</h3>
+        </div>
+        <div class="w3-clear">
+          <h4>When possible</h4>
+        </div>
+      </div>
+    </div>
   </div>
 
+  <app-root></app-root>
+</div>
 
 
+<footer class="w3-container w3-padding-16 w3-light-grey w3-right">
+  <p>Powered by Aluas</p>
+</footer>
 
-
-
-  <footer class="w3-container w3-padding-16 w3-light-grey w3-right">
-    <p>Powered by Aluas</p>
-  </footer>
-
-  <!-- End page content -->
-  <script>
+<!-- End page content -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
     // Get the Sidebar
     var mySidebar = document.getElementById("mySidebar");
 
@@ -127,6 +132,55 @@
       mySidebar.style.display = "none";
       overlayBg.style.display = "none";
     }
-  </script>
- </body>
+
+    $(document).ready(function(){
+      $('#gvddqtdinput').prop('disabled', false);
+      $('#gvddplusbtn').click(function(){
+        $('#gvddqtdinput').val(parseInt($('#gvddqtdinput').val()) + 1 );
+            if ($('#gvddqtdinput').val() >= 5) {
+          $('#gvddqtdinput').val(5);
+        }
+      });
+      $('#gvddminusbtn').click(function(){
+        $('#gvddqtdinput').val(parseInt($('#gvddqtdinput').val()) - 1 );
+        if ($('#gvddqtdinput').val() == 0) {
+        $('#gvddqtdinput').val(1);
+        }
+       });
+    });
+
+    $(document).ready(function(){
+      $('#rgncqtdinput').prop('disabled', false);
+      $('#rgncplusbtn').click(function(){
+        $('#rgncqtdinput').val(parseInt($('#rgncqtdinput').val()) + 1 );
+            if ($('#rgncqtdinput').val() >= 5) {
+          $('#rgncqtdinput').val(5);
+        }
+      });
+      $('#rgncminusbtn').click(function(){
+        $('#rgncqtdinput').val(parseInt($('#rgncqtdinput').val()) - 1 );
+        if ($('#rgncqtdinput').val() == 0) {
+        $('#rgncqtdinput').val(1);
+        }
+       });
+    });
+
+    $(document).ready(function(){
+      $('#tdncqtdinput').prop('disabled', false);
+      $('#tdncplusbtn').click(function(){
+        $('#tdncqtdinput').val(parseInt($('#tdncqtdinput').val()) + 1 );
+            if ($('#tdncqtdinput').val() >= 5) {
+          $('#tdncqtdinput').val(5);
+        }
+      });
+      $('#tdncminusbtn').click(function(){
+        $('#tdncqtdinput').val(parseInt($('#tdncqtdinput').val()) - 1 );
+        if ($('#tdncqtdinput').val() == 0) {
+        }
+       });
+    });
+
+
+</script>
+</body>
 </html>

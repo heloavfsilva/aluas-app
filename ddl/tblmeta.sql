@@ -15,7 +15,7 @@ CREATE TABLE meta (
     meta_titulo VARCHAR(50),
     meta_descricao VARCHAR(150),
     meta_score INTEGER,
-    usu_id integer,
+    usu_id integer
 );
 
 ALTER TABLE meta ADD FOREIGN KEY (usu_id) REFERENCES usuario (usu_id);

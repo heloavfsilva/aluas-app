@@ -5,14 +5,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class Atividade{
 	private int id;
-	private String titulo;
-	private String descricao;
-	private int idgravidade;
-	private int idurgencia;
-	private int idtendencia;
-	private int idclassificacao;
-	private int score;
-	private int idcontrole;
+	private String tvdd_titulo;
+	private String tvdd_description;
+	private int gvdd_id;
+	private int rgnc_id;
+	private int tdnc_id;
+	private int cfcs_id;
+	private int tvdd_score;
+	private int ctrl_id;
 
 	public int getId() {
 		return id;
@@ -22,67 +22,67 @@ public class Atividade{
 		this.id = id;
 	}
 
-	public String getTitulo() {
-		return titulo;
-	}
+  public String getTvdd_titulo() {
+    return tvdd_titulo;
+  }
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
+  public void setTvdd_titulo(String tvdd_titulo) {
+    this.tvdd_titulo = tvdd_titulo;
+  }
 
-	public String getDescricao() {
-		return descricao;
-	}
+  public String getTvdd_description() {
+    return tvdd_description;
+  }
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+  public void setTvdd_description(String tvdd_description) {
+    this.tvdd_description = tvdd_description;
+  }
 
-	public int getIdgravidade() {
-		return idgravidade;
-	}
+  public int getGvdd_id() {
+    return gvdd_id;
+  }
 
-	public void setIdgravidade(int idgravidade) {
-		this.idgravidade = idgravidade;
-	}
+  public void setGvdd_id(int gvdd_id) {
+    this.gvdd_id = gvdd_id;
+  }
 
-	public int getIdurgencia() {
-		return idurgencia;
-	}
+  public int getRgnc_id() {
+    return rgnc_id;
+  }
 
-	public void setIdurgencia(int idurgencia) {
-		this.idurgencia = idurgencia;
-	}
+  public void setRgnc_id(int rgnc_id) {
+    this.rgnc_id = rgnc_id;
+  }
 
-	public int getIdtendencia() {
-		return idtendencia;
-	}
+  public int getTdnc_id() {
+    return tdnc_id;
+  }
 
-	public void setIdtendencia(int idtendencia) {
-		this.idtendencia = idtendencia;
-	}
+  public void setTdnc_id(int tdnc_id) {
+    this.tdnc_id = tdnc_id;
+  }
 
-	public int getIdclassificacao() {
-		return idclassificacao;
-	}
+  public int getCfcs_id() {
+    return cfcs_id;
+  }
 
-	public void setIdclassificacao(int idclassificacao) {
-		this.idclassificacao = idclassificacao;
-	}
+  public void setCfcs_id(int cfcs_id) {
+    this.cfcs_id = cfcs_id;
+  }
 
-	public int getScore() {
-		return score;
-	}
+  public int getTvdd_score() {
+    return tvdd_score;
+  }
 
-	public void setScore(int score) {
-		this.score = score;
-	}
+  public void setTvdd_score(int tvdd_score) {
+    this.tvdd_score = tvdd_score;
+  }
 
-	public int getIdcontrole() {
-		return idcontrole;
-	}
+  public int getCtrl_id() {
+    return ctrl_id;
+  }
 
-	public void setIdcontrole(int idcontrole) {
-		this.idcontrole = idcontrole;
-	}
+  public void setCtrl_id(int ctrl_id) {
+    this.ctrl_id = ctrl_id;
+  }
 }
