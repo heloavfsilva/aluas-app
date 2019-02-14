@@ -8,13 +8,13 @@
 
   <div class="card-body">
     <form id="atividadeForm" novalidate
-          (ngSubmit)="handleAdd(atividadeForm.value)"
+          (ngSubmit)="add(atividadeForm.value)"
           #atividadeForm="ngForm">
 
       <div class="form-group form-row">
         <label class="col-md-2 col-form-label text-md-right" for="titulo">Título</label>
         <div class="col-md-10">
-          <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Título da Atividade" [(ngModel)]="atividade.titulo">
+          <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Título da Atividade" [(ngModel)]="titulo">
         </div><!-- col-md-10 -->
       </div><!-- form-group -->
 
@@ -23,7 +23,7 @@
                for="descricao">Descrição</label>
         <div class="col-md-10">
           <input type="text" class="form-control" name="descricao"
-                 id="descricao" placeholder="Descrição" [(ngModel)]="atividade.descricao">
+                 id="descricao" placeholder="Descrição" [(ngModel)]="descricao">
         </div><!-- col-md-10 -->
       </div><!-- form-group -->
 

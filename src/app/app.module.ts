@@ -9,8 +9,8 @@ import { MatSliderModule } from '@angular/material/slider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddComponent } from './add/add.component';
-import { ListComponent } from './list/list.component';
+import { AddComponent } from './atividade/add.component';
+import { ListComponent } from './atividade/list.component';
 
 @NgModule({
   declarations: [

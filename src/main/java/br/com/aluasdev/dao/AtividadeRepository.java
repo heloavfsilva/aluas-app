@@ -2,24 +2,31 @@ package br.com.aluasdev.dao;
 import br.com.aluasdev.model.Atividade;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 
 @Repository
-public class AtividadeRepository {
+public abstract class AtividadeRepository implements JpaRepository<Atividade, Long> {
 
   @PersistenceContext
-  private EntityManager entityManager;
+  //private EntityManager entityManager ;
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("manager");
+    EntityManager em = emf.createEntityManager();
 
 
   @Transactional
   public void add(Atividade atividade) {
-    entityManager.createNativeQuery("INSERT INTO atividade (tvdd_titulo, tvdd_descricao) VALUES (?,?)")
+    em.createNativeQuery("INSERT INTO atividade (tvdd_titulo, tvdd_descricao) VALUES (?,?)")
       .setParameter(1, atividade.getTitulo())
-      .setParameter(2, atividade.getDescription())
+      .setParameter(2, atividade.getDescricao())
       .executeUpdate();
-    this.entityManager.persist(atividade);
+    em.persist(atividade);
+    em.close();
+    emf.close();
   }
 
 }

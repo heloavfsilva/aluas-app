@@ -2,6 +2,8 @@ package br.com.aluasdev.controller;
 
 import br.com.aluasdev.dao.AtividadeRepository;
 import br.com.aluasdev.model.Atividade;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +12,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/rest")
 public class AtividadeController {
+  @Autowired
+  AtividadeRepository repo;
 
   @RequestMapping (method = RequestMethod.GET)
   public List<Atividade> findAll(){
@@ -20,9 +24,10 @@ public class AtividadeController {
 
   @RequestMapping( method = RequestMethod.POST, value = "/add")
   public void addAtividade(@RequestBody Atividade atividade) {
-    AtividadeRepository repo = new AtividadeRepository();
     repo.add(atividade);
     System.out.println(atividade.getTitulo());
   }
+
+
 
 }

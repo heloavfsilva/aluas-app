@@ -12,21 +12,17 @@ library.add(faTimes, faPlus);
 })
 export class AppComponent implements OnInit {
   theList: object[];
-  modifiedList: object[];
-  orderBy: string;
-  orderType: string;
-  lastIndex: number;
 
-  addAtividade(Atividade: any) {
-     this.http.post('http://localhost:8080/rest/add', Atividade);
-     console.log(Atividade);
-  }
+
+  //addAtividade(Atividade: any) {
+  //   this.http.post('http://localhost:8080/rest/add', Atividade);
+  //   console.log(Atividade);
+  //}
 
   constructor(private http: HttpClient) {
   }
 
   ngOnInit(): void {
-    this.lastIndex = 0;
     this.http.get<Object[]>('http://localhost:8080/rest').subscribe(data => {
       this.theList = data.map((item: any) => {
         return item;
