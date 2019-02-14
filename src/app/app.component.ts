@@ -17,8 +17,9 @@ export class AppComponent implements OnInit {
   orderType: string;
   lastIndex: number;
 
-  addApt(theApt: any) {
-    this.http.post<any>('http://localhost:8080/rest/addAtividade', theApt);
+  addAtividade(Atividade: any) {
+     this.http.post('http://localhost:8080/rest/add', Atividade);
+     console.log(Atividade);
   }
 
   constructor(private http: HttpClient) {
@@ -28,10 +29,8 @@ export class AppComponent implements OnInit {
     this.lastIndex = 0;
     this.http.get<Object[]>('http://localhost:8080/rest').subscribe(data => {
       this.theList = data.map((item: any) => {
-        item.aptId = this.lastIndex++;
         return item;
       });
-      this.modifiedList = data;
 
     });
   }

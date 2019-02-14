@@ -1,88 +1,111 @@
 package br.com.aluasdev.model;
 
-import org.springframework.stereotype.Service;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Service
-public class Atividade{
-	private int id;
-	private String tvdd_titulo;
-	private String tvdd_description;
-	private int gvdd_id;
-	private int rgnc_id;
-	private int tdnc_id;
-	private int cfcs_id;
-	private int tvdd_score;
-	private int ctrl_id;
+@Entity
+@Table(name = "atividade")
+public class Atividade {
 
-	public int getId() {
-		return id;
-	}
+  @Id
+  @Column(name = "tvdd_id")
+  private int id;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+  @Column(name = "tvdd_titulo")
+  private String titulo;
 
-  public String getTvdd_titulo() {
-    return tvdd_titulo;
+  @Column(name = "tvdd_description")
+  private String descricao;
+
+  @Column(name = "gvdd_id")
+  private int gravidade;
+
+  @Column(name = "rgnc_id")
+  private int urgencia;
+
+  @Column(name = "tdnc_id")
+  private int tendencia;
+
+  @Column(name = "cfcs_id")
+  private int classificacao;
+
+  @Column(name = "tvdd_score")
+  private int score;
+
+  @Column(name = "ctrl_id")
+  private int ctrl;
+
+  public int getId() {
+    return id;
   }
 
-  public void setTvdd_titulo(String tvdd_titulo) {
-    this.tvdd_titulo = tvdd_titulo;
+  public void setId(int id) {
+    this.id = id;
   }
 
-  public String getTvdd_description() {
-    return tvdd_description;
+  public String getTitulo() {
+    return titulo;
   }
 
-  public void setTvdd_description(String tvdd_description) {
-    this.tvdd_description = tvdd_description;
+  public void setTitulo(String titulo) {
+    this.titulo = titulo;
   }
 
-  public int getGvdd_id() {
-    return gvdd_id;
+  public String getDescricao() {
+    return descricao;
   }
 
-  public void setGvdd_id(int gvdd_id) {
-    this.gvdd_id = gvdd_id;
+  public void setDescricao(String description) {
+    this.descricao = description;
   }
 
-  public int getRgnc_id() {
-    return rgnc_id;
+  public int getGravidade() {
+    return gravidade;
   }
 
-  public void setRgnc_id(int rgnc_id) {
-    this.rgnc_id = rgnc_id;
+  public void setGravidade(int gravidade) {
+    this.gravidade = gravidade;
   }
 
-  public int getTdnc_id() {
-    return tdnc_id;
+  public int getUrgencia() {
+    return urgencia;
   }
 
-  public void setTdnc_id(int tdnc_id) {
-    this.tdnc_id = tdnc_id;
+  public void setUrgencia(int urgencia) {
+    this.urgencia = urgencia;
   }
 
-  public int getCfcs_id() {
-    return cfcs_id;
+  public int getTendencia() {
+    return tendencia;
   }
 
-  public void setCfcs_id(int cfcs_id) {
-    this.cfcs_id = cfcs_id;
+  public void setTendencia(int tendencia) {
+    this.tendencia = tendencia;
   }
 
-  public int getTvdd_score() {
-    return tvdd_score;
+  public int getClassificacao() {
+    return classificacao;
   }
 
-  public void setTvdd_score(int tvdd_score) {
-    this.tvdd_score = tvdd_score;
+  public void setClassificacao(int classificacao) {
+    this.classificacao = classificacao;
   }
 
-  public int getCtrl_id() {
-    return ctrl_id;
+  public int getScore() {
+    return score;
   }
 
-  public void setCtrl_id(int ctrl_id) {
-    this.ctrl_id = ctrl_id;
+  public void setScore(int score) {
+    this.score = score;
+  }
+
+  public int getCtrl() {
+    return ctrl;
+  }
+
+  public void setCtrl(int ctrl) {
+    this.ctrl = ctrl;
   }
 }

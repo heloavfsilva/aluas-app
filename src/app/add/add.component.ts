@@ -2,34 +2,33 @@ import {
   Component,
   OnInit,
   Output,
-  EventEmitter
+  EventEmitter,
 } from '@angular/core';
 
+import { Atividade } from '../atividade';
 
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html'
 })
+
 export class AddComponent implements OnInit {
   showForm: boolean;
-
   @Output() addEvt = new EventEmitter();
+
+  atividade = new Atividade();
+
 
   toggleAptDisplay() {
     this.showForm = !this.showForm;
-  }
+  };
 
   handleAdd(formInfo: any) {
-    const tempItem: object = {
-      tvddtitulo: formInfo.tvddtitulo,
-      tvdddescricao: formInfo.tvdddescricao,
-      gvddqtdinput: formInfo.gvddqtdinput,
-      rgncqtdinput: formInfo.rgncqtdinput,
-      tdncqtdinput: formInfo.tdncqtdinput
-    };
-    this.addEvt.emit(tempItem);
-    this.showForm = !this.showForm;
-  }
+     this.addEvt.emit(this.atividade);
+    console.log('add');
+    console.log(this.atividade.titulo);
+
+  };
 
   constructor() {
     this.showForm = false;
@@ -37,3 +36,5 @@ export class AddComponent implements OnInit {
 
   ngOnInit() {}
 }
+
+

@@ -1,30 +1,29 @@
-<div class="card textcenter mt-3" [ngClass]="{'add-appointment': showForm}">
 
-  <div class="apt-addheading card-header bg-primary text-white"
+<div class="card textcenter mt-3" [ngClass]="{'add-appointment': showForm}">
+  <div class="heading card-header bg-primary text-white"
        (click)="toggleAptDisplay()">
     <fa-icon icon="plus"></fa-icon>
     Atividade
   </div><!-- card-header -->
 
   <div class="card-body">
-    <form id="aptForm" novalidate
-          (ngSubmit)="handleAdd(aptForm.value)"
-          #aptForm="ngForm">
+    <form id="atividadeForm" novalidate
+          (ngSubmit)="handleAdd(atividadeForm.value)"
+          #atividadeForm="ngForm">
 
       <div class="form-group form-row">
-        <label class="col-md-2 col-form-label text-md-right" for="tvddtitulo">Título</label>
+        <label class="col-md-2 col-form-label text-md-right" for="titulo">Título</label>
         <div class="col-md-10">
-          <input type="text" class="form-control" name="tvddtitulo" id="tvddtitulo" placeholder="Título da Atividade"
-                 ngModel>
+          <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Título da Atividade" [(ngModel)]="atividade.titulo">
         </div><!-- col-md-10 -->
       </div><!-- form-group -->
 
       <div class="form-group form-row">
         <label class="col-md-2 col-form-label text-md-right"
-               for="tvdddescricao">Descrição</label>
+               for="descricao">Descrição</label>
         <div class="col-md-10">
-          <input type="text" class="form-control" name="tvdddescricao"
-                 id="tvdddescricao" placeholder="Descrição" ngModel>
+          <input type="text" class="form-control" name="descricao"
+                 id="descricao" placeholder="Descrição" [(ngModel)]="atividade.descricao">
         </div><!-- col-md-10 -->
       </div><!-- form-group -->
 
@@ -38,7 +37,7 @@
                 <i class="fa fa-minus-square"></i>
               </button>
             </div>
-            <input type="text" id="gvddqtdinput" class="form-control input-number" value="1" min="1" max="5">
+            <input type="text" id="gravidade" class="form-control input-number" value="1" min="1" max="5">
             <div class="input-group-btn">
               <button type="button" class="btn btn-default btn-number" id="gvddplusbtn">
                 <i class="fa fa-plus-square"></i>
@@ -60,7 +59,7 @@
                 <i class="fa fa-minus-square"></i>
               </button>
             </div>
-            <input type="text" id="rgncqtdinput" class="form-control input-number" value="1" min="1" max="5">
+            <input type="text" id="urgencia" class="form-control input-number" value="1" min="1" max="5">
             <div class="input-group-btn">
               <button type="button" class="btn btn-default btn-number" id="rgncplusbtn">
                 <i class="fa fa-plus-square"></i>
@@ -74,7 +73,7 @@
       </div><!-- form-group -->
 
       <div class="form-group form-row">
-        <label class="col-md-2 text-md-right" d>Tendencia</label>
+        <label class="col-md-2 text-md-right">Tendencia</label>
         <div class="col-md-4">
           <div class="input-group">
             <div class="input-group-btn">
@@ -82,7 +81,7 @@
                 <i class="fa fa-minus-square"></i>
               </button>
             </div>
-            <input type="text" id="tdncqtdinput" class="form-control input-number" value="1" min="1" max="5">
+            <input type="text" id="tendencia" class="form-control input-number" value="1" min="1" max="5">
             <div class="input-group-btn">
               <button type="button" class="btn btn-default btn-number" id="tdncplusbtn">
                 <i class="fa fa-plus-square"></i>
@@ -98,7 +97,7 @@
 
       <div class="form-group form-row mb-0">
         <div class="offset-md-2 col-md-10">
-          <button type="submit" class="btn btn-primary d-block ml-auto">Adicionar</button>
+          <button type="submit" class="btn btn-primary d-block ml-auto" >Adicionar</button>
         </div><!-- col-md-offset-2 -->
       </div><!-- form-group -->
 

@@ -1,9 +1,8 @@
 package br.com.aluasdev.controller;
 
+import br.com.aluasdev.dao.AtividadeRepository;
 import br.com.aluasdev.model.Atividade;
 import org.springframework.web.bind.annotation.*;
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,9 +18,11 @@ public class AtividadeController {
     return retorno;
   }
 
-  @RequestMapping(value = "/addAtividade",method = RequestMethod.POST)
-  public void addAtividade (@RequestParam(name = "atividade") Atividade atividade){
-    System.out.println(atividade.getTvdd_titulo());
-
+  @RequestMapping( method = RequestMethod.POST, value = "/add")
+  public void addAtividade(@RequestBody Atividade atividade) {
+    AtividadeRepository repo = new AtividadeRepository();
+    repo.add(atividade);
+    System.out.println(atividade.getTitulo());
   }
+
 }
