@@ -14,6 +14,6 @@ public class AluasAppApplication {
 
 	  SpringApplication.run(AluasAppApplication.class, args);
 	}
-	
+
 }
 

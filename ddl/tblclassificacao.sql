@@ -10,7 +10,7 @@ Data		Responsável			Descrição
 ----------------------------------------------'
 
 
-CREATE TABLE classificacao (
+CREATE TABLE 	 (
     cfcs_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     cfcs_nome VARCHAR(50),
     cfcs_descricao VARCHAR(150),
