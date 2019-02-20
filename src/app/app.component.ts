@@ -14,10 +14,6 @@ export class AppComponent implements OnInit {
   theList: object[];
 
 
-  //addAtividade(Atividade: any) {
-  //   this.http.post('http://localhost:8080/rest/add', Atividade);
-  //   console.log(Atividade);
-  //}
 
   constructor(private http: HttpClient) {
   }
