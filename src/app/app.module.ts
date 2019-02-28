@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { FormsModule }   from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
+import { MatSliderModule, MatFormFieldModule, MatInputModule } from "@angular/material";
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,7 +25,9 @@ import { ListComponent } from './atividade/list.component';
     FontAwesomeModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatSliderModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

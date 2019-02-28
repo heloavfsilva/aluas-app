@@ -13,10 +13,8 @@ library.add(faTimes, faPlus);
 export class AppComponent implements OnInit {
   theList: object[];
 
-
-
   constructor(private http: HttpClient) {
-  }
+  };
 
   ngOnInit(): void {
     this.http.get<Object[]>('http://localhost:8080/rest').subscribe(data => {

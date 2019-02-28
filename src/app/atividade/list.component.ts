@@ -5,24 +5,24 @@ import {
   EventEmitter
 } from '@angular/core';
 
+import { Atividade } from './atividade';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html'
 })
 export class ListComponent {
-  @Input() aptList;
-  @Output() deleteEvt = new EventEmitter();
-  @Output() updateEvt = new EventEmitter();
+  @Input() atvdList;
+  // @Output() deleteEvt = new EventEmitter();
+  // @Output() updateEvt = new EventEmitter();
 
-  handleDelete(theApt: object) {
-    this.deleteEvt.emit(theApt);
+  handleDelete(formInfo: object) {
+    this.atividadeService.deleteAtividade(newAtividade)
+      .subscribe();
+       alert("Atividade criada com sucesso!");
+    //this.deleteEvt.emit(formInfo);
   }
 
-  handleUpdate(theApt: object, labelName: string, newValue: string) {
-    this.updateEvt.emit({
-      theApt: theApt,
-      labelName: labelName,
-      newValue: newValue
-    });
+  handleUpdate(atividade: Atividade) {
+    this.atividadeService.updateAtividade(atividade);
   }
 }

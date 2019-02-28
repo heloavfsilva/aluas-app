@@ -9,17 +9,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="../css/style.css">
   <base href="/">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//code.angularjs.org/1.7.7/angular.min.js"></script>
 </head>
 
 <style>
     html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-
-
 </style>
 
-<body class="w3-light-grey">
+<body class="w3-light-grey" ng-appp="aluasapp">
 
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i
@@ -39,7 +38,7 @@
       <a href="#" class="w3-button"><i class="fa fa-envelope"></i></a>
       <a href="#" class="w3-button"><i class="fa fa-user"></i></a>
       <a href="#" class="w3-button"><i class="fa fa-cog"></i></a>
-      <a href="#" class="w3-padding-16 w3-blue w3-button" style='border-radius: 12px;'>Add activity <i
+      <button class="w3-padding-16 w3-blue w3-button" style='border-radius: 12px;'>Add activity <i
         class="fa fa-plus-circle"></i></a>
     </div>
   </div>
@@ -108,80 +107,32 @@
 </footer>
 
 <!-- End page content -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-    // Get the Sidebar
-    var mySidebar = document.getElementById("mySidebar");
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
 
-    // Get the DIV with overlay effect
-    var overlayBg = document.getElementById("myOverlay");
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
 
-    // Toggle between showing and hiding the sidebar, and add overlay effect
-    function w3_open() {
-      if (mySidebar.style.display === 'block') {
-        mySidebar.style.display = 'none';
-        overlayBg.style.display = "none";
-      } else {
-        mySidebar.style.display = 'block';
-        overlayBg.style.display = "block";
-      }
-    }
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
 
-    // Close the sidebar with the close button
-    function w3_close() {
-      mySidebar.style.display = "none";
-      overlayBg.style.display = "none";
-    }
-
-    $(document).ready(function(){
-      $('#gravidade').prop('disabled', false);
-      $('#gvddplusbtn').click(function(){
-        $('#gravidade').val(parseInt($('#gravidade').val()) + 1 );
-            if ($('#gravidade').val() >= 5) {
-          $('#gravidade').val(5);
-        }
-      });
-      $('#gvddminusbtn').click(function(){
-        $('#gravidade').val(parseInt($('#gravidade').val()) - 1 );
-        if ($('#gravidade').val() == 0) {
-        $('#gravidade').val(1);
-        }
-       });
-    });
-
-    $(document).ready(function(){
-      $('#urgencia').prop('disabled', false);
-      $('#rgncplusbtn').click(function(){
-        $('#urgencia').val(parseInt($('#urgencia').val()) + 1 );
-            if ($('#urgencia').val() >= 5) {
-          $('#urgencia').val(5);
-        }
-      });
-      $('#rgncminusbtn').click(function(){
-        $('#urgencia').val(parseInt($('#urgencia').val()) - 1 );
-        if ($('#urgencia').val() == 0) {
-        $('#urgencia').val(1);
-        }
-       });
-    });
-
-    $(document).ready(function(){
-      $('#tendencia').prop('disabled', false);
-      $('#tdncplusbtn').click(function(){
-        $('#tendencia').val(parseInt($('#tendencia').val()) + 1 );
-            if ($('#tendencia').val() >= 5) {
-          $('#tendencia').val(5);
-        }
-      });
-      $('#tdncminusbtn').click(function(){
-        $('#tendencia').val(parseInt($('#tendencia').val()) - 1 );
-        if ($('#tendencia').val() == 0) {
-        $('#tendencia').val(1);
-        }
-       });
-    });
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
 
 
 </script>
+
 </body>
 </html>

@@ -1,7 +1,5 @@
-
 <div class="card textcenter mt-3" [ngClass]="{'add-appointment': showForm}">
-  <div class="heading card-header bg-primary text-white"
-       (click)="toggleAptDisplay()">
+  <div class="heading card-header bg-primary text-white">
     <fa-icon icon="plus"></fa-icon>
     Atividade
   </div><!-- card-header -->
@@ -32,20 +30,7 @@
         <label class="col-md-2 col-form-label text-md-right">Gravidade</label>
         <div class="col-md-4">
           <div class="input-group">
-            <div class="input-group-btn">
-              <button type="button" class="btn btn-default btn-number" id="gvddminusbtn">
-                <i class="fa fa-minus-square"></i>
-              </button>
-            </div>
-            <input type="text" id="gravidade" name="gravidade" class="form-control input-number" value="1" min="1" max="5" [(ngModel)]="gravidade">
-            <div class="input-group-btn">
-              <button type="button" class="btn btn-default btn-number" id="gvddplusbtn">
-                <i class="fa fa-plus-square"></i>
-              </button>
-            </div>
-          </div>
-          <div class="text-md-center">
-            <p class="gvdd-desc">Desc Gravidade</p>
+            <input type="number" id="gravidade" name="gravidade" class="form-control" placeholder="Digite uma nota de 1 a 5" min="1" max="5" [(ngModel)]="gravidade">
           </div>
         </div><!-- col-md-10 -->
       </div><!-- form-group -->
@@ -54,20 +39,7 @@
         <label class="col-md-2 text-md-right">Urgencia</label>
         <div class="col-md-4">
           <div class="input-group">
-            <div class="input-group-btn">
-              <button type="button" class="btn btn-default btn-number" id="rgncminusbtn">
-                <i class="fa fa-minus-square"></i>
-              </button>
-            </div>
-            <input type="text" id="urgencia" name="urgencia" class="form-control input-number" value="1" min="1" max="5" [(ngModel)]="urgencia">
-            <div class="input-group-btn">
-              <button type="button" class="btn btn-default btn-number" id="rgncplusbtn">
-                <i class="fa fa-plus-square"></i>
-              </button>
-            </div>
-          </div>
-          <div class="text-md-center">
-            <p class="rgnc-desc"> Desc Urgencia</p>
+            <input type="number" id="urgencia" name="urgencia" class="form-control" min="1" max="5"  placeholder="Digite uma nota de 1 a 5" [(ngModel)]="urgencia">
           </div>
         </div><!-- col-md-10 -->
       </div><!-- form-group -->
@@ -76,28 +48,34 @@
         <label class="col-md-2 text-md-right">Tendencia</label>
         <div class="col-md-4">
           <div class="input-group">
-            <div class="input-group-btn">
-              <button type="button" class="btn btn-default btn-number" id="tdncminusbtn">
-                <i class="fa fa-minus-square"></i>
-              </button>
-            </div>
-            <input type="text" id="tendencia" name="tendencia" class="form-control input-number" value="1" min="1" max="5" [(ngModel)]="tendencia">
-            <div class="input-group-btn">
-              <button type="button" class="btn btn-default btn-number" id="tdncplusbtn">
-                <i class="fa fa-plus-square"></i>
-              </button>
-            </div>
-          </div>
-          <div class="text-md-center">
-            <p class="tdnc-desc">Desc Urgencia</p>
+            <input type="number" id="tendencia" name="tendencia" class="form-control" min="1" max="5" placeholder="Digite uma nota de 1 a 5" [(ngModel)]="tendencia">
           </div>
         </div><!-- col-md-10 -->
       </div><!-- form-group -->
 
+      <div class="form-group form-row">
+        <label class="col-md-2 text-md-right">Score</label>
+        <div class="col-md-4">
+          <div class="input-group">
+            <input type="number" id="score" name="score" class="form-control" placeholder="Click on the button to generate" [(ngModel)]="score">
+          </div>
+        </div><!-- col-md-10 -->
+      </div><!-- form-group -->
+
+      <div class="form-group form-row">
+      </div>
+
+
 
       <div class="form-group form-row mb-0">
-        <div class="offset-md-2 col-md-10">
-          <button type="submit" class="btn btn-primary d-block ml-auto" >Adicionar</button>
+        <div class="offset-md-2 col-md-1">
+          <button type="reset"  class="btn btn btn-secondary d-block ml-auto">Reset the form</button>
+        </div>
+        <div class="offset-md-2 col-md-1">
+          <button type="button" name="handleScore" class="btn btn-primary d-block ml-auto" (click)="handleScore(gravidade, urgencia, tendencia)">Score</button>
+        </div>
+        <div class="offset-md-2 col-md-1">
+          <button type="submit" class="btn btn-success d-block ml-auto" >Adicionar</button>
         </div><!-- col-md-offset-2 -->
       </div><!-- form-group -->
 

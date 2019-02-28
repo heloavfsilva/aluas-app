@@ -56,23 +56,23 @@ export class AtividadeService {
       );
   }
 
-  /** DELETE: delete the atividade from the server
-  deleteHero (id: number): Observable<{}> {
+  /** DELETE: delete the atividade from the server*/
+  deleteAtividade (id: number): Observable<{}> {
     const url = `${this.atividadeUrl}/${id}`;
     return this.http.delete(url, httpOptions)
       .pipe(
-        catchError(this.handleError('deleteAtividade'))
+        //catchError(this.handleError('deleteAtividade'))
       );
-  }*/
+  }
 
-  /** PUT: update the atividade on the server. Returns the updated atividade upon success.
+  /** PUT: update the atividade on the server. Returns the updated atividade upon success.*/
   updateAtividade (atividade: Atividade): Observable<Atividade> {
-    httpOptions.headers =
-      httpOptions.headers.set('Authorization', 'my-new-auth-token');
+    // httpOptions.headers =
+    //   httpOptions.headers.set('Authorization', 'my-new-auth-token');
 
-    return this.http.put<Atividade>(this.atividadeUrl, hero, httpOptions)
+    return this.http.put<Atividade>(this.atividadeUrl, atividade, httpOptions)
       .pipe(
-        catchError(this.handleError('updateAtividade', hero))
+        //catchError(this.handleError('updateAtividade', hero))
       );
-  } */
+  }
 }
