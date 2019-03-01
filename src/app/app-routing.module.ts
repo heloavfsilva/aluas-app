@@ -5,8 +5,11 @@ import { AddComponent } from './atividade/add.component';
 import { ListComponent } from './atividade/list.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/list', pathMatch: 'full' },
   { path: 'list', component: ListComponent },
-  { path: 'add', component: AddComponent }
+  { path: 'add', component: AddComponent },
+  { path: 'edit/:id', component: ListComponent
+  }
 ];
 
 @NgModule({

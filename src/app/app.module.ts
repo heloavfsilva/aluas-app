@@ -4,19 +4,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { FormsModule }   from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule, MatFormFieldModule, MatInputModule } from "@angular/material";
+import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule } from '@angular/material';
 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddComponent } from './atividade/add.component';
 import { ListComponent } from './atividade/list.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddComponent,
-    ListComponent
+    ListComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
@@ -25,9 +27,11 @@ import { ListComponent } from './atividade/list.component';
     FontAwesomeModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatSliderModule,
-    MatFormFieldModule,
-    MatInputModule
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatListModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

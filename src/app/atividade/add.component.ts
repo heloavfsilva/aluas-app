@@ -15,12 +15,12 @@ import { AtividadeService } from './atividade.service';
 })
 
 export class AddComponent implements OnInit {
-  theList: object[];
   atividade: Atividade;
   gravidade : number;
   urgencia : number;
   tendencia : number;
   score : number;
+  classificacao : number;
 
   showForm: boolean;
 
@@ -29,6 +29,15 @@ export class AddComponent implements OnInit {
     this.urgencia = urgencia;
     this.tendencia = tendencia;
     this.score = this.gravidade*this.urgencia*this.tendencia;
+    if (this.score >= 48 && this.score <=128){
+      this.classificacao = 1;
+    }
+    if (this.score >=27 && this.score<=47){
+      this.classificacao = 2;
+    }
+    else {
+      this.classificacao = 3;
+    }
   }
   add(formInfo: any): void {
       const newAtividade: Atividade = {
@@ -37,7 +46,8 @@ export class AddComponent implements OnInit {
          gravidade: formInfo.gravidade,
          urgencia: formInfo.urgencia,
          tendencia: formInfo.tendencia,
-         score: formInfo.score
+         score: formInfo.score,
+         classificacao: this.classificacao
        }
       this.atividadeService.addAtividade(newAtividade)
         .subscribe();
@@ -45,7 +55,7 @@ export class AddComponent implements OnInit {
     }
 
    toggleAtvdDisplay() {
-      this.showForm = !this.showForm;
+      this.showForm = false;
     }
 
   constructor(private atividadeService: AtividadeService) {
