@@ -2,9 +2,10 @@
   <mat-card-header>Lista de Atividades</mat-card-header>
   <mat-card-content>
     <mat-list>
-      <mat-list-item *ngFor="let atividade of atvdList">
+      <mat-list-item *ngFor="let atividade of atividades">
         <a mat-button [routerLink]="['/edit', atividade.id]">{{atividade.titulo}}</a>
       </mat-list-item>
+      <ng-template #empty> No Customers Yet </ng-template>
     </mat-list>
   </mat-card-content>
 </mat-card>

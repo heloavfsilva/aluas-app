@@ -22,7 +22,6 @@ export class AddComponent implements OnInit {
   score : number;
   classificacao : number;
 
-  showForm: boolean;
 
   handleScore(gravidade: number, urgencia:number, tendencia:number){
     this.gravidade = gravidade;
@@ -49,25 +48,15 @@ export class AddComponent implements OnInit {
          score: formInfo.score,
          classificacao: this.classificacao
        }
-      this.atividadeService.addAtividade(newAtividade)
+      this.atividadeService.save(newAtividade)
         .subscribe();
          alert("Atividade criada com sucesso!");
     }
 
-   toggleAtvdDisplay() {
-      this.showForm = false;
-    }
-
-  constructor(private atividadeService: AtividadeService) {
-      this.showForm = true;
-
- }
+  constructor(private atividadeService: AtividadeService) { }
 
   ngOnInit() {
-    // this.gravidade =1;
-    // this.urgencia = 1;
-    // this.tendencia = 1;
-    // this.score=1;
+
   }
 
 

@@ -19,44 +19,42 @@ export class AtividadeService {
   constructor(private http: HttpClient){}
 
   getAtividade (): Observable<any> {
-    return this.http.get(this.atividadeUrl);
+    return this.http.get(this.atividadeUrl, httpOptions);
   }
 
   /* GET atividade whose name contains search term */
-  searchAtividade(term: string): Observable<Atividade[]> {
-    term = term.trim();
+  // searchAtividade(term: string): Observable<Atividade[]> {
+  //   term = term.trim();
+  //
+  //   // Add safe, URL encoded search parameter if there is a search term
+  //   const options = term ?
+  //    { params: new HttpParams().set('name', term) } : {};
+  //
+  //   return this.http.get<Atividade[]>(this.atividadeUrl, options)
+  //
+  // }
 
-    // Add safe, URL encoded search parameter if there is a search term
-    const options = term ?
-     { params: new HttpParams().set('name', term) } : {};
 
-    return this.http.get<Atividade[]>(this.atividadeUrl, options)
-
-  }
-
-
-  getId(id: string) {
-      return this.http.get(this.atividadeUrl + '/' + id);
+  getId(id: number) {
+      return this.http.get(this.atividadeUrl + '/list/' + id);
     }
-  //////// Save methods //////////
 
-  /** POST: add a new atividade to the database */
-  addAtividade (atividade: Atividade): Observable<Atividade> {
+  save(atividade: any): Observable<any> {
     let result: Observable<Object>;
-    if (atividade['href']) {
-      result = this.http.put(atividade.href, atividade);
+    if (atividade['id']) {
+      result = this.http.put(this.atividadeUrl+'/add/'+ atividade.id, atividade, httpOptions);
     } else {
-      result = this.http.post(this.atividade+"/add", atividade, httpOptions);
+      result = this.http.post(this.atividadeUrl+'/add', atividade, httpOptions);
     }
     return result;
-    //return this.http.post<Atividade>(this.atividadeUrl+"/add", atividade, httpOptions)
-
   }
+
 
   /** DELETE: delete the atividade from the server*/
-  deleteAtividade (href: string): Observable<{}> {
-    return this.http.delete(href);
+  deleteAtividade (id: string): Observable<{}> {
+    return this.http.delete(id, httpOptions);
   }
+
 
 
 }

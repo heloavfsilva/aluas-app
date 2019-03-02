@@ -2,30 +2,34 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AtividadeService } from './atividade.service';
+import { Atividade } from './atividade';
 import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css']
+  styleUrls: ['./edit.component.css'],
+  providers: [ AtividadeService ]
+
 })
 export class EditComponent implements OnInit {
-  atividade: any ={};
+  atividade: Atividade;
   sub: Subscription;
   constructor(private route: ActivatedRoute,
               private router: Router,
               private atividadeService: AtividadeService) { }
 
   ngOnInit() {
+    console.log('Edit here!')
     this.sub = this.route.params.subscribe(params => {
       const id = params['id'];
       if (id) {
-        this.atividadeService.get(id).subscribe((atividade: any) => {
+        this.atividadeService.getId(id).subscribe((atividade: any) => {
           if (atividade) {
             this.atividade = atividade;
-            this.atividade.href = atividade._links.self.href;
+            this.atividade.id = atividade._links.self.id;
           } else {
-            //console.log('Atividade with id '${id}' not found, returning to list');
+            console.log('Atividade with id ',{id},' not found, returning to list');
             this.gotoList();
           }
         });
@@ -41,17 +45,18 @@ export class EditComponent implements OnInit {
     this.router.navigate(['/list']);
   }
 
-  save(form: NgForm) {
-    this.addAtividade.addAtividade(form).subscribe(result => {
+  save(form: any) {
+    this.atividadeService.save(form).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
   }
 
-  remove(href) {
-    this.atividadeService.deleteAtividade(href).subscribe(result => {
+  remove(id) {
+    this.atividadeService.deleteAtividade(id).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
   }
 
 
 
+}

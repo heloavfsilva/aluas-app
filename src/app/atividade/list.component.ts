@@ -19,36 +19,17 @@ import { HttpClient } from '@angular/common/http';
 
 export class ListComponent implements OnInit {
    atividade: Atividade;
-   atvdList: Atividade[];
-   modifiedList: Atividade[];
-   orderBy: string;
-   orderType: string;
-   lastIndex: number;
+   atividades: Atividade[];
 
-
-  handleDelete(formInfo: object) {
-    // this.atividadeService.deleteAtividade()
-    //   .subscribe();
-    //    alert("Atividade deletada com sucesso!");
-    //this.deleteEvt.emit(formInfo);
-  }
-
-  handleUpdate(atividade: Atividade) {
-    // this.atividadeService.updateAtividade(atividade);
-  }
-
- constructor(private http: HttpClient, private atividadeService: AtividadeService) {
-
- }
+  constructor(private http: HttpClient, private atividadeService: AtividadeService) {}
   getAtividade(): void {
     this.atividadeService.getAtividade().subscribe(
-      data => {this.atvdList = data}
+      data => {this.atividades = data}
     );
   }
 
  ngOnInit(): void {
    this.getAtividade();
    alert("Alerta de list!");
-
  }
 }

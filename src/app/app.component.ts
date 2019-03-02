@@ -11,17 +11,11 @@ library.add(faTimes, faPlus);
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  theList: object[];
 
   constructor(private http: HttpClient) {
   };
 
   ngOnInit(): void {
-    this.http.get<Object[]>('http://localhost:8080/rest').subscribe(data => {
-      this.theList = data.map((item: any) => {
-        return item;
-      });
 
-    });
   }
 }

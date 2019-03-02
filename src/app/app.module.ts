@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddComponent } from './atividade/add.component';
 import { ListComponent } from './atividade/list.component';
-import { EditComponent } from './edit/edit.component';
+import { EditComponent } from './atividade/edit.component';
 
 @NgModule({
   declarations: [

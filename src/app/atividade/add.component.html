@@ -72,15 +72,18 @@
 
       <div class="form-group form-row mb-0">
         <div class="offset-md-2 col-md-1">
-          <button type="reset"  class="btn btn btn-secondary d-block ml-auto" (onclick)="toggleAtvdDisplay()">Reset the form</button>
+          <button mat-fab color="secondary" type="reset">Reset</button>
         </div>
         <div class="offset-md-2 col-md-1">
-          <button type="button" name="handleScore" class="btn btn-primary d-block ml-auto" (click)="handleScore(gravidade, urgencia, tendencia)">Score</button>
+          <button mat-fab color="primary" name="handleScore" (click)="handleScore(gravidade, urgencia, tendencia)">Score</button>
         </div>
         <div class="offset-md-2 col-md-1">
           <button mat-fab color="primary" [routerLink]="['/add']">Add</button>
           <!-- <button type="submit" class="btn btn-success d-block ml-auto" [disabled]="!atividadeForm.form.valid">Adicionar</button> -->
         </div><!-- col-md-offset-2 -->
+        <div class="offset-md-2 col-md-1">
+          <button mat-fab color="secondary" [routerLink]="['/list']">Cancel</button>
+        </div>
       </div><!-- form-group -->
 
 
