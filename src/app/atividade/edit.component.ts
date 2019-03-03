@@ -39,7 +39,7 @@ export class EditComponent implements OnInit {
     }, error => console.error(error));
   }
 
-  remove(id) {
+  remove(id : number) {
     this.atividadeService.deleteAtividade(id).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
@@ -51,15 +51,9 @@ export class EditComponent implements OnInit {
       const id = params['id'];
       if (id) {
         this.atividadeService.getId(id).subscribe(atividade => {
-          //if (atividade) {
             this.atividade = atividade[0];
             console.log('achei o id ', this.atividade);
-            //this.car.href = car._links.self.href;
-            //this.giphyService.get(car.name).subscribe(url => car.giphyUrl = url);
-          //} else {
-            //console.log('Atividade with id ',id,' not found, returning to list');
-            //this.gotoList();
-          //}
+
         });
       }
     });

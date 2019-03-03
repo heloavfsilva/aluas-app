@@ -51,8 +51,9 @@ export class AtividadeService {
 
 
   /** DELETE: delete the atividade from the server*/
-  deleteAtividade (id: string): Observable<{}> {
-    return this.http.delete(id, httpOptions);
+  deleteAtividade (id: number) {
+    console.log('Im delete!', id);
+    return this.http.delete(this.atividadeUrl + '/edit/' + id, httpOptions);
   }
 
 

@@ -13,4 +13,6 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 public interface AtividadeRepository extends CrudRepository<Atividade, Long> {
   List<Atividade> findById(int id);
+
+  void deleteById(int id);
 }
