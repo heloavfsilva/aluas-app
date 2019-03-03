@@ -35,7 +35,7 @@ export class AtividadeService {
   // }
 
 
-  getId(id: number) {
+  getId(id: string) {
       return this.http.get(this.atividadeUrl + '/list/' + id);
     }
 

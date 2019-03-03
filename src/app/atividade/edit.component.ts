@@ -13,28 +13,16 @@ import { NgForm } from '@angular/forms';
 
 })
 export class EditComponent implements OnInit {
-  atividade: Atividade;
+  atividade: any = {};
+  id: string;
+  titulo: string;
   sub: Subscription;
   constructor(private route: ActivatedRoute,
               private router: Router,
               private atividadeService: AtividadeService) { }
 
   ngOnInit() {
-    console.log('Edit here!')
-    this.sub = this.route.params.subscribe(params => {
-      const id = params['id'];
-      if (id) {
-        this.atividadeService.getId(id).subscribe((atividade: any) => {
-          if (atividade) {
-            this.atividade = atividade;
-            this.atividade.id = atividade._links.self.id;
-          } else {
-            console.log('Atividade with id ',{id},' not found, returning to list');
-            this.gotoList();
-          }
-        });
-      }
-    });
+    this.selectAtividade();
   }
 
   ngOnDestroy() {
@@ -57,6 +45,25 @@ export class EditComponent implements OnInit {
     }, error => console.error(error));
   }
 
+  selectAtividade(){
+    console.log('Edit here!')
+    this.sub = this.route.params.subscribe(params => {
+      const id = params['id'];
+      if (id) {
+        this.atividadeService.getId(id).subscribe(atividade => {
+          //if (atividade) {
+            this.atividade = atividade[0];
+            console.log('achei o id ', this.atividade);
+            //this.car.href = car._links.self.href;
+            //this.giphyService.get(car.name).subscribe(url => car.giphyUrl = url);
+          //} else {
+            //console.log('Atividade with id ',id,' not found, returning to list');
+            //this.gotoList();
+          //}
+        });
+      }
+    });
 
+  }
 
 }

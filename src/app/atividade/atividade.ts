@@ -1,5 +1,5 @@
 export class Atividade {
-  public id: number;
+  public id: string;
   public titulo: string;
   public descricao: string;
   public gravidade: number;
