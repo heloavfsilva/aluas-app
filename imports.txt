@@ -1,0 +1,4 @@
+npm install --save @angular/material @angular/cdk @angular/animations
+npm install --save hammerjs
+npm install @angular/flex-layout@latest --save
+npm install @fortawesome/fontawesome@latest

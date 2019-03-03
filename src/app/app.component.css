@@ -1,0 +1,22 @@
+.search-form {
+  width: 90%;
+  margin-left: 20px;
+}
+
+.bg-danger{
+  margin: 10%;
+
+}
+
+.bg-success{
+  margin: 10%;
+}
+
+.bg-primary{
+  margin: 10%;
+}
+
+.fa-edit{
+  color: white !important;
+
+}

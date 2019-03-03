@@ -59,7 +59,7 @@ public class AtividadeController {
   @DeleteMapping("rest/edit/{id}")
   @CrossOrigin(origins = "http://localhost:4200")
   public void deleteAtividade(@PathVariable int id){
-     atividadeRepository.deleteById(id);
+       atividadeRepository.deleteById(id);
      System.out.println("Deletado");
   }
 

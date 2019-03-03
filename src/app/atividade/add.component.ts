@@ -40,6 +40,7 @@ export class AddComponent implements OnInit {
   }
   add(formInfo: any): void {
       const newAtividade: Atividade = {
+         id: '',
          titulo: formInfo.titulo,
          descricao: formInfo.descricao,
          gravidade: formInfo.gravidade,

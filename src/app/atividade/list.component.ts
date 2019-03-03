@@ -14,6 +14,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
+  styleUrls: ['../app.component.css'],
   providers: [ AtividadeService ]
 })
 

@@ -1,11 +1,42 @@
-<mat-card>
-  <mat-card-header>Lista de Atividades</mat-card-header>
-  <mat-card-content>
-    <mat-list>
-      <mat-list-item *ngFor="let atividade of atividades">
-        <a mat-button [routerLink]="['/edit', atividade.id]">{{atividade.titulo}}</a>
-      </mat-list-item>
-      <ng-template #empty> No Customers Yet </ng-template>
-    </mat-list>
-  </mat-card-content>
-</mat-card>
+<mat-form-field class="search-form">
+  <input matInput placeholder="Search Picture" type="text">
+</mat-form-field>
+<button button="submit" mat-raised-button color="primary">Search</button>
+<br>
+
+<!-- <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center"> -->
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card text-white bg-danger mb-3" style="max-width: 100%;" *ngFor="let atividade of atividades">
+      <div class="card-header">{{atividade.titulo}}</div>
+      <div class="card-body">
+        <p class="card-text">{{atividade.descricao}}</p>
+      </div>
+      <div class="card-footer text-right"><a href="/edit"  [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit"></i></a></div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card text-white bg-primary mb-3" style="max-width: 100%;" *ngFor="let atividade of atividades">
+      <div class="card-header">{{atividade.titulo}}</div>
+      <div class="card-body">
+        <p class="card-text">{{atividade.descricao}}</p>
+      </div>
+      <div class="card-footer text-right"><a href="/edit"  [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit"></i></a></div>
+    </div>
+    <!-- <mat-card class="atividade-card" *ngFor="let atividade of atividades">
+        <mat-card-title class="atividade-title-2">{{atividade.titulo}}
+
+        </mat-card-title>
+        <mat-card-subtitle>{{atividade.descricao}}</mat-card-subtitle>
+    </mat-card> -->
+  </div>
+  <div class="col-sm-4">
+    <div class="card text-white bg-success mb-3" style="max-width: 100%;" *ngFor="let atividade of atividades">
+      <div class="card-header">{{atividade.titulo}}</div>
+      <div class="card-body">
+        <p class="card-text">{{atividade.descricao}}</p>
+      </div>
+      <div class="card-footer text-right"><a href="/edit"  [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit"></i></a></div>
+    </div>
+  </div>
+</div>
