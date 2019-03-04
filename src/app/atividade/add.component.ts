@@ -34,7 +34,7 @@ export class AddComponent implements OnInit {
     if (this.score >=27 && this.score<=47){
       this.classificacao = 2;
     }
-    else {
+    if(this.score < 27) {
       this.classificacao = 3;
     }
   }

@@ -15,4 +15,5 @@ public interface AtividadeRepository extends CrudRepository<Atividade, Long> {
   List<Atividade> findById(int id);
 
   void deleteById(int id);
+
 }

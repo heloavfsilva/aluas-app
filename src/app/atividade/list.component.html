@@ -1,42 +1,51 @@
-<mat-form-field class="search-form">
-  <input matInput placeholder="Search Picture" type="text">
-</mat-form-field>
-<button button="submit" mat-raised-button color="primary">Search</button>
-<br>
+<!-- Header title and search box -->
+<div class="w3-container">
+    <div id="custom-search-input">
+      <div class="input-group col-md-12">
+        <input type="text" class="search-query form-control" placeholder="Search" />
+        <span class="input-group-btn">
+          <button class="btn btn-danger" type="button">
+            <a href="#"  [routerLink]="[]"> <span class="fa fa-search"></span></a>
+          </button>
+        </span>
+      </div>
+    </div>
+    <h3><b><i class="fa fa-dashboard"></i> My Dashboard</b></h3>
+</div>
 
-<!-- <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center"> -->
+<!-- Columns with the card listed with priority-->
 <div class="row">
   <div class="col-sm-4">
-    <div class="card text-white bg-danger mb-3" style="max-width: 100%;" *ngFor="let atividade of atividades">
-      <div class="card-header">{{atividade.titulo}}</div>
-      <div class="card-body">
-        <p class="card-text">{{atividade.descricao}}</p>
+    <div class="card text-white bg-danger mb-3" style="max-width: 100%;" *ngFor="let atividade of class3">
+      <div class="card-header">
+        <div class="w3-left"><i class="fa fa-exclamation-triangle"></i></div>
+        {{atividade.titulo}}</div>
+        <div class="card-body">
+          <p class="card-text">{{atividade.descricao}}</p>
+        </div>
+        <div class="card-footer text-right"><a href="/edit"  [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit"></i></a></div>
       </div>
-      <div class="card-footer text-right"><a href="/edit"  [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit"></i></a></div>
     </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card text-white bg-primary mb-3" style="max-width: 100%;" *ngFor="let atividade of atividades">
-      <div class="card-header">{{atividade.titulo}}</div>
-      <div class="card-body">
-        <p class="card-text">{{atividade.descricao}}</p>
+    <div class="col-sm-4">
+      <div class="card text-white bg-primary mb-3" style="max-width: 100%;" *ngFor="let atividade of class2">
+        <div class="card-header">
+          <div class="w3-left"><i class="fa fa-send"></i></div>
+          {{atividade.titulo}}</div>
+          <div class="card-body">
+            <p class="card-text">{{atividade.descricao}}</p>
+          </div>
+          <div class="card-footer text-right"><a href="/edit"  [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit"></i></a></div>
+        </div>
       </div>
-      <div class="card-footer text-right"><a href="/edit"  [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit"></i></a></div>
-    </div>
-    <!-- <mat-card class="atividade-card" *ngFor="let atividade of atividades">
-        <mat-card-title class="atividade-title-2">{{atividade.titulo}}
-
-        </mat-card-title>
-        <mat-card-subtitle>{{atividade.descricao}}</mat-card-subtitle>
-    </mat-card> -->
-  </div>
-  <div class="col-sm-4">
-    <div class="card text-white bg-success mb-3" style="max-width: 100%;" *ngFor="let atividade of atividades">
-      <div class="card-header">{{atividade.titulo}}</div>
-      <div class="card-body">
-        <p class="card-text">{{atividade.descricao}}</p>
+      <div class="col-sm-4">
+        <div class="card text-white bg-success mb-3" style="max-width: 100%;" *ngFor="let atividade of class1">
+          <div class="card-header">
+            <div class="w3-left"><i class="fa fa-clock-o"></i></div>
+            {{atividade.titulo}}</div>
+            <div class="card-body">
+              <p class="card-text">{{atividade.descricao}}</p>
+            </div>
+            <div class="card-footer text-right"><a href="/edit"  [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit"></i></a></div>
+          </div>
+        </div>
       </div>
-      <div class="card-footer text-right"><a href="/edit"  [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit"></i></a></div>
-    </div>
-  </div>
-</div>
