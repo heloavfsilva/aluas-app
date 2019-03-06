@@ -19,13 +19,22 @@ import { AppComponent } from './app.component';
 import { AddComponent } from './atividade/add.component';
 import { ListComponent } from './atividade/list.component';
 import { EditComponent } from './atividade/edit.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+
+
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './shared/okta/auth.interceptor';
+import { AuthGuard } from './shared/auth/auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddComponent,
     ListComponent,
-    EditComponent
+    EditComponent,
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +51,10 @@ import { EditComponent } from './atividade/edit.component';
     MatFormFieldModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [AuthGuard, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+
+   }

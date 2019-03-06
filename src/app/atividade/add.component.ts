@@ -10,7 +10,7 @@ import { AtividadeService } from './atividade.service';
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
-  styleUrls: ['./add.component.css'],
+  styleUrls: ['../app.component.css'],
   providers: [ AtividadeService ]
 })
 
