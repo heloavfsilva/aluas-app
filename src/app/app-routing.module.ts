@@ -6,29 +6,22 @@ import { ListComponent } from './atividade/list.component';
 import { EditComponent } from './atividade/edit.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { OktaCallbackComponent, OktaAuthModule } from '@okta/okta-angular';
-import { JwksValidationHandler, OAuthService, OAuthModule } from 'angular-oauth2-oidc';
-import { AuthGuard } from './shared/auth/auth.guard';
-
-const config = {
-  issuer: 'https://dev-501841.okta.com/oauth2/default',
-  redirectUri: 'http://localhost:4200/implicit/callback',
-  clientId: '0oabx9e2hzCcqX5MU356'
-}
+import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './shared/auth.guard'
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  // { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'list', component: ListComponent, canActivate: [AuthGuard] },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'list', component: ListComponent },
   { path: 'add', component: AddComponent },
-  { path: 'edit/:id', component: EditComponent },
-  { path: 'implicit/callback',   component: OktaCallbackComponent }
+  { path: 'edit/:id', component: EditComponent }
 ];
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), OktaAuthModule.initAuth(config), OAuthModule.forRoot()],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
   declarations: []
 })

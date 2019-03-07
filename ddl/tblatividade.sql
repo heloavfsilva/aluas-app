@@ -7,6 +7,7 @@ Atualização:
 Data		Responsável			Descrição	
 31/12/2018	Heloa Silva			Primeira versão
 28/01/2019	Heloa Silva			Trigramação
+07/03/2019	Heloa Silva			Drop column ctrl_id from atividade
 ----------------------------------------------'
 
 CREATE TABLE atividade (
@@ -17,13 +18,10 @@ CREATE TABLE atividade (
     rgnc_id INTEGER,
     tdnc_id INTEGER,
     cfcs_id INTEGER,
-    tvdd_score INTEGER,
-    ctrl_id INTEGER
+    tvdd_score INTEGER
 );
 
 ALTER TABLE atividade ADD FOREIGN KEY (gvdd_id) REFERENCES gravidade (gvdd_id);
 ALTER TABLE atividade ADD FOREIGN KEY (rgnc_id) REFERENCES urgencia (rgnc_id);
 ALTER TABLE atividade ADD FOREIGN KEY (tdnc_id) REFERENCES tendencia (tdnc_id);
 ALTER TABLE atividade ADD FOREIGN KEY (cfcs_id) REFERENCES classificacao (cfcs_id);
-ALTER TABLE atividade ADD FOREIGN KEY (ctrl_id) REFERENCES controle (ctrl_id);
-

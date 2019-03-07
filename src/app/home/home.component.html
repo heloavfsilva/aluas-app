@@ -2,42 +2,11 @@
 <mat-card *ngIf="givenName">
   <mat-card-title>Welcome, {{givenName}}!</mat-card-title>
   <button mat-raised-button (click)="logout()">Logout</button>
-  <a mat-button routerLink="/list">Atividade List</a>
+
 </mat-card>
 
 <mat-card *ngIf="!givenName">
   <button mat-raised-button (click)="login()">Login</button>
 </mat-card> -->
-<div id="sign-in-container"></div>
-<mat-card *ngIf="givenName">
-      <h2>Welcome, {{givenName}}!</h2>
-      <button mat-raised-button (click)="logout()">Logout</button>
-      <a mat-button routerLink="/beer-list">Beer List</a>
-    </mat-card>
 
-    <mat-card *ngIf="!givenName">
-      <mat-card-title>Login with Redirect</mat-card-title>
-      <button mat-raised-button (click)="login()">Login</button>
-    </mat-card>
-
-    <mat-card *ngIf="!givenName">
-      <mat-card-title>Login Directly</mat-card-title>
-
-      <form (ngSubmit)="loginWithPassword()" ngNativeValidate>
-        <p style="color:red; font-weight:bold" *ngIf="error">
-          {{error}}
-        </p>
-
-          <div>
-            <input matInput [(ngModel)]="username" name="username"
-                   placeholder="Name" required>
-          </div>
-
-          <div>
-            <input matInput [(ngModel)]="password" name="password"
-                   type="password" placeholder="Password" required>
-          </div>
-
-        <button mat-raised-button type="submit">Login</button>
-      </form>
-    </mat-card>
+<a mat-button [routerLink]="['/login']">Login</a>

@@ -1,49 +1,72 @@
 import { Component, OnInit } from '@angular/core';
-import * as OktaSignIn from '@okta/okta-signin-widget';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { first } from 'rxjs/operators';
+
+import { AuthService } from '../shared/auth.service';
+import { AlertService } from '../shared/alert.service';
+import { UserService } from '../user/user.service';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [ AuthService ]
 })
 export class LoginComponent implements OnInit {
-  signIn: any;
-  constructor() {
-    this.signIn = new OktaSignIn({
-      /**
-       * Note: when using the Sign-In Widget for an ODIC flow, it still
-       * needs to be configured with the base URL for your Okta Org. Here
-       * we derive it from the given issuer for convenience.
-       */
-      baseUrl: 'https://dev-501841.okta.com/',
-      clientId: '0oabx9e2hzCcqX5MU356',
-      redirectUri: 'http://localhost:4200/implicit/callback',
-      i18n: {
-        en: {
-          'primaryauth.title': 'Sign in to Angular & Company',
-        },
-      },
-      authParams: {
-        responseType: ['id_token', 'token'],
-        issuer: 'https://dev-501841.okta.com/oauth2/default',
-        display: 'page'
-        // scopes: sampleConfig.oidc.scope.split(' '),
-      },
-    }); }
+    loginForm: FormGroup;
+    loading = false;
+    submitted = false;
+    returnUrl: string;
+    user: User;
 
-  ngOnInit() {
-    this.signIn.renderEl(
-      { el: '#sign-in-widget' },
-      () => {
-        /**
-         * In this flow, the success handler will not be called because we redirect
-         * to the Okta org for the authentication workflow.
-         */
-      },
-      (err) => {
-        throw err;
-      },
-    );
-  }
+    constructor(
+        private formBuilder: FormBuilder,
+        private router: Router,
+        private route: ActivatedRoute,
+        private authService: AuthService,
+        private alertService: AlertService
+    ) {
+        // redirect to home if already logged in
+        if (this.authService.currentUserValue) {
+            this.router.navigate(['/']);
+        }
+    }
 
+    ngOnInit() {
+        this.loginForm = this.formBuilder.group({
+            username: ['', Validators.required],
+            password: ['', Validators.required]
+        });
+
+        // get return url from route parameters or default to '/'
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    }
+
+    // convenience getter for easy access to form fields
+    get f() { return this.loginForm.controls; }
+
+    onSubmit() {
+        this.submitted = true;
+
+        // stop here if form is invalid
+        if (this.loginForm.invalid) {
+            return;
+        }
+
+        this.loading = true;
+        this.user.username = this.f.username.value;
+        this.user.password = this.f.password.value;
+        this.authService.login(user)
+            .pipe(first())
+            .subscribe(
+                data => {
+                    this.router.navigate([this.returnUrl]);
+                },
+                error => {
+                    this.alertService.error(error);
+                    this.loading = false;
+                });
+    }
 }

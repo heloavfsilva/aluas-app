@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { Atividade } from './atividade';
-import { JwksValidationHandler, OAuthService } from 'angular-oauth2-oidc';
 
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json'
+    'Content-Type':  'application/json',
     //'Authorization': 'Basic my-auth-token'
   })
 };
@@ -18,12 +16,8 @@ const httpOptions = {
 export class AtividadeService {
   atividadeUrl = 'http://localhost:8080/rest';  // URL to web api
 
-  constructor(private http: HttpClient, private oauthService: OAuthService){}
+  constructor(private http: HttpClient){}
 
-  getHeaders(): HttpHeaders {
-    console.log(httpOptions);
-    return httpOptions.headers.set('Authorization', this.oauthService.authorizationHeader());
-   }
 
   getAtividade (): Observable<any> {
     return this.http.get(this.atividadeUrl, httpOptions);
