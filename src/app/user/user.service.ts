@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 
+import { Observable } from 'rxjs';
 import { User } from './user';
 
 @Injectable({ providedIn: 'root' })
@@ -10,22 +11,26 @@ export class UserService {
     constructor(private http: HttpClient) { }
 
     getAll() {
-        return this.http.get<User[]>(this.baseUrl+'/users');
+        return this.http.get<User[]>(this.baseUrl);
     }
 
     getById(id: number) {
-        return this.http.get(this.baseUrl+'/users/${id}');
+        return this.http.get(this.baseUrl+'/${id}');
     }
 
-    register(user: User) {
-        return this.http.post(this.baseUrl+'/users/register', user);
+    getByUsername(username: string):any {
+        return this.http.get(this.baseUrl+'/${username}');
+    }
+
+    register(user: any) {
+        return this.http.post(this.baseUrl+'/register', user);
     }
 
     update(user: User) {
-        return this.http.put(this.baseUrl + '/users/${user.id}', user);
+        return this.http.put(this.baseUrl + '/${user.id}', user);
     }
 
     delete(id: number) {
-        return this.http.delete(this.baseUrl+'/users/${id}');
+        return this.http.delete(this.baseUrl+'/${id}');
     }
 }

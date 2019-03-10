@@ -1,15 +1,16 @@
 package br.com.aluasdev.controller;
 
 
-import br.com.aluasdev.dao.AtividadeRepository;
 import br.com.aluasdev.dao.UserRepository;
-import br.com.aluasdev.model.Atividade;
 import br.com.aluasdev.model.User;
+import br.com.aluasdev.model.Acesso;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class UserController {
@@ -28,14 +29,30 @@ public class UserController {
 
   @RequestMapping( method = RequestMethod.POST, value = "/auth")
   @CrossOrigin(origins = "http://localhost:4200")
-  public boolean validaUser(@RequestBody User user) {
-    User data = userRepository.findByEmail(user.getEmail());
-    System.out.println("Validando");
+  public void validaUser(@RequestBody Map<String, String> params) {
+    System.out.println(params.get("username"));
+    Acesso checkin = new Acesso();
 
-    return (data.getEmail() == user.getEmail() && data.getSenha() == user.getSenha());
+    try {
+      String username = params.get("username");
+      String password = params.get("password");
+      User data = userRepository.findByUsername(username);
+      System.out.println("Validando");
+      //String validaPass = data.getPassword();
+
+      if (data.getPassword().contentEquals(password)) {
+        checkin.setUsername(data.getUsername());
+        checkin.setEntrada(LocalDateTime.now().toString());
+        checkin.setToken("fake-jwt-token");
+      } else {
+      }
+    }catch (Exception e){
+      System.out.println("not found");
+    }
+
   }
 
-  @RequestMapping( method = RequestMethod.POST, value = "/auth/add")
+  @RequestMapping(method = RequestMethod.POST, value = "/auth/register")
   @CrossOrigin(origins = "http://localhost:4200")
   public void addUser(@RequestBody User user) {
     userRepository.save(user);
@@ -43,7 +60,7 @@ public class UserController {
 
   }
 
-  @PutMapping("/auth/add/{id}")
+  @PutMapping("/auth/{id}")
   @CrossOrigin(origins = "http://localhost:4200")
   public void updateUser(@PathVariable("id") int id, @RequestBody User atividade){
     //Optional<Atividade> data = atividadeRepository.findById(id);
@@ -52,7 +69,7 @@ public class UserController {
     usernew.setEmail(atividade.getEmail());
     usernew.setPrimeiroNome(atividade.getPrimeiroNome());
     usernew.setSobrenome(atividade.getSobrenome());
-    usernew.setSenha(atividade.getSenha());
+    usernew.setPassword(atividade.getPassword());
     usernew.setScoreAcumulado(atividade.getScoreAcumulado());
     usernew.setTelefone(atividade.getTelefone());
     usernew.setFoto(atividade.getFoto());
@@ -61,11 +78,19 @@ public class UserController {
   }
 
 
-  @DeleteMapping("/auth/edit/{id}")
+  @DeleteMapping("/auth/{id}")
   @CrossOrigin(origins = "http://localhost:4200")
   public void deleteUser(@PathVariable int id){
       userRepository.deleteById(id);
       System.out.println("Deletado");
+  }
+
+  @GetMapping("/auth/{username}")
+  @CrossOrigin(origins = "http://localhost:4200")
+  public User findUser(@PathVariable String username) {
+
+    User user = userRepository.findByUsername(username);
+    return user;
   }
 
 }

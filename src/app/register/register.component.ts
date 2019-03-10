@@ -1,23 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { AuthService } from "../shared/auth.service";
 import { AlertService } from "../shared/alert.service";
 import { UserService } from "../user/user.service";
 import { first } from 'rxjs/operators';
+import { User } from '../user/user';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['../app.component.css']
 })
 export class RegisterComponent implements OnInit {
-  registerForm: FormGroup;
+     registerForm: FormGroup;
      loading = false;
      submitted = false;
-
+     returnUrl: string;
      constructor(
          private formBuilder: FormBuilder,
          private router: Router,
+         private route: ActivatedRoute,
          private authService: AuthService,
          private userService: UserService,
          private alertService: AlertService
@@ -34,22 +36,31 @@ export class RegisterComponent implements OnInit {
              lastName: ['', Validators.required],
              username: ['', Validators.required],
              password: ['', [Validators.required, Validators.minLength(6)]]
+
          });
+         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
      }
 
      // convenience getter for easy access to form fields
      get f() { return this.registerForm.controls; }
 
-     onSubmit() {
+     onSubmit(formInfo: any) {
+         // stop here if form is invalid
          this.submitted = true;
 
-         // stop here if form is invalid
          if (this.registerForm.invalid) {
              return;
          }
 
          this.loading = true;
-         this.userService.register(this.registerForm.value)
+         const newUser: User = {
+           id: '',
+           primeiroNome: formInfo.firstName,
+           sobrenome: formInfo.lastName,
+           username: formInfo.username,
+           password: formInfo.password
+         }
+         this.userService.register(newUser)
              .pipe(first())
              .subscribe(
                  data => {

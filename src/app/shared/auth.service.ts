@@ -2,40 +2,47 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
-import { User } from '../user/user'
+import { Router, ActivatedRoute } from '@angular/router';
+import { User } from '../user/user';
+import { Acesso } from '../shared/acesso';
+import { UserService } from '../user/user.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-    private currentUserSubject: BehaviorSubject<User>;
-    public currentUser: Observable<User>;
-    baseUrl = 'http://localhost:8080/auth';
-    constructor(private http: HttpClient) {
-        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-        this.currentUser = this.currentUserSubject.asObservable();
-    }
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
+  baseUrl = 'http://localhost:8080/auth';
+  user: User;
+  acesso: Acesso;
 
-    public get currentUserValue(): User {
-        return this.currentUserSubject.value;
-    }
+  constructor(private http: HttpClient, private router: Router, private userService: UserService) {
+    this.currentUserSubject = new BehaviorSubject<Acesso>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
 
-    login(username: string, password: string) {
-        return this.http.post<any>(this.baseUrl, { username, password })
-            .pipe(map(user => {
-                // login successful if there's a jwt token in the response
-                if (user && user.token) {
-                    // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                    this.currentUserSubject.next(user);
-                }
+  public get currentUserValue(): Acesso {
+    return this.currentUserSubject.value;
+  }
 
-                return user;
-            }));
-    }
+  login(username: string, password: string) {
+    let result = this.http.post(this.baseUrl, { username, password }).pipe(acesso => {
+       // login successful if there's a jwt token in the response
+       this.acesso = acesso
+       if (this.acesso && this.acesso.token) {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+       localStorage.setItem('currentUser', JSON.stringify(this.acesso));
+       this.currentUserSubject.next(this.acesso);
+       this.router.navigate(['/']);
+      }
+    });
+    return result;
+  }
 
-    logout() {
-        // remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
-        this.currentUserSubject.next(null);
-    }
+logout() {
+  // remove user from local storage to log user out
+  localStorage.removeItem('currentUser');
+  this.currentUserSubject.next(null);
+  this.router.navigate(['/login']);
+
+}
 }

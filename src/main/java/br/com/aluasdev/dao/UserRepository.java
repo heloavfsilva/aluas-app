@@ -13,7 +13,9 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 public interface UserRepository extends CrudRepository<User, Long> {
   List<User> findById(int id);
-  User findByEmail(String email);
+
+  User findByUsername(String username);
+
   void deleteById(int id);
 }
 

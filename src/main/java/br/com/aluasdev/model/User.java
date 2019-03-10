@@ -22,11 +22,14 @@ public class User {
   @Column(name = "usu_sobrenome")
   private String sobrenome;
 
+  @Column(name = "usu_username")
+  private String username;
+
   @Column(name = "usu_email")
   private String email;
 
   @Column(name = "usu_senha")
-  private String senha;
+  private String password;
 
   @Column(name = "usu_telefone")
   private String telefone;
@@ -36,7 +39,6 @@ public class User {
 
   @Column(name = "usu_score_acumulado")
   private String scoreAcumulado;
-
 
   public int getId() {
     return id;
@@ -62,6 +64,14 @@ public class User {
     this.sobrenome = sobrenome;
   }
 
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
   public String getEmail() {
     return email;
   }
@@ -70,12 +80,12 @@ public class User {
     this.email = email;
   }
 
-  public String getSenha() {
-    return senha;
+  public String getPassword() {
+    return password;
   }
 
-  public void setSenha(String senha) {
-    this.senha = senha;
+  public void setPassword(String senha) {
+    this.password = senha;
   }
 
   public String getTelefone() {
@@ -101,4 +111,5 @@ public class User {
   public void setScoreAcumulado(String scoreAcumulado) {
     this.scoreAcumulado = scoreAcumulado;
   }
+
 }

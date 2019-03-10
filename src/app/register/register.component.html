@@ -1,28 +1,35 @@
-<div class="col-md-6 user-container">
-  <h2 class="text-center">Add User</h2>
-  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
-    <!-- <form id="addForm" (ngSubmit)="onSubmit()"
-          #addForm="ngForm"> -->
-    <div class="form-group">
-      <label for="username">User Name:</label>
-      <input type="text" formControlName="username" placeholder="username" name="username" class="form-control" id="username">
-    </div>
+<div class="col-sm-4 offset-sm-4">
+  <h2 class="text-center">Comece a planejar!</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
 
     <div class="form-group">
-      <label for="password">Password:</label>
-      <input type="password" formControlName="password" placeholder="password" name="password" class="form-control" id="password">
-    </div>
-
-    <div class="form-group">
-      <label for="firstName">First Name:</label>
+      <label for="firstName">Primeiro Name:</label>
       <input formControlName="firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">
     </div>
 
     <div class="form-group">
-      <label for="lastName">Last Name:</label>
+      <label for="lastName">Último Name:</label>
       <input formControlName="lastName" placeholder="Last name" name="lastName" class="form-control" id="lastName">
     </div>
 
-    <button class="btn btn-success">Update</button>
+    <div class="form-group">
+      <label for="username">Usuário:</label>
+      <input type="text" formControlName="username" placeholder="username" name="username" class="form-control" id="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+      <div *ngIf="submitted" class="invalid-feedback">
+        <div *ngIf="f.username.errors">Usuário tem erro</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Senha:</label>
+      <input type="password" formControlName="password" placeholder="password" name="password" class="form-control" id="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Senha tem erro</div>
+      </div>
+    </div>
+    <div class="form-group w3-right">
+      <a routerLink="/" class="btn btn-link">Entrar</a>
+      <button [disabled]="loading" type="submit" class="btn btn-success">Registrar</button>
+    </div>
   </form>
 </div>

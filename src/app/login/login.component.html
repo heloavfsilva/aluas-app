@@ -1,23 +1,25 @@
-<h2>Login</h2>
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <!-- <form id="loginForm" (ngSubmit)="onSubmit()"
-        #loginForm="ngForm"> -->
+<div class="col-sm-4 offset-sm-4">
+  <h2 class="text-center">Entrar</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <!-- <form id="loginForm" (ngSubmit)="onSubmit()"
+    #loginForm="ngForm"> -->
     <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
-        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-            <div *ngIf="f.username.errors.required">Username is required</div>
-        </div>
+      <label for="username">Usuário</label>
+      <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+      <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+        <div *ngIf="f.username.errors.required">Usuário é obrigatório</div>
+      </div>
     </div>
     <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
-        </div>
+      <label for="password">Senha</label>
+      <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Senha é obrigatório</div>
+      </div>
     </div>
-    <div class="form-group">
-        <button [disabled]="loading" class="btn btn-primary">Login</button>
-        <a routerLink="/register" class="btn btn-link">Register</a>
+    <div class="form-group w3-right">
+      <button class="btn btn-primary">Entrar</button>
+      <a routerLink="/register" class="btn btn-link">Registrar</a>
     </div>
-</form>
+  </form>
+</div>

@@ -1,28 +1,23 @@
-<!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
-    <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/">Home</a>
-        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+<!-- Navbar (sit on top) -->
+<div class="w3-top" *ngIf="currentUser">
+  <div class="w3-bar w3-black w3-padding w3-card" style="letter-spacing:4px;">
+    <a routerLink="/" class="w3-bar-item w3-button">ALUAS</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a routerLink="/" class="w3-bar-item w3-button">HOME</a>
+      <a routerLink="/list" class="w3-bar-item w3-button">PAINEL</a>
+      <a (click)="logout()" class="w3-bar-item w3-button">SAIR</a>
     </div>
-</nav>
+  </div>
+</div>
 
 <!-- main app container -->
 <div class="jumbotron">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 offset-sm-3">
-                <router-outlet></router-outlet>
-            </div>
-        </div>
-    </div>
+    <router-outlet></router-outlet>
 </div>
 
 <!-- credits -->
-<div class="text-center">
-    <p>
-        <a href="http://jasonwatmore.com/post/2018/10/29/angular-7-user-registration-and-login-example-tutorial" target="_top">Angular 7 - User Registration and Login Example & Tutorial</a>
-    </p>
-    <p>
-        <a href="http://jasonwatmore.com" target="_top">JasonWatmore.com</a>
-    </p>
-</div>
+<!-- Footer -->
+<footer class="w3-center  w3-light-grey w3-padding-32">
+  <p>Powered by <a href="aluas.com.br" title="ALUAS" target="_blank" class="w3-hover-text-green">ALUAS</a></p>
+</footer>

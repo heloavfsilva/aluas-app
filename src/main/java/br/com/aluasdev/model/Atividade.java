@@ -37,9 +37,6 @@ public class Atividade {
   @Column(name = "tvdd_score")
   private int score;
 
-  @Column(name = "ctrl_id")
-  private int ctrl;
-
   public Atividade (){}
 
   public Atividade(String titulo, String descricao) {
@@ -112,11 +109,4 @@ public class Atividade {
     this.score = score;
   }
 
-  public int getCtrl() {
-    return ctrl;
-  }
-
-  public void setCtrl(int ctrl) {
-    this.ctrl = ctrl;
-  }
 }

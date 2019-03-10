@@ -1,12 +1,8 @@
-<!--
-<mat-card *ngIf="givenName">
-  <mat-card-title>Welcome, {{givenName}}!</mat-card-title>
-  <button mat-raised-button (click)="logout()">Logout</button>
 
+<mat-card *ngIf="authService.currentUser">
+  <mat-card-title>Bem vindo!</mat-card-title>
 </mat-card>
 
-<mat-card *ngIf="!givenName">
-  <button mat-raised-button (click)="login()">Login</button>
-</mat-card> -->
-
-<a mat-button [routerLink]="['/login']">Login</a>
+<mat-card *ngIf="!authService.currentUser">
+  <button mat-raised-button [routerLink]="['/login']">Login</button>
+</mat-card>
