@@ -9,15 +9,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 // Modulos criados
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddComponent } from './atividade/add.component';
-import { ListComponent } from './atividade/list.component';
-import { EditComponent } from './atividade/edit.component';
+import { AddComponent } from './add/add.component';
+import { PainelComponent } from './painel/painel.component';
+import { EditComponent } from './edit/edit.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-// Renomear para nomes mais adequados
-import { UserListComponent } from './user-list/user-list.component';
-import { EditUserComponent } from './edit-user/edit-user.component';
+import { ProfileComponent } from './profile/profile.component';
 
 // Modulos para autenticação e login
 import { AuthService } from './shared/auth.service';
@@ -29,13 +27,13 @@ import { ErrorInterceptor } from './shared/error.interceptor';
   declarations: [
     AppComponent,
     AddComponent,
-    ListComponent,
+    PainelComponent,
     EditComponent,
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    UserListComponent,
-    EditUserComponent
+    ProfileComponent,
+    PainelComponent
   ],
   imports: [
     BrowserModule,

@@ -5,11 +5,10 @@ import { first } from "rxjs/operators";
 import { AuthService } from "../shared/auth.service";
 
 @Component({
-  selector: 'app-edit-user',
-  templateUrl: './edit-user.component.html',
-  styleUrls: ['./edit-user.component.css']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html'
 })
-export class EditUserComponent implements OnInit {
+export class ProfileComponent implements OnInit {
   //
   // user: User;
   // editForm: FormGroup;

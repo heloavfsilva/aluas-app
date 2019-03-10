@@ -6,19 +6,19 @@ import {
   OnInit
 } from '@angular/core';
 
-import { Atividade } from './atividade';
-import { AtividadeService } from './atividade.service';
+import { Atividade } from '../atividade/atividade';
+import { AtividadeService } from '../atividade/atividade.service';
 import { HttpClient } from '@angular/common/http';
 
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
+  selector: 'app-painel',
+  templateUrl: './painel.component.html',
   styleUrls: ['../app.component.css'],
   providers: [ AtividadeService ]
 })
 
-export class ListComponent implements OnInit {
+export class PainelComponent implements OnInit {
   atividade: Atividade;
   atividades: Atividade[];
   class1: Atividade[];

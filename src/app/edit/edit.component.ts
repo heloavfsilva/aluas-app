@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AtividadeService } from './atividade.service';
-import { Atividade } from './atividade';
+import { AtividadeService } from '../atividade/atividade.service';
+import { Atividade } from '../atividade/atividade';
 import { NgForm } from '@angular/forms';
 
 @Component({

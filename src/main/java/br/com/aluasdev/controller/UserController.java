@@ -29,7 +29,7 @@ public class UserController {
 
   @RequestMapping( method = RequestMethod.POST, value = "/auth")
   @CrossOrigin(origins = "http://localhost:4200")
-  public void validaUser(@RequestBody Map<String, String> params) {
+  public Acesso validaUser(@RequestBody Map<String, String> params) {
     System.out.println(params.get("username"));
     Acesso checkin = new Acesso();
 
@@ -44,10 +44,13 @@ public class UserController {
         checkin.setUsername(data.getUsername());
         checkin.setEntrada(LocalDateTime.now().toString());
         checkin.setToken("fake-jwt-token");
+        return checkin;
       } else {
+        return checkin;
       }
     }catch (Exception e){
       System.out.println("not found");
+      return checkin;
     }
 
   }

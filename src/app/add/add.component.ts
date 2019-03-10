@@ -4,8 +4,8 @@ import {
   Output,
   EventEmitter,
 } from '@angular/core';
-import { Atividade } from './atividade';
-import { AtividadeService } from './atividade.service';
+import { Atividade } from '../atividade/atividade';
+import { AtividadeService } from '../atividade/atividade.service';
 
 @Component({
   selector: 'app-add',
