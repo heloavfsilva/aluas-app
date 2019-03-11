@@ -14,7 +14,7 @@ import { User } from './user/user';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   currentUser: string;
 
   constructor(private http: HttpClient,
@@ -25,6 +25,13 @@ export class AppComponent {
 
 
     logout() {
+          this.currentUser = '';
           this.authService.logout();
       }
+
+  ngOnInit(){
+    this.currentUser = localStorage.getItem('currentUser');
+  }
+
+
 }
