@@ -15,13 +15,13 @@ import { User } from './user/user';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  currentUser: User;
+  currentUser: string;
 
   constructor(private http: HttpClient,
               private router: Router,
               private authService:AuthService) {
-        this.authService.currentUser.subscribe(x => this.currentUser = x);
-    };
+                this.currentUser = localStorage.getItem('currentUser');
+              };
 
 
     logout() {

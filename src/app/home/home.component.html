@@ -1,8 +1,8 @@
 
-<mat-card *ngIf="authService.currentUser">
+<mat-card *ngIf="currentUser">
   <mat-card-title>Bem vindo!</mat-card-title>
 </mat-card>
 
-<mat-card *ngIf="!authService.currentUser">
+<mat-card *ngIf="!currentUser">
   <button mat-raised-button [routerLink]="['/login']">Login</button>
 </mat-card>

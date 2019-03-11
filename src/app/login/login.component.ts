@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AuthService } from '../shared/auth.service';
@@ -19,12 +19,12 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute,
+    //private route: ActivatedRoute,
     private authService: AuthService,
     private alertService: AlertService
   ) {
     // redirect to home if already logged in
-    if (this.authService.currentUserValue) {
+    if (localStorage.getItem('currentUser')) {
       this.router.navigate(['/']);
     }
   }
@@ -51,13 +51,10 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.f.username.value, this.f.password.value)
            .pipe(first())
-           .subscribe( data => {
-                this.router.navigate(['/'])
-           });
-               //,
-               // error => {
-               //     this.alertService.error(error);
-               //     //this.loading = false;
-               // }
+           .subscribe( acesso => {
+                this.router.navigate(['/home']);
+           }, error => {
+                   console.log(error);
+               });
    }
 }

@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
          private alertService: AlertService
      ) {
          // redirect to home if already logged in
-         if (this.authService.currentUserValue) {
+         if (localStorage.getItem('currentUser')) {
              this.router.navigate(['/']);
          }
      }
@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
              password: ['', [Validators.required, Validators.minLength(6)]]
 
          });
-         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+         // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
      }
 
      // convenience getter for easy access to form fields

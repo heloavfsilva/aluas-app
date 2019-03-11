@@ -18,8 +18,8 @@ export class UserService {
         return this.http.get(this.baseUrl+'/${id}');
     }
 
-    getByUsername(username: string):any {
-        return this.http.get(this.baseUrl+'/${username}');
+    getByUsername(username: string): any {
+        return this.http.get(this.baseUrl+username);
     }
 
     register(user: any) {

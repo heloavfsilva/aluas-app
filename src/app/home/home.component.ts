@@ -9,22 +9,14 @@ import { User } from '../user/user';
   templateUrl: './home.component.html',
   styleUrls: ['../app.component.css'],
 })
-export class HomeComponent implements OnInit {
-  currentUser: User;
-  username: string;
+export class HomeComponent{
+  currentUser: string;
 
   constructor(private http: HttpClient,
               private router: Router,
               private authService:AuthService) {
-      this.authService.currentUser.subscribe(x => this.currentUser = x);
+      //this.authService.currentUser.subscribe(x => this.currentUser = x);
+      this.currentUser = localStorage.getItem('currentUser');
     };
-
-
-    ngOnInit(){
-      alert('home here!');
-      //console.log(this.authService.currentUser.getItem(currentUser["username"]));
-      //this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
-      //console.log(this.currentUser.username);
-    }
 
   }
