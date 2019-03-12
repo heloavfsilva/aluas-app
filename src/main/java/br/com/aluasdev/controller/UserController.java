@@ -1,6 +1,7 @@
 package br.com.aluasdev.controller;
 
 
+import br.com.aluasdev.dao.AcessoRepository;
 import br.com.aluasdev.dao.UserRepository;
 import br.com.aluasdev.model.User;
 import br.com.aluasdev.model.Acesso;
@@ -16,6 +17,7 @@ import java.util.Map;
 public class UserController {
   @Autowired
   private UserRepository userRepository;
+  private AcessoRepository acessoRepository;
 
   @GetMapping("/auth")
   @CrossOrigin(origins = "http://localhost:4200")
@@ -33,26 +35,23 @@ public class UserController {
     System.out.println(params.get("username"));
     Acesso checkin = new Acesso();
 
-    try {
       String username = params.get("username");
       String password = params.get("password");
       User data = userRepository.findByUsername(username);
       System.out.println("Validando");
-      //String validaPass = data.getPassword();
 
       if (data.getPassword().contentEquals(password)) {
+//        checkin.setId(data.getId());
         checkin.setUsername(data.getUsername());
+        checkin.setUsuario(data.getId());
         checkin.setEntrada(LocalDateTime.now().toString());
         checkin.setToken("fake-jwt-token");
-//        userRepository.save(checkin);
+        acessoRepository.save(checkin);
         return checkin;
       } else {
         return checkin;
       }
-    }catch (Exception e){
-      System.out.println("not found");
-      return checkin;
-    }
+
 
   }
 

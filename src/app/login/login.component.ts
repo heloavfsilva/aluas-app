@@ -13,13 +13,10 @@ import { AlertService } from '../shared/alert.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  // loading = false;
-  // submitted = false;
-  //returnUrl: string;
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    //private route: ActivatedRoute,
     private authService: AuthService,
     private alertService: AlertService
   ) {
@@ -35,8 +32,6 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
 
-    // get return url from route parameters or default to '/'
-  // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   // convenience getter for easy access to form fields
@@ -53,7 +48,6 @@ export class LoginComponent implements OnInit {
            .pipe(first())
            .subscribe( acesso => {
                 window.location.reload();
-                // this.router.navigate(['/']);
 
            }, error => {
                    console.log(error);

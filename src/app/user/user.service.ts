@@ -15,7 +15,7 @@ export class UserService {
     }
 
     getById(id: number) {
-        return this.http.get(this.baseUrl+'/${id}');
+        return this.http.get(this.baseUrl+ id);
     }
 
     getByUsername(username: string): any {
@@ -27,10 +27,10 @@ export class UserService {
     }
 
     update(user: User) {
-        return this.http.put(this.baseUrl + '/${user.id}', user);
+        return this.http.put(this.baseUrl, user);
     }
 
     delete(id: number) {
-        return this.http.delete(this.baseUrl+'/${id}');
+        return this.http.delete(this.baseUrl+ id);
     }
 }

@@ -12,7 +12,8 @@ Data		Responsável			Descrição
 
 CREATE TABLE acesso (
     acesso_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    usu_username INTEGER,
+	usu_id INTEGER,
+    usu_username VARCHAR(50),
     acesso_entrada DATETIME,
     acesso_saida DATETIME,
 	token VARCHAR(50)

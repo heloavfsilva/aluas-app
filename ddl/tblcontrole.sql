@@ -9,7 +9,7 @@ Data		Responsável			Descrição
 28/01/2019	Heloa Silva			Trigramação
 28/02/2019  Heloa Silva			Update the field stts_id to status, 
 								delete the table tblstatus
-								
+12/03/2019	Heloa Silva			Remove column ctrl_descricao								
 ----------------------------------------------'
 
 CREATE TABLE controle (
@@ -17,7 +17,6 @@ CREATE TABLE controle (
     tvdd_id INTEGER,
     usu_id INTEGER,
     status VARCHAR(30),
-    ctrl_descricao VARCHAR(150),
     ctrl_date DATETIME
 );
 

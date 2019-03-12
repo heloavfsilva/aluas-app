@@ -22,6 +22,7 @@ export class AuthService {
   login(username:string, password:string) {
     return this.http.post<{currentUser:  Acesso}>(this.baseUrl, {username, password}).pipe(map(res => {
       localStorage.setItem('currentUser', res['username']);
+      localStorage.setItem('usuario', res['usuario']);
       console.log(localStorage.getItem('currentUser'));
       }));
   }

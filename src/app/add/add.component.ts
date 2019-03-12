@@ -39,26 +39,27 @@ export class AddComponent implements OnInit {
     }
   }
   add(formInfo: any): void {
-      const newAtividade: Atividade = {
-         id: '',
-         titulo: formInfo.titulo,
-         descricao: formInfo.descricao,
-         gravidade: formInfo.gravidade,
-         urgencia: formInfo.urgencia,
-         tendencia: formInfo.tendencia,
-         score: formInfo.score,
-         classificacao: this.classificacao
-       }
-      this.atividadeService.save(newAtividade)
-        .subscribe();
-         alert("Atividade criada com sucesso!");
+    const newAtividade: Atividade = {
+      id: '',
+      titulo: formInfo.titulo,
+      descricao: formInfo.descricao,
+      gravidade: formInfo.gravidade,
+      urgencia: formInfo.urgencia,
+      tendencia: formInfo.tendencia,
+      score: formInfo.score,
+      classificacao: this.classificacao,
+      usuario: localStorage.getItem('usuario')
+    }
+    this.atividadeService.save(newAtividade)
+    .subscribe();
+      alert("Atividade criada com sucesso!");
     }
 
-  constructor(private atividadeService: AtividadeService) { }
+    constructor(private atividadeService: AtividadeService) { }
 
-  ngOnInit() {
+    ngOnInit() {
+
+    }
+
 
   }
-
-
-}

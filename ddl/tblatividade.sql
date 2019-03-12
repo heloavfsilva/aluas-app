@@ -7,7 +7,8 @@ Atualização:
 Data		Responsável			Descrição	
 31/12/2018	Heloa Silva			Primeira versão
 28/01/2019	Heloa Silva			Trigramação
-07/03/2019	Heloa Silva			Drop column ctrl_id from atividade
+07/03/2019	Heloa Silva			Drop column ctrl_id from controle
+12/03/2019	Heloa Silva			Add column usu_id from usuário
 ----------------------------------------------'
 
 CREATE TABLE atividade (
@@ -18,7 +19,8 @@ CREATE TABLE atividade (
     rgnc_id INTEGER,
     tdnc_id INTEGER,
     cfcs_id INTEGER,
-    tvdd_score INTEGER
+    tvdd_score INTEGER,
+	usu_id INTEGER
 );
 
 ALTER TABLE atividade ADD FOREIGN KEY (gvdd_id) REFERENCES gravidade (gvdd_id);

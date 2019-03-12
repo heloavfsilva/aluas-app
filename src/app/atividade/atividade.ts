@@ -7,5 +7,6 @@ export class Atividade {
   public tendencia: number;
   public score: number;
   public classificacao: number;
+  public usuario?: string;
 
 }

@@ -15,6 +15,9 @@ public class Acesso {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
+  @Column(name = "usu_id")
+  private int usuario;
+
   @Column(name = "usu_username")
   private String username;
 
@@ -66,4 +69,13 @@ public class Acesso {
   public void setToken(String token) {
     this.token = token;
   }
+
+  public int getUsuario() {
+    return usuario;
+  }
+
+  public void setUsuario(int usuario) {
+    this.usuario = usuario;
+  }
+
 }

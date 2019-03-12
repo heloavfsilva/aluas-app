@@ -1,5 +1,7 @@
 package br.com.aluasdev.model;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -36,6 +38,9 @@ public class Atividade {
 
   @Column(name = "tvdd_score")
   private int score;
+
+  @Column(name = "usu_id")
+  private int usuario;
 
   public Atividade (){}
 
@@ -108,5 +113,15 @@ public class Atividade {
   public void setScore(int score) {
     this.score = score;
   }
+
+
+  public int getUsuario() {
+    return usuario;
+  }
+
+  public void setUsuario(int usuario) {
+    this.usuario = usuario;
+  }
+
 
 }
