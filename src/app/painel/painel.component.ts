@@ -31,7 +31,8 @@ export class PainelComponent implements OnInit {
   getAtividade(): void {
     // this.atividadeService.getAtividade().subscribe(
     //  data => {this.atividades = data});
-    this.atividadeService.getAtividade().subscribe(
+    var user = localStorage.getItem('usuario');
+    this.atividadeService.getAtividade(user).subscribe(
       (atividades: Atividade[]) => {
         this.atividades = atividades;
         var class1 =  atividades.filter(function(atividade) {

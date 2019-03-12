@@ -17,11 +17,12 @@ import java.util.Map;
 public class UserController {
   @Autowired
   private UserRepository userRepository;
+  @Autowired
   private AcessoRepository acessoRepository;
 
   @GetMapping("/auth")
   @CrossOrigin(origins = "http://localhost:4200")
-  public List<User> listAll (){
+  public List<User> listAll() {
     List<User> list = new ArrayList<>();
     Iterable<User> atividades = userRepository.findAll();
 
@@ -29,19 +30,19 @@ public class UserController {
     return list;
   }
 
-  @RequestMapping( method = RequestMethod.POST, value = "/auth")
+  @RequestMapping(method = RequestMethod.POST, value = "/auth")
   @CrossOrigin(origins = "http://localhost:4200")
   public Acesso validaUser(@RequestBody Map<String, String> params) {
     System.out.println(params.get("username"));
     Acesso checkin = new Acesso();
 
-      String username = params.get("username");
-      String password = params.get("password");
-      User data = userRepository.findByUsername(username);
-      System.out.println("Validando");
+    String username = params.get("username");
+    String password = params.get("password");
+    User data = userRepository.findByUsername(username);
+    System.out.println("Validando");
 
+    try {
       if (data.getPassword().contentEquals(password)) {
-//        checkin.setId(data.getId());
         checkin.setUsername(data.getUsername());
         checkin.setUsuario(data.getId());
         checkin.setEntrada(LocalDateTime.now().toString());
@@ -51,8 +52,10 @@ public class UserController {
       } else {
         return checkin;
       }
-
-
+    } catch (Exception e) {
+      System.out.println(e);
+    }
+    return checkin;
   }
 
   @RequestMapping(method = RequestMethod.POST, value = "/auth/register")
@@ -65,7 +68,7 @@ public class UserController {
 
   @PutMapping("/auth/{id}")
   @CrossOrigin(origins = "http://localhost:4200")
-  public void updateUser(@PathVariable("id") int id, @RequestBody User atividade){
+  public void updateUser(@PathVariable("id") int id, @RequestBody User atividade) {
     //Optional<Atividade> data = atividadeRepository.findById(id);
     List<User> data = userRepository.findById(id);
     User usernew = data.get(0);
@@ -83,9 +86,9 @@ public class UserController {
 
   @DeleteMapping("/auth/{id}")
   @CrossOrigin(origins = "http://localhost:4200")
-  public void deleteUser(@PathVariable int id){
-      userRepository.deleteById(id);
-      System.out.println("Deletado");
+  public void deleteUser(@PathVariable int id) {
+    userRepository.deleteById(id);
+    System.out.println("Deletado");
   }
 
   @GetMapping("/auth/{username}")

@@ -14,13 +14,14 @@ import java.util.List;
 public class AtividadeController {
   @Autowired
   private AtividadeRepository atividadeRepository;
+  @Autowired
   private ControleController controleController = new ControleController();
 
   @GetMapping("/rest")
   @CrossOrigin(origins = "http://localhost:4200")
-  public List<Atividade> listAll(int usuario) {
+  public List<Atividade> listAll(@RequestBody int usuario) {
     List<Atividade> list = new ArrayList<>();
-    Iterable<Atividade> atividades = atividadeRepository.findAll();
+    Iterable<Atividade> atividades = atividadeRepository.findByUsuario(usuario);
 
     atividades.forEach(list::add);
     return list;
