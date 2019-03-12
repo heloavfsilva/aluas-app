@@ -51,7 +51,7 @@ export class EditComponent implements OnInit {
       const id = params['id'];
       if (id) {
         this.atividadeService.getId(id).subscribe(atividade => {
-            this.atividade = atividade[0];
+          this.atividade = atividade;
         });
       }
     });

@@ -9,14 +9,14 @@ Data		Responsável			Descrição
 28/01/2019	Heloa Silva			Trigramação
 28/02/2019  Heloa Silva			Update the field stts_id to status, 
 								delete the table tblstatus
-12/03/2019	Heloa Silva			Remove column ctrl_descricao								
+12/03/2019	Heloa Silva			Remove column ctrl_descricao	
+12/03/2019	Heloa Silva			Remove tabela controle				
 ----------------------------------------------'
 
 CREATE TABLE controle (
     ctrl_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     tvdd_id INTEGER,
     usu_id INTEGER,
-    status VARCHAR(30),
     ctrl_date DATETIME
 );
 

@@ -20,7 +20,8 @@ CREATE TABLE atividade (
     tdnc_id INTEGER,
     cfcs_id INTEGER,
     tvdd_score INTEGER,
-	usu_id INTEGER
+	usu_id INTEGER,
+	status VARCHAR(30)
 );
 
 ALTER TABLE atividade ADD FOREIGN KEY (gvdd_id) REFERENCES gravidade (gvdd_id);

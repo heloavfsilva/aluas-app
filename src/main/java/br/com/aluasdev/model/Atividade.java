@@ -42,6 +42,9 @@ public class Atividade {
   @Column(name = "usu_id")
   private int usuario;
 
+  @Column(name = "status")
+  private String status;
+
   public Atividade (){}
 
   public Atividade(String titulo, String descricao) {
@@ -124,4 +127,11 @@ public class Atividade {
   }
 
 
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
 }

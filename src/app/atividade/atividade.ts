@@ -8,5 +8,6 @@ export class Atividade {
   public score: number;
   public classificacao: number;
   public usuario?: string;
+  public status?: string;
 
 }

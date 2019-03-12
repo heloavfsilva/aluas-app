@@ -4,6 +4,7 @@ package br.com.aluasdev.controller;
 import br.com.aluasdev.dao.ControleRepository;
 import br.com.aluasdev.dao.UserRepository;
 import br.com.aluasdev.model.Acesso;
+import br.com.aluasdev.model.Atividade;
 import br.com.aluasdev.model.Controle;
 import br.com.aluasdev.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,39 +20,58 @@ import java.util.Map;
 public class ControleController {
   @Autowired
   private ControleRepository controleRepository;
-
+  @Autowired
+  private AtividadeController atividadeController;
 
   public void mapUserAtividade(int atividade, int usuario) {
     Controle ctrl = new Controle();
 
-      ctrl.setAtividade(atividade);
-      ctrl.setUsuario(usuario);
-      ctrl.setStatus("Criado");
-      ctrl.setData(LocalDateTime.now().toString());
+    ctrl.setAtividade(atividade);
+    ctrl.setUsuario(usuario);
+    ctrl.setStatus("New");
+    ctrl.setData(LocalDateTime.now().toString());
 
-      controleRepository.save(ctrl);
-      System.out.println("Saved");
+    controleRepository.save(ctrl);
+    System.out.println("New");
 
   }
 
 
   public void updateControle(int id, int usuario) {
-    Controle data = controleRepository.findByAtividade(id);
-    data.setStatus("Editado");
-    data.setData(LocalDateTime.now().toString());
+    Atividade data = atividadeController.findById(id);
+    Controle ctrl = new Controle();
+    ctrl.setAtividade(data.getId());
+    ctrl.setUsuario(data.getUsuario());
+    ctrl.setStatus("Updated");
+    ctrl.setData(LocalDateTime.now().toString());
 
-    controleRepository.save(data);
-    System.out.println("Editado");
+    controleRepository.save(ctrl);
+    System.out.println("Ongoing");
+  }
+
+  public void completeControle(int id) {
+    Atividade data = atividadeController.findById(id);
+    Controle ctrl = new Controle();
+    ctrl.setAtividade(data.getId());
+    ctrl.setUsuario(data.getUsuario());
+    ctrl.setStatus("Completed");
+    ctrl.setData(LocalDateTime.now().toString());
+
+    controleRepository.save(ctrl);
+    System.out.println("Completed");
   }
 
 
   public void deleteControle(int id) {
-    Controle data = controleRepository.findByAtividade(id);
-    data.setStatus("Deletado");
-    data.setData(LocalDateTime.now().toString());
+    Atividade data = atividadeController.findById(id);
+    Controle ctrl = new Controle();
+    ctrl.setAtividade(data.getId());
+    ctrl.setUsuario(data.getUsuario());
+    ctrl.setStatus("Deleted");
+    ctrl.setData(LocalDateTime.now().toString());
 
-    controleRepository.save(data);
-    System.out.println("Deletado");
+    controleRepository.save(ctrl);
+    System.out.println("Deleted");
   }
 
 

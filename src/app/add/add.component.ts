@@ -48,7 +48,8 @@ export class AddComponent implements OnInit {
       tendencia: formInfo.tendencia,
       score: formInfo.score,
       classificacao: this.classificacao,
-      usuario: localStorage.getItem('usuario')
+      usuario: localStorage.getItem('usuario'),
+      status: 'New'
     }
     this.atividadeService.save(newAtividade)
     .subscribe();

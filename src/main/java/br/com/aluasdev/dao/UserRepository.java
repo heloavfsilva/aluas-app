@@ -12,7 +12,7 @@ import java.util.List;
 @Transactional
 @CrossOrigin(origins = "http://localhost:4200")
 public interface UserRepository extends CrudRepository<User, Long> {
-  List<User> findById(int id);
+  User findById(int id);
 
   User findByUsername(String username);
 

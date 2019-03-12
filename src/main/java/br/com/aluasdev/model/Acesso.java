@@ -27,7 +27,7 @@ public class Acesso {
   @Column(name = "acesso_saida")
   private String saida;
 
-  @Column(name = "acesso_token")
+  @Column(name = "token")
   private String token;
 
   public int getId() {

@@ -18,7 +18,7 @@ public class UserController {
   @Autowired
   private UserRepository userRepository;
   @Autowired
-  private AcessoRepository acessoRepository;
+  private AcessoController acessoController = new AcessoController();
 
   @GetMapping("/auth")
   @CrossOrigin(origins = "http://localhost:4200")
@@ -30,11 +30,19 @@ public class UserController {
     return list;
   }
 
+  @GetMapping("/auth/{username}")
+  @CrossOrigin(origins = "http://localhost:4200")
+  public User findUser(@PathVariable String username) {
+    User user = userRepository.findByUsername(username);
+    return user;
+  }
+
+
   @RequestMapping(method = RequestMethod.POST, value = "/auth")
   @CrossOrigin(origins = "http://localhost:4200")
   public Acesso validaUser(@RequestBody Map<String, String> params) {
     System.out.println(params.get("username"));
-    Acesso checkin = new Acesso();
+    Acesso check = new Acesso();
 
     String username = params.get("username");
     String password = params.get("password");
@@ -43,19 +51,20 @@ public class UserController {
 
     try {
       if (data.getPassword().contentEquals(password)) {
-        checkin.setUsername(data.getUsername());
-        checkin.setUsuario(data.getId());
-        checkin.setEntrada(LocalDateTime.now().toString());
-        checkin.setToken("fake-jwt-token");
-        //acessoRepository.save(checkin);
-        return checkin;
+        check.setUsername(data.getUsername());
+        check.setUsuario(data.getId());
+        check.setEntrada(LocalDateTime.now().toString());
+        check.setToken("fake-jwt-token");
+        acessoController.saveAcesso(check);
+        return check;
       } else {
-        return checkin;
+        return check;
       }
     } catch (Exception e) {
       System.out.println(e);
     }
-    return checkin;
+
+    return check;
   }
 
   @RequestMapping(method = RequestMethod.POST, value = "/auth/register")
@@ -69,9 +78,7 @@ public class UserController {
   @PutMapping("/auth/{id}")
   @CrossOrigin(origins = "http://localhost:4200")
   public void updateUser(@PathVariable("id") int id, @RequestBody User atividade) {
-    //Optional<Atividade> data = atividadeRepository.findById(id);
-    List<User> data = userRepository.findById(id);
-    User usernew = data.get(0);
+    User usernew = userRepository.findById(id);
     usernew.setEmail(atividade.getEmail());
     usernew.setPrimeiroNome(atividade.getPrimeiroNome());
     usernew.setSobrenome(atividade.getSobrenome());
@@ -81,22 +88,6 @@ public class UserController {
     usernew.setFoto(atividade.getFoto());
     System.out.println("Atualizado");
     userRepository.save(usernew);
-  }
-
-
-  @DeleteMapping("/auth/{id}")
-  @CrossOrigin(origins = "http://localhost:4200")
-  public void deleteUser(@PathVariable int id) {
-    userRepository.deleteById(id);
-    System.out.println("Deletado");
-  }
-
-  @GetMapping("/auth/{username}")
-  @CrossOrigin(origins = "http://localhost:4200")
-  public User findUser(@PathVariable String username) {
-
-    User user = userRepository.findByUsername(username);
-    return user;
   }
 
 }
