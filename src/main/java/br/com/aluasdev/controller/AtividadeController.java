@@ -17,9 +17,9 @@ public class AtividadeController {
   @Autowired
   private ControleController controleController = new ControleController();
 
-  @GetMapping("/rest")
+  @GetMapping("/rest/{usuario}")
   @CrossOrigin(origins = "http://localhost:4200")
-  public List<Atividade> listAll(@RequestBody int usuario) {
+  public List<Atividade> listAll(@PathVariable("usuario") int usuario) {
     List<Atividade> list = new ArrayList<>();
     Iterable<Atividade> atividades = atividadeRepository.findByUsuario(usuario);
 

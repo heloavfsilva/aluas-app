@@ -19,8 +19,8 @@ export class AtividadeService {
   constructor(private http: HttpClient){}
 
 
-  getAtividade (usuario: number): Observable<any> {
-    return this.http.get(this.atividadeUrl+usuario, httpOptions);
+  getAtividade (usuario: string): Observable<any> {
+    return this.http.get(this.atividadeUrl +'/'+ usuario, httpOptions);
   }
 
   /* GET atividade whose name contains search term */

@@ -47,7 +47,7 @@ public class UserController {
         checkin.setUsuario(data.getId());
         checkin.setEntrada(LocalDateTime.now().toString());
         checkin.setToken("fake-jwt-token");
-        acessoRepository.save(checkin);
+        //acessoRepository.save(checkin);
         return checkin;
       } else {
         return checkin;
