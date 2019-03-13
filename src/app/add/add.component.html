@@ -2,70 +2,62 @@
 <div id="divForm">
 
   <div class="col-sm-4 offset-sm-4" id="formLogin">
+    <a class="pull-right" [routerLink]="['/list']"><i class="fa fa-times"></i></a>
     <h2> Atividade</h2>
 
-    <form id="atividadeForm" novalidate
-    (ngSubmit)="add(atividadeForm.value)"
-    #atividadeForm="ngForm">
+    <form id="atividadeForm" name="atividadeForm" novalidate
+    #atividadeForm="ngForm"
+    (ngSubmit)="add(atividadeForm.value); atividadeForm.reset()">
 
     <div class="form-group">
-      <label class="col-md-2 col-form-label text-md-right" for="titulo">Título</label>
-      <div class="col-md-10">
+      <label for="titulo">Título</label>
+      <div class="form-group">
         <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Título da Atividade" [(ngModel)]="titulo">
       </div><!-- col-md-10 -->
     </div><!-- form-group -->
 
     <div class="form-group">
-      <label class="col-md-2 col-form-label text-md-right"
-      for="descricao">Descrição</label>
-      <div class="col-md-10">
+      <label for="descricao">Descrição</label>
+      <div class="form-group">
         <input type="text" class="form-control" name="descricao"
         id="descricao" placeholder="Descrição" [(ngModel)]="descricao">
       </div><!-- col-md-10 -->
     </div><!-- form-group -->
 
     <div class="form-group">
-        <label class="col-md-2 col-form-label text-md-right" name="gravidade">Gravidade: {{gravidade}}</label>
-        <div class="col-md-4">
-          <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="gravidade" name="gravidade" (input)="handleScore()">
-        </div><!-- col-md-10 -->
-      </div><!-- form-group -->
+      <label class="slider-label" name="gravidade">Gravidade: {{gravidade}}.{{gravidadeLabel}}</label>
+      <div class="form-group slider">
+        <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="gravidade" name="gravidade" (input)="handleScore(); HandleGravidadeLabel()">
+      </div><!-- col-md-10 -->
+    </div><!-- form-group -->
 
-      <div class="form-group">
-        <label class="col-md-2 col-form-label text-md-right" name="gravidade">Urgencia: {{urgencia}}</label>
-        <div class="col-md-4">
-          <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="urgencia" name="urgencia" (input)="handleScore()">
-        </div><!-- col-md-10 -->
-      </div><!-- form-group -->
+    <div class="form-group">
+      <label class="slider-label" name="gravidade">Urgencia: {{urgencia}}.{{urgenciaLabel}}</label>
+      <div class="form-group slider">
+        <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="urgencia" name="urgencia" (input)="handleScore(); HandleUrgenciaLabel()">
+      </div><!-- col-md-10 -->
+    </div><!-- form-group -->
 
-      <div class="form-group">
-        <label class="col-md-2 col-form-label text-md-right" name="tendencia">Tendencia: {{tendencia}}</label>
-        <div class="col-md-4">
-          <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="tendencia" name="tendencia" (input)="handleScore()">
-        </div><!-- col-md-10 -->
-      </div><!-- form-group -->
+    <div class="form-group">
+      <label class="slider-label" name="tendencia">Tendencia: {{tendencia}}.{{tendenciaLabel}}</label>
+      <div class="form-group slider">
+        <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="tendencia" name="tendencia" (input)="handleScore(); HandleTendenciaLabel()">
+      </div><!-- col-md-10 -->
+    </div><!-- form-group -->
 
-<div class="form-group">
-  <div class="form-group">
-    <label class="col-md-2 text-md-right">Score: {{score}}</label>
-  </div>
-  <div div class="form-group">
-    <p>Esse atividade tem a classificação: {{classificacao}}</p>
-  </div>
-</div>
-<br>
-<br>
+    <div class="form-group">
+      <label>Score: {{score}} <br> {{classificacaoLabel}}</label>
+    </div>
 
-
-<div class="form-group">
-  <button mat-fab color="secondary" type="reset">Reset</button>
-  <button mat-fab color="primary" name="handleScore" (click)="handleScore(gravidade, urgencia, tendencia)">Score</button>
-  <button mat-fab color="primary" [routerLink]="['/add']">Add</button>
-  <!-- <button type="submit" class="btn btn-success d-block ml-auto" [disabled]="!atividadeForm.form.valid">Adicionar</button> -->
-  <button mat-fab color="secondary" [routerLink]="['/list']">Cancel</button>
-</div>
+    <div>
+      <a class="pull-left" [routerLink]="['/list']"><small>Cancel</small></a>
+    </div>
+    <div class="form-group w3-right">
+      <input type="submit" class="register pull-right" value="Adicionar">
+      <!-- <button  class="btn btn-success d-block ml-auto" [disabled]="!atividadeForm.form.valid">Adicionar</button> -->
+    </div>
 
 
-</form>
+  </form>
 
 </div><!-- card-primary -->

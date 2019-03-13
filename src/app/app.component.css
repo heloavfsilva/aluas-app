@@ -75,7 +75,7 @@ div#divForm{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  font-family:'HelveticaNeue','Arial', sans-serif;
+  font-family:'Raleway','Arial', sans-serif;
 }
 
 #divForm{
@@ -123,7 +123,7 @@ input.form-control{
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   background-color: #fff;
-  font-family:'HelveticaNeue','Arial', sans-serif;
+  font-family:'Raleway','Arial', sans-serif;
   font-size: 105%;
   letter-spacing: .8px;
 }
@@ -189,17 +189,18 @@ div.logo img{
 
   /* End of styling Register page */
 
-/*  */
+/* Styling the Add page */
 .slider {
   -webkit-appearance: none;
-  width: 100%;
+  width: 95%;
   height: 15px;
   border-radius: 5px;
   background: #d3d3d3;
   outline: none;
   opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  /* -webkit-transition: .2s;
+  transition: opacity .2s; */
+  animate: 0.2s;
 }
 
 .slider::-webkit-slider-thumb {
@@ -220,16 +221,7 @@ div.logo img{
   cursor: pointer;
 }
 
-.gravidade {
-  border-bottom: 4px dashed #bdc3c7;
-  text-align: center;
-  font-weight: bold;
-  font-size: 10em;
-  width: 300px;
-  height: 100px;
-  line-height: 60px;
-  margin: 40px auto;
-  letter-spacing: -.07em;
-  text-shadow: white 2px 2px 2px;
-}
-/*  */
+ .slider-label{
+
+ }
+/* End of styling Add page  */
