@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import { Atividade } from '../atividade/atividade';
 import { AtividadeService } from '../atividade/atividade.service';
+import { coerceNumberProperty } from '@angular/cdk/coercion';
 
 @Component({
   selector: 'app-add',
@@ -14,19 +15,19 @@ import { AtividadeService } from '../atividade/atividade.service';
   providers: [ AtividadeService ]
 })
 
-export class AddComponent implements OnInit {
+export class AddComponent{
   atividade: Atividade;
-  gravidade : number;
-  urgencia : number;
-  tendencia : number;
+  gravidade  = 1;
+  urgencia = 1;
+  tendencia = 1;
   score : number;
   classificacao : number;
 
+  valueChanged(e) {
+    console.log('e', e);
+  }
 
-  handleScore(gravidade: number, urgencia:number, tendencia:number){
-    this.gravidade = gravidade;
-    this.urgencia = urgencia;
-    this.tendencia = tendencia;
+  handleScore(){
     this.score = this.gravidade*this.urgencia*this.tendencia;
     if (this.score >= 48 && this.score <=128){
       this.classificacao = 1;
@@ -53,14 +54,11 @@ export class AddComponent implements OnInit {
     }
     this.atividadeService.save(newAtividade)
     .subscribe();
-      alert("Atividade criada com sucesso!");
-    }
-
-    constructor(private atividadeService: AtividadeService) { }
-
-    ngOnInit() {
-
-    }
-
-
+    alert("Atividade criada com sucesso!");
   }
+
+  constructor(private atividadeService: AtividadeService) { }
+
+
+
+}
