@@ -1,25 +1,34 @@
-<div class="col-sm-4 offset-sm-4">
-  <h2 class="text-center">Entrar</h2>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <!-- <form id="loginForm" (ngSubmit)="onSubmit()"
-    #loginForm="ngForm"> -->
-    <div class="form-group">
-      <label for="username">Usuário</label>
-      <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
-      <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-        <div *ngIf="f.username.errors.required">Usuário é obrigatório</div>
+<div id="divForm">
+
+  <div class="col-sm-4 offset-sm-4" id="formLogin">
+    <div class="logo">
+      <img src="assets/logo.png">
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!-- <form id="loginForm" (ngSubmit)="onSubmit()"
+      #loginForm="ngForm"> -->
+      <div class="form-group">
+        <label for="username">Usuário</label>
+        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+          <div *ngIf="f.username.errors.required">Usuário é obrigatório</div>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="password">Senha</label>
-      <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
-      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-        <div *ngIf="f.password.errors.required">Senha é obrigatório</div>
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Senha é obrigatório</div>
+        </div>
       </div>
-    </div>
-    <div class="form-group w3-right">
-      <button class="btn btn-primary">Entrar</button>
-      <a routerLink="/register" class="btn btn-link">Registrar</a>
-    </div>
-  </form>
+      <div class="form-group w3-right">
+        <input type="submit" class="login pull-right" value="Entrar">
+      </div>
+      <div>
+        <p><a routerLink="/register"><small>Registrar</small></a></p>
+        <p><a href="#" ><small>Esqueceu a senha ?</small></a></p>
+      </div>
+
+    </form>
+  </div>
 </div>

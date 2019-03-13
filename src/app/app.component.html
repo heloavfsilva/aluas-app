@@ -1,12 +1,13 @@
 <!-- Navbar (sit on top) -->
 <div class="w3-top" *ngIf="currentUser">
-  <div class="w3-bar w3-black w3-padding w3-card" style="letter-spacing:4px;">
-    <a routerLink="/" class="w3-bar-item w3-button">ALUAS</a>
+  <div class="w3-bar w3-light-grey w3-padding w3-card" style="letter-spacing:4px;">
+    <a routerLink="/" class="w3-bar-item"><img src="assets/favicon.png" class="icon"> ALUAS</a>
     <!-- Right-sided navbar links. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
-      <a routerLink="/" class="w3-bar-item w3-button">HOME</a>
-      <a routerLink="/list" class="w3-bar-item w3-button">PAINEL</a>
-      <a (click)="logout()" class="w3-bar-item w3-button">SAIR</a>
+      <a routerLink="/add" class="w3-bar-item"><i class="fa fa-plus" aria-hidden="true"></i> ADICIONAR</a>
+      <a routerLink="/" class="w3-bar-item"><i class="fa fa-home" aria-hidden="true"></i> HOME</a>
+      <a routerLink="/list" class="w3-bar-item"><i class="fa fa-dashboard" aria-hidden="true"></i> PAINEL</a>
+      <a routerLink="/" (click)="logout()" class="w3-bar-item"><i class="fa fa-sign-out" aria-hidden="true"></i> SAIR</a>
     </div>
   </div>
 </div>

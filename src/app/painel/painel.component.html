@@ -1,9 +1,14 @@
 <!-- Header title and search box -->
 <h3><b><i class="fa fa-dashboard"></i> My Dashboard</b></h3>
-
+  <!-- End of Header -->
 <!-- Columns with the card listed with priority-->
 <div class="row">
-  <div class="col-sm-4">
+  <div class="w3-third panel">
+    <div class="w3-container" style="background:#e57373;">
+      <div class="w3-left"><i class="fa fa-exclamation-triangle w3-xxxlarge"></i></div>
+      <div class="w3-clear"></div>
+      <h4>Get it done</h4>
+    </div>
     <div class="card text-white bg-danger mb-3" style="max-width: 100%;" *ngFor="let atividade of class3">
       <div class="card-header">
         <div class="w3-left"><i class="fa fa-exclamation-triangle"></i></div>
@@ -14,7 +19,12 @@
         <div class="card-footer text-right"><a href="/edit"  [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit"></i></a></div>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="w3-third panel">
+      <div class="w3-container" style="background:#fff176;">
+        <div class="w3-left"><i class="fa fa-send w3-xxxlarge"></i></div>
+        <div class="w3-clear"></div>
+        <h4>Delegate</h4>
+      </div>
       <div class="card text-white bg-primary mb-3" style="max-width: 100%;" *ngFor="let atividade of class2">
         <div class="card-header">
           <div class="w3-left"><i class="fa fa-send"></i></div>
@@ -25,7 +35,12 @@
           <div class="card-footer text-right"><a href="/edit"  [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit"></i></a></div>
         </div>
       </div>
-      <div class="col-sm-4">
+      <div class="w3-third panel">
+        <div class="w3-container" style="background:#ba68c8;">
+          <div class="w3-left"><i class="fa fa-clock-o  w3-xxxlarge"></i></div>
+          <div class="w3-clear"></div>
+          <h4>When possible</h4>
+        </div>
         <div class="card text-white bg-success mb-3" style="max-width: 100%;" *ngFor="let atividade of class1">
           <div class="card-header">
             <div class="w3-left"><i class="fa fa-clock-o"></i></div>

@@ -1,4 +1,5 @@
-<div class="col-sm-4 offset-sm-4">
+<div id="divForm">
+<div class="col-sm-4 offset-sm-4" id="formLogin">
   <h2 class="text-center">Comece a planejar!</h2>
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
 
@@ -27,9 +28,12 @@
         <div *ngIf="f.password.errors.required">Senha tem erro</div>
       </div>
     </div>
+    <div>
+      <a routerLink="/" class="pull-left"><small>Já é cadastrado? Entrar! </small></a>
+    </div>
     <div class="form-group w3-right">
-      <a routerLink="/" class="btn btn-link">Entrar</a>
-      <button [disabled]="loading" type="submit" class="btn btn-success">Registrar</button>
+      <input type="submit" class="login pull-right" value="Registrar">
     </div>
   </form>
+</div>
 </div>

@@ -1,90 +1,84 @@
-<div class="card textcenter mt-3" [ngClass]="{'add-appointment': showForm}">
-  <div class="heading card-header bg-primary text-white">
-    <fa-icon icon="plus"></fa-icon>
-    Atividade
-  </div><!-- card-header -->
+<!-- <div class="card textcenter mt-3" [ngClass]="{'add-appointment': showForm}"> -->
+<div id="divForm">
+
+  <div class="col-sm-4 offset-sm-4" id="formLogin">
+    <h2> Atividade</h2>
 
     <form id="atividadeForm" novalidate
-          (ngSubmit)="add(atividadeForm.value)"
-          #atividadeForm="ngForm">
+    (ngSubmit)="add(atividadeForm.value)"
+    #atividadeForm="ngForm">
 
-      <div class="form-group form-row">
-        <label class="col-md-2 col-form-label text-md-right" for="titulo">Título</label>
-        <div class="col-md-10">
-          <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Título da Atividade" [(ngModel)]="titulo">
-        </div><!-- col-md-10 -->
-      </div><!-- form-group -->
+    <div class="form-group">
+      <label class="col-md-2 col-form-label text-md-right" for="titulo">Título</label>
+      <div class="col-md-10">
+        <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Título da Atividade" [(ngModel)]="titulo">
+      </div><!-- col-md-10 -->
+    </div><!-- form-group -->
 
-      <div class="form-group form-row">
-        <label class="col-md-2 col-form-label text-md-right"
-               for="descricao">Descrição</label>
-        <div class="col-md-10">
-          <input type="text" class="form-control" name="descricao"
-                 id="descricao" placeholder="Descrição" [(ngModel)]="descricao">
-        </div><!-- col-md-10 -->
-      </div><!-- form-group -->
+    <div class="form-group">
+      <label class="col-md-2 col-form-label text-md-right"
+      for="descricao">Descrição</label>
+      <div class="col-md-10">
+        <input type="text" class="form-control" name="descricao"
+        id="descricao" placeholder="Descrição" [(ngModel)]="descricao">
+      </div><!-- col-md-10 -->
+    </div><!-- form-group -->
 
 
-      <div class="form-group form-row">
-        <label class="col-md-2 col-form-label text-md-right">Gravidade</label>
-        <div class="col-md-4">
-          <div class="input-group">
-            <input type="number" id="gravidade" name="gravidade" class="form-control" placeholder="Digite uma nota de 1 a 5" min="1" max="5" [(ngModel)]="gravidade">
-          </div>
-        </div><!-- col-md-10 -->
-      </div><!-- form-group -->
+    <div class="form-group">
+      <label class="col-md-2 col-form-label text-md-right">Gravidade</label>
+      <div class="col-md-4">
+        <div class="input-group">
+          <input type="number" id="gravidade" name="gravidade" class="form-control" placeholder="Digite uma nota de 1 a 5" min="1" max="5" [(ngModel)]="gravidade">
+        </div>
+      </div><!-- col-md-10 -->
+    </div><!-- form-group -->
 
-      <div class="form-group form-row">
-        <label class="col-md-2 text-md-right">Urgencia</label>
-        <div class="col-md-4">
-          <div class="input-group">
-            <input type="number" id="urgencia" name="urgencia" class="form-control" min="1" max="5"  placeholder="Digite uma nota de 1 a 5" [(ngModel)]="urgencia">
-          </div>
-        </div><!-- col-md-10 -->
-      </div><!-- form-group -->
+    <div class="form-group">
+      <label class="col-md-2 text-md-right">Urgencia</label>
+      <div class="col-md-4">
+        <div class="input-group">
+          <input type="number" id="urgencia" name="urgencia" class="form-control" min="1" max="5"  placeholder="Digite uma nota de 1 a 5" [(ngModel)]="urgencia">
+        </div>
+      </div><!-- col-md-10 -->
+    </div><!-- form-group -->
 
-      <div class="form-group form-row">
-        <label class="col-md-2 text-md-right">Tendencia</label>
-        <div class="col-md-4">
-          <div class="input-group">
-            <input type="number" id="tendencia" name="tendencia" class="form-control" min="1" max="5" placeholder="Digite uma nota de 1 a 5" [(ngModel)]="tendencia">
-          </div>
-        </div><!-- col-md-10 -->
-      </div><!-- form-group -->
+    <div class="form-group">
+      <label class="col-md-2 text-md-right">Tendencia</label>
+      <div class="col-md-4">
+        <div class="input-group">
+          <input type="number" id="tendencia" name="tendencia" class="form-control" min="1" max="5" placeholder="Digite uma nota de 1 a 5" [(ngModel)]="tendencia">
+        </div>
+      </div><!-- col-md-10 -->
+    </div><!-- form-group -->
 
-      <div class="form-group form-row">
-        <label class="col-md-2 text-md-right">Score</label>
-        <div class="col-md-4">
-          <div class="input-group">
-            <input type="number" id="score" name="score" class="form-control" placeholder="Click on the button to generate" [(ngModel)]="score" required>
-          </div>
-        </div><!-- col-md-10 -->
-      </div><!-- form-group -->
+    <div class="form-group">
+      <label class="col-md-2 text-md-right">Score</label>
+      <div class="col-md-4">
+        <div class="input-group">
+          <input type="number" id="score" name="score" class="form-control" placeholder="Click on the button to generate" [(ngModel)]="score" required>
+        </div>
+      </div><!-- col-md-10 -->
+    </div><!-- form-group -->
 
-      <div class="form-group form-row">
-          <div div class="col-md-4 text-md-right">
-            <p>Esse atividade tem a classificação: {{classificacao}}</p>
-          </div>
+    <div class="form-group">
+      <div div class="pull-left">
+        <p>Esse atividade tem a classificação: {{classificacao}}</p>
       </div>
+    </div>
+<br>
+<br>
 
 
-
-      <div class="form-group form-row mb-0">
-        <div class="offset-md-2 col-md-1">
-          <button mat-fab color="secondary" type="reset">Reset</button>
-        </div>
-        <div class="offset-md-2 col-md-1">
-          <button mat-fab color="primary" name="handleScore" (click)="handleScore(gravidade, urgencia, tendencia)">Score</button>
-        </div>
-        <div class="offset-md-2 col-md-1">
-          <button mat-fab color="primary" [routerLink]="['/add']">Add</button>
-          <!-- <button type="submit" class="btn btn-success d-block ml-auto" [disabled]="!atividadeForm.form.valid">Adicionar</button> -->
-        </div><!-- col-md-offset-2 -->
-        <div class="offset-md-2 col-md-1">
-          <button mat-fab color="secondary" [routerLink]="['/list']">Cancel</button>
-        </div>
-      </div><!-- form-group -->
+    <div class="form-group">
+        <button mat-fab color="secondary" type="reset">Reset</button>
+        <button mat-fab color="primary" name="handleScore" (click)="handleScore(gravidade, urgencia, tendencia)">Score</button>
+        <button mat-fab color="primary" [routerLink]="['/add']">Add</button>
+        <!-- <button type="submit" class="btn btn-success d-block ml-auto" [disabled]="!atividadeForm.form.valid">Adicionar</button> -->
+        <button mat-fab color="secondary" [routerLink]="['/list']">Cancel</button>
+    </div>
 
 
-    </form>
+  </form>
+
 </div><!-- card-primary -->
