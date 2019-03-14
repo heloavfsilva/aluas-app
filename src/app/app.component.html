@@ -1,6 +1,7 @@
 <!-- Navbar (sit on top) -->
-<mat-sidenav-container fullscreen *ngIf="currentUser">
-  <div class="w3-bar w3-light-grey w3-padding w3-card" style="letter-spacing:4px;">
+<mat-sidenav-container fullscreen>
+
+  <div class="w3-bar w3-light-grey w3-padding w3-card" style="letter-spacing:4px;" *ngIf="currentUser">
     <a routerLink="/" class="w3-bar-item">ALUAS</a>
     <!-- Right-sided navbar links. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
@@ -13,7 +14,7 @@
 
 
   <mat-sidenav #sidenav mode="side" class="example-sidenav" [ngStyle]="{ 'width.em': sidenavWidth }" opened="true" (mouseenter)="handleIncrease()"
-    (mouseleave)="handleDecrease()">
+    (mouseleave)="handleDecrease()" *ngIf="currentUser">
 
     <mat-nav-list>
       <mat-list-item routerLink="['#']" routerLinkActive="active" >
@@ -50,7 +51,6 @@
 
     </mat-nav-list>
   </mat-sidenav>
-
 
 <!-- main app container -->
 <div class="jumbotron">
