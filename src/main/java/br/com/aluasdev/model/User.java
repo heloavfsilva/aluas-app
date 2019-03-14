@@ -38,7 +38,7 @@ public class User {
   private String foto;
 
   @Column(name = "usu_score_acumulado")
-  private String scoreAcumulado;
+  private int scoreAcumulado;
 
   public int getId() {
     return id;
@@ -104,11 +104,11 @@ public class User {
     this.foto = foto;
   }
 
-  public String getScoreAcumulado() {
+  public int getScoreAcumulado() {
     return scoreAcumulado;
   }
 
-  public void setScoreAcumulado(String scoreAcumulado) {
+  public void setScoreAcumulado(int scoreAcumulado) {
     this.scoreAcumulado = scoreAcumulado;
   }
 

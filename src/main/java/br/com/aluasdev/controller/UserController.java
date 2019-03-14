@@ -37,6 +37,15 @@ public class UserController {
     return user;
   }
 
+  public User somaScore(int id, int score) {
+    User user = userRepository.findById(id);
+    int scoreAcumulado = user.getScoreAcumulado() + score;
+    user.setScoreAcumulado(scoreAcumulado);
+    userRepository.save(user);
+
+    return user;
+  }
+
 
   @RequestMapping(method = RequestMethod.POST, value = "/auth")
   @CrossOrigin(origins = "http://localhost:4200")

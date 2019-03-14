@@ -1,8 +1,7 @@
 <!-- <div class="card textcenter mt-3" [ngClass]="{'add-appointment': showForm}"> -->
-<div id="divForm">
-
-  <div class="col-sm-4 offset-sm-4" id="formLogin">
-    <a class="pull-right" [routerLink]="['/list']"><i class="fa fa-times"></i></a>
+<!-- <div id="divAdd"> -->
+  <div class="col-sm-4 offset-sm-4" id="formAdd">
+    <a class="pull-right" [routerLink]="['/painel']"><i class="fa fa-times"></i></a>
     <h2> Atividade</h2>
 
     <form id="atividadeForm" name="atividadeForm" novalidate
@@ -50,14 +49,12 @@
     </div>
 
     <div>
-      <a class="pull-left" [routerLink]="['/list']"><small>Cancel</small></a>
+      <a class="pull-left" [routerLink]="['/painel']"><small>Cancel</small></a>
     </div>
     <div class="form-group w3-right">
       <input type="submit" class="register pull-right" value="Adicionar">
       <!-- <button  class="btn btn-success d-block ml-auto" [disabled]="!atividadeForm.form.valid">Adicionar</button> -->
     </div>
-
-
   </form>
 
-</div><!-- card-primary -->
+<!-- </div><!-- card-primary -->

@@ -1,16 +1,56 @@
 <!-- Navbar (sit on top) -->
-<div class="w3-top" *ngIf="currentUser">
+<mat-sidenav-container fullscreen *ngIf="currentUser">
   <div class="w3-bar w3-light-grey w3-padding w3-card" style="letter-spacing:4px;">
-    <a routerLink="/" class="w3-bar-item"><img src="assets/favicon.png" class="icon"> ALUAS</a>
+    <a routerLink="/" class="w3-bar-item">ALUAS</a>
     <!-- Right-sided navbar links. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
       <a routerLink="/add" class="w3-bar-item"><i class="fa fa-plus" aria-hidden="true"></i> ADICIONAR</a>
-      <a routerLink="/" class="w3-bar-item"><i class="fa fa-home" aria-hidden="true"></i> HOME</a>
-      <a routerLink="/list" class="w3-bar-item"><i class="fa fa-dashboard" aria-hidden="true"></i> PAINEL</a>
+      <!-- <a routerLink="/" class="w3-bar-item"><i class="fa fa-home" aria-hidden="true"></i> HOME</a>
+      <a routerLink="/list" class="w3-bar-item"><i class="fa fa-dashboard" aria-hidden="true"></i> PAINEL</a> -->
       <a routerLink="/" (click)="logout()" class="w3-bar-item"><i class="fa fa-sign-out" aria-hidden="true"></i> SAIR</a>
     </div>
   </div>
-</div>
+
+
+  <mat-sidenav #sidenav mode="side" class="example-sidenav" [ngStyle]="{ 'width.em': sidenavWidth }" opened="true" (mouseenter)="handleIncrease()"
+    (mouseleave)="handleDecrease()">
+
+    <mat-nav-list>
+      <mat-list-item routerLink="['#']" routerLinkActive="active" >
+        <i class="fa fa-user icon" aria-hidden="true"></i>
+        <div fxFlex="10"></div>
+        <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+          <h5>User</h5>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/home"  routerLinkActive="active">
+        <i class="fa fa-home icon" aria-hidden="true"></i>
+        <div fxFlex="10"></div>
+        <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+          <h5>Home</h5>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/painel" routerLinkActive="active" >
+        <i class="fa fa-dashboard icon" aria-hidden="true"></i>
+        <div fxFlex="10"></div>
+        <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+          <h5>Painel</h5>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="['#']" routerLinkActive="active" >
+        <i class="fa fa-question icon" aria-hidden="true"></i>
+        <div fxFlex="10"></div>
+        <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+          <h5>Ajuda</h5>
+        </div>
+      </mat-list-item>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
 
 <!-- main app container -->
 <div class="jumbotron">
@@ -22,3 +62,4 @@
 <footer class="w3-center  w3-light-grey w3-padding-32">
   <p>Powered by <a href="aluas.com.br" title="ALUAS" target="_blank" class="w3-hover-text-green">ALUAS</a></p>
 </footer>
+</mat-sidenav-container>

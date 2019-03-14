@@ -28,6 +28,8 @@
       <button mat-raised-button color="primary" type="submit">Save</button>
       <button mat-raised-button color="secondary" (click)="remove(atividade.id)"
               *ngIf="atividade.id" type="button">Delete</button>
+      <button mat-raised-button color="secondary" (click)="complete(atividade.id)"
+              *ngIf="atividade.id" type="button">Complete</button>
       <a mat-button routerLink="/list">Cancel</a>
     </mat-card-actions>
   </form>

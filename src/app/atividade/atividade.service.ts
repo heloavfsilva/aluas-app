@@ -51,11 +51,15 @@ export class AtividadeService {
   }
 
 
-  /** DELETE: delete the atividade from the server*/
+  /** Delete: delete the atividade from the server*/
   deleteAtividade (id: number) {
     console.log('Im delete!', id);
-    return this.http.delete(this.atividadeUrl + '/edit/' + id, httpOptions);
+    return this.http.delete(this.atividadeUrl + '/delete/' + id, httpOptions);
   }
 
-
+  /** Complete: complete the atividade from the server*/
+  completeAtividade (id: number) {
+    console.log('Im complete!', id);
+    return this.http.put(this.atividadeUrl + '/complete/' + id, httpOptions);
+  }
 }

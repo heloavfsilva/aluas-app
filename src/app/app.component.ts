@@ -16,22 +16,31 @@ import { User } from './user/user';
 })
 export class AppComponent implements OnInit {
   currentUser: string;
+  sidenavWidth = 4;
 
   constructor(private http: HttpClient,
-              private router: Router,
-              private authService:AuthService) {
-                this.currentUser = localStorage.getItem('currentUser');
-              };
+    private router: Router,
+    private authService:AuthService) {
+      this.currentUser = localStorage.getItem('currentUser');
+    };
 
 
     logout() {
-          this.currentUser = '';
-          this.authService.logout();
-      }
+      this.currentUser = '';
+      this.authService.logout();
+    }
 
-  ngOnInit(){
-    this.currentUser = localStorage.getItem('currentUser');
-  }
+    handleIncrease(){
+      this.sidenavWidth = 15;
+      console.log("increase sidenav width");
+    }
+    handleDecrease(){
+      this.sidenavWidth = 4;
+      console.log("decrease sidenav width");
+    }
 
-
+    ngOnInit(){
+      this.currentUser = localStorage.getItem('currentUser');
+    }
+        
 }

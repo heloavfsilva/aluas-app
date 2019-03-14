@@ -16,6 +16,8 @@ public class AtividadeController {
   private AtividadeRepository atividadeRepository;
   @Autowired
   private ControleController controleController = new ControleController();
+  @Autowired
+  private UserController userControle = new UserController();
 
   @GetMapping("/rest/{usuario}")
   @CrossOrigin(origins = "http://localhost:4200")
@@ -43,16 +45,6 @@ public class AtividadeController {
     return atividade;
   }
 
-  @PutMapping("rest/comp/{id}")
-  @CrossOrigin(origins = "http://localhost:4200")
-  public void completeAtividade(@PathVariable("id") int id) {
-    Atividade data = atividadeRepository.findById(id);
-    data.setStatus("Completed");
-    controleController.completeControle(id);
-
-  }
-
-
   @PutMapping("rest/add/{id}")
   @CrossOrigin(origins = "http://localhost:4200")
   public void updateAtividade(@PathVariable("id") int id, @RequestBody Atividade atividade) {
@@ -68,11 +60,21 @@ public class AtividadeController {
 
   }
 
-  @DeleteMapping("rest/edit/{id}")
+  @DeleteMapping("rest/delete/{id}")
   @CrossOrigin(origins = "http://localhost:4200")
   public void deleteAtividade(@PathVariable int id) {
     atividadeRepository.deleteById(id);
     controleController.deleteControle(id);
   }
 
+  @PutMapping("rest/complete/{id}")
+  @CrossOrigin(origins = "http://localhost:4200")
+  public void completeAtividade(@PathVariable("id") int id) {
+    Atividade data = atividadeRepository.findById(id);
+    data.setStatus("Complete");
+    atividadeRepository.save(data);
+    controleController.completeControle(id);
+    userControle.somaScore(data.getUsuario(), data.getScore());
+
+  }
 }

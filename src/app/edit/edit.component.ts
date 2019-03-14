@@ -45,6 +45,12 @@ export class EditComponent implements OnInit {
     }, error => console.error(error));
   }
 
+  complete(id : number) {
+    this.atividadeService.completeAtividade(id).subscribe(result => {
+      this.gotoList();
+    }, error => console.error(error));
+  }
+
   selectAtividade(){
     console.log('Edit here!')
     this.sub = this.route.params.subscribe(params => {

@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard], runGuardsAndResolvers:'always'},
-  { path: 'list', component: PainelComponent },
+  { path: 'painel', component: PainelComponent },
   { path: 'add', component: AddComponent },
   { path: 'edit/:id', component: EditComponent },
   { path: '**', redirectTo: '' }

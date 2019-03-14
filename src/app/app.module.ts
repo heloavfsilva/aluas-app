@@ -24,6 +24,9 @@ import { fakeBackendProvider } from './shared/fakebackend';
 import { Interceptor } from './shared/interceptor';
 import { ErrorInterceptor } from './shared/error.interceptor';
 
+//Modulo para sidenav
+import { MatSidenavModule } from '@angular/material';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +54,8 @@ import { ErrorInterceptor } from './shared/error.interceptor';
     MatFormFieldModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    MatSliderModule
+    MatSliderModule,
+    MatSidenavModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true },
