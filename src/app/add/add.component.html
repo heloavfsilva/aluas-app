@@ -1,60 +1,54 @@
-<!-- <div class="card textcenter mt-3" [ngClass]="{'add-appointment': showForm}"> -->
-<!-- <div id="divAdd"> -->
   <div class="col-sm-4 offset-sm-4" id="formAdd">
     <a class="pull-right" routerLink="/painel"><i class="fa fa-times"></i></a>
-    <h2> Atividade</h2>
-
+  <mat-card>
     <form id="atividadeForm" name="atividadeForm" novalidate
     #atividadeForm="ngForm"
     (ngSubmit)="add(atividadeForm.value); atividadeForm.reset()">
 
     <div class="form-group">
-      <label for="titulo">Título</label>
       <div class="form-group">
-        <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Título da Atividade" [(ngModel)]="titulo">
-      </div><!-- col-md-10 -->
-    </div><!-- form-group -->
+        <input type="text" class="form-control-add-title" name="titulo" id="titulo" placeholder="Título da Atividade" [(ngModel)]="titulo">
+      </div>
+    </div>
 
     <div class="form-group">
-      <label for="descricao">Descrição</label>
       <div class="form-group">
-        <input type="text" class="form-control" name="descricao"
+        <input type="text" class="form-control-add-desc" name="descricao"
         id="descricao" placeholder="Descrição" [(ngModel)]="descricao">
-      </div><!-- col-md-10 -->
-    </div><!-- form-group -->
+      </div>
+    </div>
 
     <div class="form-group">
-      <label class="slider-label" name="gravidade">Gravidade: {{gravidade}}.{{gravidadeLabel}}</label>
+      <label class="slider-label" name="gravidade">Gravidade: {{gravidade}}. {{gravidadeLabel}}</label>
       <div class="form-group slider">
         <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="gravidade" name="gravidade" (input)="handleScore(); HandleGravidadeLabel()">
-      </div><!-- col-md-10 -->
-    </div><!-- form-group -->
+      </div>
+    </div>
 
     <div class="form-group">
-      <label class="slider-label" name="gravidade">Urgencia: {{urgencia}}.{{urgenciaLabel}}</label>
+      <label class="slider-label" name="gravidade">Urgencia: {{urgencia}}. {{urgenciaLabel}}</label>
       <div class="form-group slider">
         <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="urgencia" name="urgencia" (input)="handleScore(); HandleUrgenciaLabel()">
-      </div><!-- col-md-10 -->
-    </div><!-- form-group -->
+      </div>
+    </div>
 
     <div class="form-group">
-      <label class="slider-label" name="tendencia">Tendencia: {{tendencia}}.{{tendenciaLabel}}</label>
+      <label class="slider-label" name="tendencia">Tendencia: {{tendencia}}. {{tendenciaLabel}}</label>
       <div class="form-group slider">
         <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="tendencia" name="tendencia" (input)="handleScore(); HandleTendenciaLabel()">
-      </div><!-- col-md-10 -->
-    </div><!-- form-group -->
+      </div>
+    </div>
 
     <div class="form-group">
-      <label>Score: {{score}} <br> {{classificacaoLabel}}</label>
+      <label class="slider-label"><i class="fa fa-star" aria-hidden="true"></i> Score: {{score}} <br> {{classificacaoLabel}}</label>
     </div>
 
     <div>
-      <a class="pull-left" routerLink="/painel"><small>Cancel</small></a>
+      <a class="pull-left" routerLink="/painel"><small>Cancelar</small></a>
     </div>
     <div class="form-group w3-right">
       <input type="submit" class="register pull-right" value="Adicionar">
-      <!-- <button  class="btn btn-success d-block ml-auto" [disabled]="!atividadeForm.form.valid">Adicionar</button> -->
     </div>
   </form>
-
-<!-- </div><!-- card-primary -->
+</mat-card>
+</div>

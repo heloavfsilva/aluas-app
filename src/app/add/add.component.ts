@@ -18,13 +18,13 @@ import { coerceNumberProperty } from '@angular/cdk/coercion';
 export class AddComponent{
   atividade: Atividade;
   gravidade  = 1;
-  gravidadeLabel ='Sem gravidade';
   urgencia = 1;
-  urgenciaLabel ='Pode esperar';
   tendencia = 1;
-  tendenciaLabel ='Não irá mudar';
   score = 1;
   classificacao = 3;
+  gravidadeLabel ='Sem gravidade';
+  urgenciaLabel ='Pode esperar';
+  tendenciaLabel ='Não irá mudar';
   classificacaoLabel = 'When possible';
 
   handleScore(){
@@ -36,7 +36,7 @@ export class AddComponent{
     }
     if (this.score >=27 && this.score<=47){
       this.classificacao = 2;
-      this.classificacaoLabel = 'Delegate or Plan';
+      this.classificacaoLabel = 'Plan or Delegate';
     }
     if(this.score < 27) {
       this.classificacao = 3;
@@ -48,10 +48,10 @@ export class AddComponent{
       id: '',
       titulo: formInfo.titulo,
       descricao: formInfo.descricao,
-      gravidade: formInfo.gravidade,
-      urgencia: formInfo.urgencia,
-      tendencia: formInfo.tendencia,
-      score: formInfo.score,
+      gravidade: this.gravidade,
+      urgencia: this.urgencia,
+      tendencia: this.tendencia,
+      score: this.score,
       classificacao: this.classificacao,
       usuario: localStorage.getItem('usuario'),
       status: 'New'

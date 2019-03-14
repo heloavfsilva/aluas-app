@@ -5,12 +5,12 @@
 <!-- Columns with the card listed with priority-->
 <div class="row">
   <div class="panel">
-    <div class="w3-container" style="background:#e57373;">
+    <div class="w3-container class1">
       <div class="w3-left"><i class="fa fa-exclamation-triangle w3-xxxlarge"></i></div>
       <div class="w3-clear"></div>
       <h4>Get it done</h4>
     </div>
-    <div class="card text-white bg-danger mb-3" style="max-width: 100%;" *ngFor="let atividade of class3">
+    <div class="card text-white bg-class1 mb-3" style="max-width: 100%;" *ngFor="let atividade of class1">
       <div class="card-header">
         <!-- <div class="w3-left"><i class="fa fa-exclamation-triangle"></i></div> -->
         {{atividade.titulo}}</div>
@@ -21,12 +21,12 @@
       </div>
     </div>
     <div class="panel">
-      <div class="w3-container" style="background:#fff176;">
+      <div class="w3-container class2">
         <div class="w3-left"><i class="fa fa-send w3-xxxlarge"></i></div>
         <div class="w3-clear"></div>
         <h4>Delegate</h4>
       </div>
-      <div class="card text-white bg-warning mb-3" style="max-width: 100%;" *ngFor="let atividade of class2">
+      <div class="card text-white bg-class2 mb-3" style="max-width: 100%;" *ngFor="let atividade of class2">
         <div class="card-header">
           <!-- <div class="w3-left"><i class="fa fa-send"></i></div> -->
           {{atividade.titulo}}</div>
@@ -37,12 +37,12 @@
         </div>
       </div>
       <div class="panel">
-        <div class="w3-container" style="background:#ba68c8;">
+        <div class="w3-container class3">
           <div class="w3-left"><i class="fa fa-clock-o  w3-xxxlarge"></i></div>
           <div class="w3-clear"></div>
           <h4>When possible</h4>
         </div>
-        <div class="card text-white bg-purple mb-3" style="max-width: 100%;" *ngFor="let atividade of class1">
+        <div class="card text-white bg-class3 mb-3" style="max-width: 100%;" *ngFor="let atividade of class3">
           <div class="card-header">
             <!-- <div class="w3-left"><i class="fa fa-clock-o"></i></div> -->
             {{atividade.titulo}}</div>

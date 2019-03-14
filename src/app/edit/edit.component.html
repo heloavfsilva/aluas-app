@@ -1,36 +1,93 @@
-<mat-card>
+<div class="col-sm-4 offset-sm-4" id="formAdd">
+  <a class="pull-right" routerLink="/painel"><i class="fa fa-times"></i></a>
+
   <form #atividadeForm="ngForm" (ngSubmit)="save(atividadeForm.value)">
-    <mat-card-header>
-      <mat-card-title><h2>{{atividade.titulo ? 'Edit' : 'Add'}} Atividade</h2></mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <input type="hidden" name="id" [(ngModel)]="atividade.id">
-      <mat-form-field>
-        <input matInput [(ngModel)]="atividade.titulo" required name="titulo" #titulo>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput [(ngModel)]="atividade.descricao" required name="descricao" #descricao>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput [(ngModel)]="atividade.gravidade" required name="gravidade" #gravidade>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput [(ngModel)]="atividade.urgencia" required name="urgencia" #urgencia>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput [(ngModel)]="atividade.tendencia" required name="tendencia" #tendencia>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput [(ngModel)]="atividade.score" required name="score" #score>
-      </mat-form-field>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Save</button>
-      <button mat-raised-button color="secondary" (click)="remove(atividade.id)"
-              *ngIf="atividade.id" type="button">Delete</button>
+
+    <mat-card>
+      <div class="form-group">
+        <div class="form-group">
+          <input type="text" class="form-control-add-title" name="titulo" id="titulo" placeholder="Título da Atividade" [(ngModel)]="atividade.titulo">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-group">
+          <input type="text" class="form-control-add-desc" name="descricao"
+          id="descricao" placeholder="Descrição" [(ngModel)]="atividade.descricao">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="slider-label" name="gravidade">Gravidade: {{atividade.gravidade}}. {{gravidadeLabel}}</label>
+        <div class="form-group slider">
+          <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="gravidade" name="atividade.gravidade" (input)="handleScore(); HandleGravidadeLabel()">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="slider-label" name="gravidade">Urgencia: {{atividade.urgencia}}. {{urgenciaLabel}}</label>
+        <div class="form-group slider">
+          <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="atividade.urgencia" name="urgencia" (input)="handleScore(); HandleUrgenciaLabel()">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="slider-label" name="tendencia">Tendencia: {{atividade.tendencia}}. {{tendenciaLabel}}</label>
+        <div class="form-group slider">
+          <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="atividade.tendencia" name="tendencia" (input)="handleScore(); HandleTendenciaLabel()">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="slider-label"><i class="fa fa-star" aria-hidden="true"></i> Score: {{atividade.score}} <br> {{classificacaoLabel}}</label>
+      </div>
+
+      <div class="form-group">
+        <a class="pull-left" routerLink="/painel"><small>Cancelar</small></a>
+        <a class="pull-left" *ngIf="atividade.id" (click)="remove(atividade.id)"><i class="fa fa-trash" aria-hidden="true"></i></a>
+        <a class="pull-left" *ngIf="atividade.id" (click)="complete(atividade.id)"><i class="fa fa-check" aria-hidden="true"></i></a>
+      </div>
+      <div class="form-group">
+        <!-- <input type="submit" class="register pull-right" value="Adicionar"> -->
+        <a class="pull-right" (click)="save(atividadeform.value)"><i class="fa fa-plus" aria-hidden="true"></i></a>
+      </div>
+      <!-- <button mat-raised-button color="secondary" (click)="remove(atividade.id)"
+      *ngIf="atividade.id" type="button">Delete</button>
       <button mat-raised-button color="secondary" (click)="complete(atividade.id)"
-              *ngIf="atividade.id" type="button">Complete</button>
-      <a mat-button routerLink="/painel">Cancel</a>
-    </mat-card-actions>
+      *ngIf="atividade.id" type="button">Complete</button> -->
+    </mat-card>
   </form>
-</mat-card>
+</div>
+<!--
+</div>
+<mat-card-content>
+<input type="hidden" name="id" [(ngModel)]="atividade.id">
+<mat-form-field>
+<input matInput [(ngModel)]="atividade.titulo" required name="titulo" #titulo>
+</mat-form-field>
+<mat-form-field>
+<input matInput [(ngModel)]="atividade.descricao" required name="descricao" #descricao>
+</mat-form-field>
+<mat-form-field>
+<input matInput [(ngModel)]="atividade.gravidade" required name="gravidade" #gravidade>
+</mat-form-field>
+<mat-form-field>
+<input matInput [(ngModel)]="atividade.urgencia" required name="urgencia" #urgencia>
+</mat-form-field>
+<mat-form-field>
+<input matInput [(ngModel)]="atividade.tendencia" required name="tendencia" #tendencia>
+</mat-form-field>
+<mat-form-field>
+<input matInput [(ngModel)]="atividade.score" required name="score" #score>
+</mat-form-field>
+</mat-card-content>
+<mat-card-actions>
+<button mat-raised-button color="primary" type="submit">Save</button>
+<button mat-raised-button color="secondary" (click)="remove(atividade.id)"
+*ngIf="atividade.id" type="button">Delete</button>
+<button mat-raised-button color="secondary" (click)="complete(atividade.id)"
+*ngIf="atividade.id" type="button">Complete</button>
+<a mat-button routerLink="/painel">Cancel</a>
+</mat-card-actions>
+</form>
+</mat-card> -->
