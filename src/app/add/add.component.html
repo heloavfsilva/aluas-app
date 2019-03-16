@@ -1,5 +1,4 @@
   <div class="col-sm-4 offset-sm-4" id="formAdd">
-    <a class="pull-right" routerLink="/painel"><i class="fa fa-times"></i></a>
   <mat-card>
     <form id="atividadeForm" name="atividadeForm" novalidate
     #atividadeForm="ngForm"
@@ -21,33 +20,34 @@
     <div class="form-group">
       <label class="slider-label" name="gravidade">Gravidade: {{gravidade}}. {{gravidadeLabel}}</label>
       <div class="form-group slider">
-        <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="gravidade" name="gravidade" (input)="handleScore(); HandleGravidadeLabel()">
+        <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="gravidade" name="gravidade" (input)="handleScore(); handleGravidadeLabel()">
       </div>
     </div>
 
     <div class="form-group">
       <label class="slider-label" name="gravidade">Urgencia: {{urgencia}}. {{urgenciaLabel}}</label>
       <div class="form-group slider">
-        <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="urgencia" name="urgencia" (input)="handleScore(); HandleUrgenciaLabel()">
+        <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="urgencia" name="urgencia" (input)="handleScore(); handleUrgenciaLabel()">
       </div>
     </div>
 
     <div class="form-group">
       <label class="slider-label" name="tendencia">Tendencia: {{tendencia}}. {{tendenciaLabel}}</label>
       <div class="form-group slider">
-        <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="tendencia" name="tendencia" (input)="handleScore(); HandleTendenciaLabel()">
+        <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="tendencia" name="tendencia" (input)="handleScore(); handleTendenciaLabel()">
       </div>
     </div>
 
-    <div class="form-group">
-      <label class="slider-label"><i class="fa fa-star" aria-hidden="true"></i> Score: {{score}} <br> {{classificacaoLabel}}</label>
+    <div>
+      <label class="score-label"><i class="fa fa-star" aria-hidden="true"></i> Score: {{score}} <br> {{classificacaoLabel}}</label>
     </div>
 
     <div>
       <a class="pull-left" routerLink="/painel"><small>Cancelar</small></a>
     </div>
     <div class="form-group w3-right">
-      <input type="submit" class="register pull-right" value="Adicionar">
+      <!-- <input type="submit" class="register pull-right" value="Adicionar"> -->
+      <a routerLink="/painel" class="pull-right icon-edit" (click)="add(atividadeform.value)" label="salvar"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></a>
     </div>
   </form>
 </mat-card>

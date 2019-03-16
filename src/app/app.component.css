@@ -10,12 +10,12 @@ a:hover{color:#ffbd59; }
 
 
 .footer {
-    position:absolute;
-    bottom:0;
-    width:100%;
+  position:absolute;
+  bottom:0;
+  width:100%;
 }
 .jumbotron{
-    padding:1rem 2rem;
+  padding:1rem 2rem;
 }
 .fa-star{
   color: #f9a825;
@@ -106,224 +106,237 @@ div#divLogin{
   transition:all .3s ease;}
 
 
-div#formLogin{
-  position: absolute;
-  width:40%;
-  height:70%;
-  height:auto;
-  background-color: #fff;
-  margin:auto;
-  border-radius: 3%;
-  padding:3%;
-  left:35%;
-  top:40%;
-  margin-top:-15%;
-}
+  div#formLogin{
+    position: absolute;
+    width:40%;
+    height:70%;
+    height:auto;
+    background-color: #fff;
+    margin:auto;
+    border-radius: 3%;
+    padding:3%;
+    left:35%;
+    top:40%;
+    margin-top:-15%;
+  }
 
-div.form-group{position: relative; display: block; margin-bottom: 20px;}
-input{transition: all .2s ease;}
-input.form-control{
-  color:#8a8a8a;
-  display: block;
-  width: 95%;
-  height: 100%;
-  padding: 3% 5%;
-  border:1px solid #ccc;
-  -moz-border-radius: 27px;
-  -webkit-border-radius: 27px;
-  border-radius: 27px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  background-color: #fff;
-  font-family:'Raleway','Arial', sans-serif;
-  font-size: 105%;
-  letter-spacing: .8px;
-}
-div.form-group .form-style:focus{outline: none; border:1px solid #58bff6; color:#58bff6; }
-div.form-group p.formLabel {
-  position: absolute;
-  left:10%;
-  top:10%;
-  transition:all .4s ease;
-  color:#bbb;}
+  div.form-group{position: relative; display: block; margin-bottom: 20px;}
+  input{transition: all .2s ease;}
+  input.form-control{
+    color:#8a8a8a;
+    display: block;
+    width: 95%;
+    height: 100%;
+    padding: 3% 5%;
+    border:1px solid #ccc;
+    -moz-border-radius: 27px;
+    -webkit-border-radius: 27px;
+    border-radius: 27px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    background-color: #fff;
+    font-family:'Raleway','Arial', sans-serif;
+    font-size: 105%;
+    letter-spacing: .8px;
+  }
+  div.form-group .form-style:focus{outline: none; border:1px solid #58bff6; color:#58bff6; }
+  div.form-group p.formLabel {
+    position: absolute;
+    left:10%;
+    top:10%;
+    transition:all .4s ease;
+    color:#bbb;}
 
-input[type="submit"].login{
-  float:right;
-  width: 180%;
-  height: 30px;
-  -moz-border-radius: 19px;
-  -webkit-border-radius: 19px;
-  border-radius: 19px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  background-color: #290074;
-  border:1px solid #290074;
-  border:none;
-  color: #fff;
-  font-weight: bold;
-  margin-right: 43%;
-}
-input[type="submit"].login:hover{background-color: #fff; border:1px solid #290074; color:#290074; cursor:pointer;}
-input[type="submit"].login:focus{outline: none;}
+    input[type="submit"].login{
+      float:right;
+      width: 180%;
+      height: 30px;
+      -moz-border-radius: 19px;
+      -webkit-border-radius: 19px;
+      border-radius: 19px;
+      -moz-background-clip: padding;
+      -webkit-background-clip: padding-box;
+      background-clip: padding-box;
+      background-color: #290074;
+      border:1px solid #290074;
+      border:none;
+      color: #fff;
+      font-weight: bold;
+      margin-right: 43%;
+    }
+    input[type="submit"].login:hover{background-color: #fff; border:1px solid #290074; color:#290074; cursor:pointer;}
+    input[type="submit"].login:focus{outline: none;}
 
 
-div.logo{text-align: center; margin: 20px 20px 30px 20px; fill: #566375;}
-div.logo img{
-  width:100%;
-  height:100%;
-}
-/* End of styling loggin page */
+    div.logo{text-align: center; margin: 20px 20px 30px 20px; fill: #566375;}
+    div.logo img{
+      width:100%;
+      height:100%;
+    }
+    /* End of styling loggin page */
 
-/*  Styling the Register page */
-input[type="submit"].register{
-  float:right;
-  width: 180%;
-  height: 30px;
-  -moz-border-radius: 19px;
-  -webkit-border-radius: 19px;
-  border-radius: 19px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  background-color: #290074;
-  border:1px solid #290074;
-  border:none;
-  color: #fff;
-  font-weight: bold;
-  margin-right: 43%;
-}
-input[type="submit"].register:hover{background-color: #fff; border:1px solid #290074; color:#290074; cursor:pointer;}
-input[type="submit"].register:focus{outline: none;}
+    /*  Styling the Register page */
+    input[type="submit"].register{
+      float:right;
+      width: 180%;
+      height: 30px;
+      -moz-border-radius: 19px;
+      -webkit-border-radius: 19px;
+      border-radius: 19px;
+      -moz-background-clip: padding;
+      -webkit-background-clip: padding-box;
+      background-clip: padding-box;
+      background-color: #290074;
+      border:1px solid #290074;
+      border:none;
+      color: #fff;
+      font-weight: bold;
+      margin-right: 43%;
+    }
+    input[type="submit"].register:hover{background-color: #fff; border:1px solid #290074; color:#290074; cursor:pointer;}
+    input[type="submit"].register:focus{outline: none;}
 
-/* End of styling Register page */
+    /* End of styling Register page */
 
-/* Styling the Add page */
-div#divAdd{
-  background: rgba(221,221,221,0.8);
-  /* -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; */
-  height: auto;
-  font-family:'Raleway','Arial', sans-serif;
-}
-div#formAdd{
-  position: absolute;
-  width:40%;
-  /* height:50%; */
-  height:auto;
-  background-color: #fff;
-  margin:auto;
-  border-radius: 3%;
-  padding-top: 1%;
-  left:35%;
-  top:40%;
-  margin-bottom:10px;
-  margin-top:-15%;
-}
+    /* Styling the Add page */
+    div#divAdd{
+      background: rgba(221,221,221,0.8);
+      /* -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover; */
+      height: auto;
+      font-family:'Raleway','Arial', sans-serif;
+    }
+    div#formAdd{
+      position: absolute;
+      width:40%;
+      /* height:50%; */
+      height:auto;
+      background-color: #fff;
+      margin:auto;
+      border-radius: 3%;
+      padding-top: 1%;
+      left:35%;
+      top:40%;
+      margin-bottom:10px;
+      margin-top:-15%;
+    }
+    .score-label{
+      font-family:'Raleway','Arial', sans-serif;
+      padding-left: 35%%;
+    }
+    .slider-label{
+      font-family:'Raleway','Arial', sans-serif;
+      padding-left: 27%;
+    }
 
-.slider-label{
-font-family:'Raleway','Arial', sans-serif;
-}
+    .slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 15px;
+      border-radius: 5px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
 
-.slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 15px;
-  border-radius: 5px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #002171;
+      /* #4CAF50 */
+      cursor: pointer;
+    }
 
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #002171;
-  /* #4CAF50 */
-  cursor: pointer;
-}
+    .slider::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+    }
 
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #4CAF50;
-  cursor: pointer;
-}
+    input.form-control-add-title{
+      color:#8a8a8a;
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 3% 5%;
+      border:1px solid #f1f0f0;
+      -moz-border-radius: 27px;
+      -webkit-border-radius: 27px;
+      border-radius: 11px;
+      margin-bottom: -5%;
+      -moz-background-clip: padding;
+      -webkit-background-clip: padding-box;
+      background-clip: padding-box;
+      background-color: #fff;
+      font-family:'Raleway','Arial', sans-serif;
+      font-size: 105%;
+      letter-spacing: .8px;
+    }
+    input.form-control-add-desc{
+      color:#8a8a8a;
+      display: block;
+      width: 100%;
+      height: 100px;
+      padding: 3% 5%;
+      border:1px solid #f1f0f0;
+      -moz-border-radius: 27px;
+      -webkit-border-radius: 27px;
+      border-radius: 11px;
+      margin-bottom: -3%;
+      -moz-background-clip: padding;
+      -webkit-background-clip: padding-box;
+      background-clip: padding-box;
+      font-family:'Raleway','Arial', sans-serif;
+      background-color: #fff;
+      font-size: 105%;
+      letter-spacing: .8px;
+    }
 
-input.form-control-add-title{
-  color:#8a8a8a;
-  display: block;
-  width: 95%;
-  height: 100%;
-  padding: 3% 5%;
-  border:1px solid #f1f0f0;
-  -moz-border-radius: 27px;
-  -webkit-border-radius: 27px;
-  border-radius: 11px;
-  margin-bottom: -5%;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  background-color: #fff;
-  font-family:'Raleway','Arial', sans-serif;
-  font-size: 105%;
-  letter-spacing: .8px;
-}
-input.form-control-add-desc{
-  color:#8a8a8a;
-  display: block;
-  width: 95%;
-  height: 100px;
-  padding: 3% 5%;
-  border:1px solid #f1f0f0;
-  -moz-border-radius: 27px;
-  -webkit-border-radius: 27px;
-  border-radius: 11px;
-  margin-bottom: -3%;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  font-family:'Raleway','Arial', sans-serif;
-  background-color: #fff;
-  font-size: 105%;
-  letter-spacing: .8px;
-}
+    div.form-group-add-title .form-style:focus{outline: inherit; border:1px solid #58bff6; color:#58bff6; }
+    div.form-group-add-desc .form-style:focus{outline: inherit; border:1px solid #58bff6; color:#58bff6; }
+    /* End of styling Add page  */
 
-div.form-group-add-title .form-style:focus{outline: inherit; border:1px solid #58bff6; color:#58bff6; }
-div.form-group-add-desc .form-style:focus{outline: inherit; border:1px solid #58bff6; color:#58bff6; }
-/* End of styling Add page  */
+    /* Styling the Sidenav page */
+    .example-sidenav-content {
+      display: inline;
+      height: 100vh;
+      align-items: baseline;
+      justify-content: flex-end;
+    }
 
-/* Styling the Sidenav page */
-.example-sidenav-content {
-  display: inline;
-  height: 100vh;
-  align-items: baseline;
-  justify-content: flex-end;
-}
+    .example-sidenav {
+      background-color: #000051;
+    }
+    .active{
+      background-color:rgba(221,221,221,0.5);
+    }
 
-.example-sidenav {
-  background-color: #000051;
-}
-.active{
-  background-color:rgba(221,221,221,0.5);
-}
+    .sidenav-item{
+      color: white;
+      font-size:20px;
+      align-items: baseline;
+    }
 
-.sidenav-item{
-    color: white;
-    font-size:20px;
-    align-items: baseline;
-}
+    .icon{
+      color: white;
+    }
+    /* End of styling Sidenav page */
 
-.icon{
-  color: white;
-}
-/* End of styling Sidenav page */
+    /* Styling the Edit page */
+    .icon-edit{
+      margin-right:2%;
+      margin-bottom: 3%;
+      color:#290074;
+    }
+    .icon-edit:click{color:#ffbd59;}
+    /* End of styling Edit page */

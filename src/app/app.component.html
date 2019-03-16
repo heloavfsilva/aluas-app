@@ -1,5 +1,12 @@
 <!-- Navbar (sit on top) -->
 <mat-sidenav-container fullscreen>
+  <div class="w3-bar w3-light-grey w3-padding w3-card" style="letter-spacing:4px;" *ngIf="!currentUser">
+    <a routerLink="/" class="w3-bar-item">ALUAS</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a routerLink="/login" class="w3-bar-item"><i class="fa fa-sign-in" aria-hidden="true"></i>ENTRAR</a>
+    </div>
+  </div>
 
   <div class="w3-bar w3-light-grey w3-padding w3-card" style="letter-spacing:4px;" *ngIf="currentUser">
     <a routerLink="/" class="w3-bar-item">ALUAS</a>

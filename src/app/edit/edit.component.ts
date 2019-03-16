@@ -23,87 +23,38 @@ export class EditComponent implements OnInit {
   tendencia = 1;
   score = 1;
   classificacao = 3;
-  classificacaoLabel : string;
-  gravidadeLabel : string;
-  urgenciaLabel : string;
-  tendenciaLabel : string;
+  // classificacaoLabel : string;
+  // gravidadeLabel : string;
+  // urgenciaLabel : string;
+  // tendenciaLabel : string;
+  gravidadeLabel ='Sem gravidade';
+  urgenciaLabel ='Pode esperar';
+  tendenciaLabel ='Não irá mudar';
+  classificacaoLabel = 'When possible';
 
 
   constructor(private route: ActivatedRoute,
-              private router: Router,
-              private atividadeService: AtividadeService) { }
+    private router: Router,
+    private atividadeService: AtividadeService) { }
 
-  ngOnInit() {
-    this.selectAtividade();
-    this.gravidade  = this.atividade.gravidade;
-    this.urgencia = this.atividade.urgencia;
-    this.tendencia = this.atividade.tendencia;
-    this.score = this.atividade.score;
-    this.classificacao = this.atividade.classificacao;
+    handleScore(){
+      this.score = this.gravidade*this.urgencia*this.tendencia;
 
-    this.HandleGravidadeLabel();
-    this.HandleUrgenciaLabel();
-    this.HandleTendenciaLabel();
-    this.handleScore();
-
-  }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
-
-  gotoList() {
-    this.router.navigate(['/painel']);
-  }
-
-  save(form: any) {
-    this.atividadeService.save(form).subscribe(result => {
-      this.gotoList();
-    }, error => console.error(error));
-  }
-
-  remove(id : number) {
-    this.atividadeService.deleteAtividade(id).subscribe(result => {
-      this.gotoList();
-    }, error => console.error(error));
-  }
-
-  complete(id : number) {
-    this.atividadeService.completeAtividade(id).subscribe(result => {
-      this.gotoList();
-    }, error => console.error(error));
-  }
-
-  selectAtividade(){
-    console.log('Edit here!')
-    this.sub = this.route.params.subscribe(params => {
-      const id = params['id'];
-      if (id) {
-        this.atividadeService.getId(id).subscribe(atividade => {
-          this.atividade = atividade;
-        });
+      if (this.score >= 48 && this.score <=128){
+        this.classificacao = 1;
+        this.classificacaoLabel = 'Get it done';
       }
-    });
-  }
-
-  handleScore(){
-    this.score = this.gravidade*this.urgencia*this.tendencia;
-
-    if (this.score >= 48 && this.score <=128){
-      this.classificacao = 1;
-      this.classificacaoLabel = 'Get it done';
+      if (this.score >=27 && this.score<=47){
+        this.classificacao = 2;
+        this.classificacaoLabel = 'Plan or Delegate';
+      }
+      if(this.score < 27) {
+        this.classificacao = 3;
+        this.classificacaoLabel = 'When possible';
+      }
     }
-    if (this.score >=27 && this.score<=47){
-      this.classificacao = 2;
-      this.classificacaoLabel = 'Plan or Delegate';
-    }
-    if(this.score < 27) {
-      this.classificacao = 3;
-      this.classificacaoLabel = 'When possible';
-    }
-  }
 
-    HandleGravidadeLabel (){
+    handleGravidadeLabel (){
       if (this.gravidade==1){
         this.gravidadeLabel='Sem gravidade';
       }
@@ -121,7 +72,7 @@ export class EditComponent implements OnInit {
       }
     }
 
-    HandleUrgenciaLabel (){
+    handleUrgenciaLabel (){
       if (this.urgencia==1){
         this.urgenciaLabel='Pode esperar';
       }
@@ -139,7 +90,7 @@ export class EditComponent implements OnInit {
       }
     }
 
-    HandleTendenciaLabel (){
+    handleTendenciaLabel (){
       if (this.tendencia==1){
         this.tendenciaLabel='Não irá mudar';
       }
@@ -156,6 +107,57 @@ export class EditComponent implements OnInit {
         this.tendenciaLabel='Irá piorar rapidamente';
       }
     }
+    ngOnInit() {
+      this.selectAtividade();
+      this.gravidade  = this.atividade.gravidade;
+      this.urgencia = this.atividade.urgencia;
+      this.tendencia = this.atividade.tendencia;
+      this.score = this.atividade.score;
+      this.classificacao = this.atividade.classificacao;
 
+      this.handleGravidadeLabel();
+      this.handleUrgenciaLabel();
+      this.handleTendenciaLabel();
+      this.handleScore();
 
-}
+    }
+
+    ngOnDestroy() {
+      this.sub.unsubscribe();
+    }
+
+    gotoList() {
+      this.router.navigate(['/painel']);
+    }
+
+    save(form: any) {
+      this.atividadeService.save(form).subscribe(result => {
+        this.gotoList();
+      }, error => console.error(error));
+    }
+
+    remove(id : number) {
+      this.atividadeService.deleteAtividade(id).subscribe(result => {
+        this.gotoList();
+      }, error => console.error(error));
+    }
+
+    complete(id : number) {
+      this.atividadeService.completeAtividade(id).subscribe(result => {
+        this.gotoList();
+      }, error => console.error(error));
+    }
+
+    selectAtividade(){
+      console.log('Edit here!')
+      this.sub = this.route.params.subscribe(params => {
+        const id = params['id'];
+        if (id) {
+          this.atividadeService.getId(id).subscribe(atividade => {
+            this.atividade = atividade;
+          });
+        }
+      });
+    }
+
+  }

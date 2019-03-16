@@ -64,7 +64,7 @@ export class AddComponent{
 
   constructor(private atividadeService: AtividadeService) { }
 
-  HandleGravidadeLabel (){
+  handleGravidadeLabel (){
     if (this.gravidade==1){
       this.gravidadeLabel='Sem gravidade';
     }
@@ -82,7 +82,7 @@ export class AddComponent{
     }
   }
 
-  HandleUrgenciaLabel (){
+  handleUrgenciaLabel (){
     if (this.urgencia==1){
       this.urgenciaLabel='Pode esperar';
     }
@@ -100,7 +100,7 @@ export class AddComponent{
     }
   }
 
-  HandleTendenciaLabel (){
+  handleTendenciaLabel (){
     if (this.tendencia==1){
       this.tendenciaLabel='Não irá mudar';
     }

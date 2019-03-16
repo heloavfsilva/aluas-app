@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+import { InfoComponent } from './info/info.component';
 
 // Modulos para autenticação e login
 import { AuthService } from './shared/auth.service';
@@ -37,7 +38,8 @@ import { MatSidenavModule } from '@angular/material';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    PainelComponent
+    PainelComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
