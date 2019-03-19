@@ -79,6 +79,7 @@ public class UserController {
   @RequestMapping(method = RequestMethod.POST, value = "/auth/register")
   @CrossOrigin(origins = "http://localhost:4200")
   public void addUser(@RequestBody User user) {
+    user.setScoreAcumulado(0);
     userRepository.save(user);
     System.out.println("Saved");
 

@@ -1,6 +1,7 @@
 package br.com.aluasdev.controller;
 
 
+import br.com.aluasdev.dao.AtividadeRepository;
 import br.com.aluasdev.dao.ControleRepository;
 import br.com.aluasdev.dao.UserRepository;
 import br.com.aluasdev.model.Acesso;
@@ -21,7 +22,7 @@ public class ControleController {
   @Autowired
   private ControleRepository controleRepository;
   @Autowired
-  private AtividadeController atividadeController;
+  private AtividadeRepository atividadeRepo;
 
   public void mapUserAtividade(int atividade, int usuario) {
     Controle ctrl = new Controle();
@@ -38,10 +39,9 @@ public class ControleController {
 
 
   public void updateControle(int id, int usuario) {
-    Atividade data = atividadeController.findById(id);
     Controle ctrl = new Controle();
-    ctrl.setAtividade(data.getId());
-    ctrl.setUsuario(data.getUsuario());
+    ctrl.setAtividade(id);
+    ctrl.setUsuario(usuario);
     ctrl.setStatus("Updated");
     ctrl.setData(LocalDateTime.now().toString());
 
@@ -49,11 +49,10 @@ public class ControleController {
     System.out.println("Ongoing");
   }
 
-  public void completeControle(int id) {
-    Atividade data = atividadeController.findById(id);
+  public void completeControle(int id, int usuario) {
     Controle ctrl = new Controle();
-    ctrl.setAtividade(data.getId());
-    ctrl.setUsuario(data.getUsuario());
+    ctrl.setAtividade(id);
+    ctrl.setUsuario(usuario);
     ctrl.setStatus("Completed");
     ctrl.setData(LocalDateTime.now().toString());
 
@@ -62,11 +61,11 @@ public class ControleController {
   }
 
 
-  public void deleteControle(int id) {
-    Atividade data = atividadeController.findById(id);
+  public void deleteControle(int id, int usuario) {
+//    Atividade data = atividadeRepo.findById(id);
     Controle ctrl = new Controle();
-    ctrl.setAtividade(data.getId());
-    ctrl.setUsuario(data.getUsuario());
+    ctrl.setAtividade(id);
+    ctrl.setUsuario(usuario);
     ctrl.setStatus("Deleted");
     ctrl.setData(LocalDateTime.now().toString());
 

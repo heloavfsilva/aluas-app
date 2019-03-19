@@ -27,6 +27,7 @@ import { ErrorInterceptor } from './shared/error.interceptor';
 
 //Modulo para sidenav
 import { MatSidenavModule } from '@angular/material';
+import { HelpComponent } from './help/help.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { MatSidenavModule } from '@angular/material';
     RegisterComponent,
     ProfileComponent,
     PainelComponent,
-    InfoComponent
+    InfoComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,

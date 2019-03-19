@@ -63,8 +63,9 @@ public class AtividadeController {
   @DeleteMapping("rest/delete/{id}")
   @CrossOrigin(origins = "http://localhost:4200")
   public void deleteAtividade(@PathVariable int id) {
+    Atividade data = atividadeRepository.findById(id);
+    controleController.deleteControle(id, data.getUsuario());
     atividadeRepository.deleteById(id);
-    controleController.deleteControle(id);
   }
 
   @PutMapping("rest/complete/{id}")
@@ -73,7 +74,7 @@ public class AtividadeController {
     Atividade data = atividadeRepository.findById(id);
     data.setStatus("Complete");
     atividadeRepository.save(data);
-    controleController.completeControle(id);
+    controleController.completeControle(id, data.getUsuario());
     userControle.somaScore(data.getUsuario(), data.getScore());
 
   }

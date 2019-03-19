@@ -8,11 +8,13 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { InfoComponent } from './info/info.component';
+import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './shared/auth.guard'
 
 const routes: Routes = [
   { path: '', redirectTo: 'info', pathMatch: 'full' },
   { path: 'info', component: InfoComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard], runGuardsAndResolvers:'always'},
