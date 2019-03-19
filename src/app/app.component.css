@@ -93,13 +93,11 @@ div#formInfo{
   width:100%;
   height:auto;
   background-color: rgba(41,0,116,0.5);
-  /* rgba(41,0,116,0.8) #290074*/
   margin:auto;
   padding:2%;
   top:96%;
   margin-top:-20%;
   font-family: 'Raleway', sans-serif;
-  /* 'Lucida Sans Unicode', 'Lucida Grande', sans-serif; */
   color: white;
   font-size: 120%;
 }
