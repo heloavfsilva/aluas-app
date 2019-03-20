@@ -14,12 +14,12 @@ export class UserService {
         return this.http.get<User[]>(this.baseUrl);
     }
 
-    getById(id: number) {
+    getById(id: string) {
         return this.http.get(this.baseUrl+ id);
     }
 
     getByUsername(username: string): any {
-        return this.http.get(this.baseUrl+username);
+        return this.http.get(this.baseUrl+'/'+username);
     }
 
     register(user: any) {
