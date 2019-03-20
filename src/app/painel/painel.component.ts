@@ -36,15 +36,15 @@ export class PainelComponent implements OnInit {
       (atividades: Atividade[]) => {
         this.atividades = atividades;
         var class1 =  atividades.filter(function(atividade) {
-          return atividade.classificacao == 1;
+          return atividade.classificacao == 1 && (atividade.status == 'New' || atividade.status == 'Ongoing');
         });
         this.class1 = class1;
         var class2 =  atividades.filter(function(atividade) {
-          return atividade.classificacao == 2;
+          return atividade.classificacao == 2 && (atividade.status == 'New' || atividade.status == 'Ongoing');
         });
         this.class2 = class2;
         var class3 =  atividades.filter(function(atividade) {
-          return atividade.classificacao == 3;
+          return atividade.classificacao == 3 && (atividade.status == 'New' || atividade.status == 'Ongoing');
         });
         this.class3 = class3;
       });

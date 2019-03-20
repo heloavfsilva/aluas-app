@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
-
+import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs';
 import { Atividade } from './atividade';
-
+import { ActivatedRoute, Router } from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,8 +15,14 @@ const httpOptions = {
 @Injectable()
 export class AtividadeService {
   atividadeUrl = 'http://localhost:8080/rest';  // URL to web api
+  atividade: any = {};
+  id: string;
+  titulo: string;
+  sub: Subscription;
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient,
+              private route: ActivatedRoute,
+              private router: Router){}
 
 
   getAtividade (usuario: string): Observable<any> {
@@ -40,13 +46,16 @@ export class AtividadeService {
       return this.http.get(this.atividadeUrl + '/list/' + id);
     }
 
+  /** Save: save the atividade if receive id, update else save new */
   save(atividade: any): Observable<any> {
     let result: Observable<Object>;
-    if (atividade['id']) {
-      result = this.http.put(this.atividadeUrl+'/add/'+ atividade.id, atividade, httpOptions);
-    } else {
-      result = this.http.post(this.atividadeUrl+'/add', atividade, httpOptions);
-    }
+      if (atividade.id) {
+        result = this.http.put(this.atividadeUrl+'/add/'+ atividade.id, atividade, httpOptions);
+        } else {
+          console.log(atividade.id);
+          result = this.http.post(this.atividadeUrl+'/add', atividade, httpOptions);
+        }
+
     return result;
   }
 

@@ -130,8 +130,8 @@ export class EditComponent implements OnInit {
       this.router.navigate(['/painel']);
     }
 
-    save(form: any) {
-      this.atividadeService.save(form).subscribe(result => {
+    save() {
+      this.atividadeService.save(this.atividade).subscribe(result => {
         this.gotoList();
       }, error => console.error(error));
     }
