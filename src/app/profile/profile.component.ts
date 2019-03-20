@@ -14,23 +14,25 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
-  user: User;
-  scoreAcumulado : number;
+  user: User={};
+  // scoreAcumulado : number;
   profileForm: FormGroup;
-  constructor(private formBuilder: FormBuilder,private router: Router, private userService: UserService) { }
+  currentUser: string;
+  constructor(private formBuilder: FormBuilder,private router: Router, private userService: UserService) {
+    this.currentUser = localStorage.getItem('currentUser');
+  }
 
   ngOnInit() {
     this.selectProfile();
-    console.log(this.user);
   }
 
   selectProfile(){
     console.log('profile here!')
-      this.userService.getByUsername(localStorage.getItem('currentUser'))
-      .subscribe( data => {
-            this.user = data;
-            this.scoreAcumulado = data.scoreAcumulado;
-          });
+    this.userService.getByUsername(this.currentUser)
+    .pipe(first())
+    .subscribe(user => {
+      this.user = user;
+    });
   }
   //   this.editForm = this.formBuilder.group({
   //     id: [''],
@@ -46,21 +48,11 @@ export class ProfileComponent implements OnInit {
   //     });
   // }
   //
-  onSubmit() {
-    this.userService.update(this.profileForm.value)
-    .pipe(first())
-    .subscribe(
-      data => {
-        if(data) {
-          alert('User updated successfully.');
-          this.router.navigate(['painel']);
-        }else {
-          alert(data);
-        }
-      },
-      error => {
-        alert(error);
-      });
-    }
+  save() {
+    this.userService.update(this.user)
 
+    alert('User updated successfully.');
+    this.router.navigate(['painel']);
   }
+
+}

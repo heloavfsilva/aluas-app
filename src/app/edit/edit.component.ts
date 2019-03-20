@@ -109,6 +109,7 @@ export class EditComponent implements OnInit {
     }
     ngOnInit() {
       this.selectAtividade();
+      console.log(this.atividade);
       this.gravidade  = this.atividade.gravidade;
       this.urgencia = this.atividade.urgencia;
       this.tendencia = this.atividade.tendencia;

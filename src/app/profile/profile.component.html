@@ -1,7 +1,7 @@
 <div class="col-sm-4 offset-sm-4" id="formAdd">
   <a class="pull-right" routerLink="/painel"><i class="fa fa-times"></i></a>
 
-  <form #profileForm="ngForm" (ngSubmit)="save(profileForm.value)">
+  <form #profileForm="ngForm" (ngSubmit)="save()">
 
     <mat-card>
       <div class="form-group">
@@ -34,16 +34,16 @@
 
 
       <div class="form-group">
-        <label class="slider-label"><i class="fa fa-star" aria-hidden="true"></i> Score: {{scoreAcumulado}}</label>
+        <label class="slider-label"><i class="fa fa-star" aria-hidden="true"></i> Score: {{user.scoreAcumulado}}</label>
       </div>
 
       <div class="form-group">
         <a class="pull-left" routerLink="/painel"><small>Cancelar</small></a>
       </div>
       <div class="form-group">
-        <!-- <input type="submit" class="register pull-right" value="Adicionar"> -->
-        <a routerLink="/painel" class="pull-right icon-edit" (click)="save(profileform.value)" label="salvar"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></a>
-        <a routerLink="/painel" class="pull-right icon-edit" *ngIf="atividade.id" (click)="remove(user.id)" label="remover"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
+        <input type="submit" class="register pull-right" value="Salvar">
+        <!-- <a routerLink="/painel" class="pull-right icon-edit" (click)="save(profileForm.value)" label="salvar"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></a> -->
+        <a routerLink="/painel" class="pull-right icon-edit" *ngIf="user.id" (click)="remove(user.id)" label="remover"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
       </div>
     </mat-card>
   </form>
