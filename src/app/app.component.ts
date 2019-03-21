@@ -42,5 +42,5 @@ export class AppComponent implements OnInit {
     ngOnInit(){
       this.currentUser = localStorage.getItem('currentUser');
     }
-        
+
 }

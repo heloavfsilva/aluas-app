@@ -1,6 +1,9 @@
 
 <mat-card *ngIf="currentUser">
   <mat-card-title>Bem vindo!</mat-card-title>
+  <div *ngIf="barChart"  style="position: relative; height:auto; width:40%">
+    <canvas id="barChart">{{ barChart }}</canvas>
+  </div>
 </mat-card>
 
 <mat-card *ngIf="!currentUser">

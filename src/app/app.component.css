@@ -27,7 +27,11 @@ a:hover{color:#ffbd59; }
 } */
 /* End of styling Shared */
 
-
+/*  */
+#barChart{
+  width: 20%;
+}
+/*  */
 /* Styling the Dashboard page */
 .class1{
   background: #e57373;

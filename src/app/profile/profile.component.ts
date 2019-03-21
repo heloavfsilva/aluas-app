@@ -15,7 +15,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProfileComponent implements OnInit {
 
   user: User={};
-  // scoreAcumulado : number;
   profileForm: FormGroup;
   currentUser: string;
   constructor(private formBuilder: FormBuilder,private router: Router, private userService: UserService, private authService: AuthService) {
