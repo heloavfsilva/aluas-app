@@ -1,50 +1,47 @@
-<div class="col-sm-4 offset-sm-4" id="formAdd">
-  <a class="pull-right" routerLink="/painel"><i class="fa fa-times"></i></a>
+<div id="formProfile">
 
-  <form #profileForm="ngForm" (ngSubmit)="save()">
+  <form #formProfile="ngForm" (ngSubmit)="save()">
+    <img src="./assets/user.png" style="border-radius:60%;width:9%;" >
 
-    <mat-card>
-      <div class="form-group">
-        <div class="form-group">
-          <input type="text" class="form-control-add-title" name="primeiroNome"
-          id="primeiroNome" placeholder="Nome do Usuario" [(ngModel)]="user.primeiroNome">
-        </div>
+    <div class="form-group-profile-header">
+      <div class="form-group-profile">
+        <label class="profile-label"> Nome: </label>
+        <input type="text" class="form-control-profile" name="primeiroNome"
+        id="primeiroNome" placeholder="Nome do Usuario" [(ngModel)]="user.primeiroNome">
       </div>
 
-      <div class="form-group">
-        <div class="form-group">
-          <input type="text" class="form-control-add-title" name="sobrenome"
-          id="sobrenome" placeholder="sobrenome" [(ngModel)]="user.sobrenome">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="form-group">
-          <input type="text" class="form-control-add-title" name="username"
-          id="username" placeholder="username" [(ngModel)]="user.username">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="form-group">
-          <input type="text" class="form-control-add-title" name="email"
-          id="email" placeholder="email" [(ngModel)]="user.email">
-        </div>
+      <div class="form-group-profile">
+        <label class="profile-label"> Sobrenome: </label>
+        <input type="text" class="form-control-profile" name="sobrenome"
+        id="sobrenome" placeholder="sobrenome" [(ngModel)]="user.sobrenome">
       </div>
 
 
-      <div class="form-group">
-        <label class="slider-label"><i class="fa fa-star" aria-hidden="true"></i> Score: {{user.scoreAcumulado}}</label>
+      <div class="form-group-profile">
+        <label class="profile-label"> Usuário: </label>
+        <input type="text" class="form-control-profile" name="username"
+        id="username" placeholder="username" [(ngModel)]="user.username">
       </div>
 
-      <div class="form-group">
-        <a class="pull-left" routerLink="/painel"><small>Cancelar</small></a>
+      <div class="form-group-profile">
+        <label class="profile-label"> Email: </label>
+        <input type="text" class="form-control-profile" name="email"
+        id="email" placeholder="email" [(ngModel)]="user.email">
       </div>
-      <div class="form-group">
-        <input type="submit" class="register pull-right" value="Salvar">
-        <!-- <a routerLink="/painel" class="pull-right icon-edit" (click)="save(profileForm.value)" label="salvar"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></a> -->
-        <a routerLink="/painel" class="pull-right icon-edit" *ngIf="user.id" (click)="remove(user.id)" label="remover"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
+
+      <div class="form-group-profile">
+        <label class="profile-label"><i class="fa fa-star" aria-hidden="true"></i> Score: {{user.scoreAcumulado}}</label>
       </div>
-    </mat-card>
+    </div>
+
+    <div class="form-group-profile">
+      <a class="pull-left" routerLink="/painel"><small>Voltar</small></a>
+    </div>
+    <div class="form-group-profile">
+      <input type="submit" class="register pull-right" value="Salvar">
+      <!-- <a routerLink="/painel" class="pull-right icon-edit" (click)="save(profileForm.value)" label="salvar"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></a> -->
+      <!-- <a routerLink="/painel" class="pull-right icon-edit" *ngIf="user.id" (click)="delete(user.id)" label="remover"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a> -->
+    </div>
+
   </form>
 </div>

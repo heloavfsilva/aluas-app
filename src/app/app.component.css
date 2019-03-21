@@ -104,6 +104,60 @@ div#formInfo{
 
 /* End of styling Info page */
 
+/* Styling the Profile page */
+
+div#formProfile{
+  position: absolute;
+  width:100%;
+  height:auto;
+  background-color: #fff;
+  margin:auto;
+  padding:2%;
+  top:96%;
+  margin-top:-15%!important;
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  font-size: 120%;
+  /* border-radius: 3%; */
+  margin-top:-8%;
+  /* left:35%; */
+  top:40%;
+}
+div.form-group-profile-header{
+  margin-left: -18%;
+  margin-top:-8%;
+}
+div.form-group-profile-header .form-style:focus{outline: none; border:1px solid #58bff6; color:#58bff6; }
+input.form-control-profile{
+  color:#8a8a8a;
+  display: block;
+  width: auto;
+  margin-left: 27%;
+  height: auto;
+  padding: 0% 1%;
+  border:1px solid #f1f0f0;
+  -moz-border-radius: 27px;
+  -webkit-border-radius: 27px;
+  border-radius: 11px;
+  /* margin-bottom: -5%; */
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background-color: #fff;
+  font-family:'Raleway','Arial', sans-serif;
+  font-size: 105%;
+  letter-spacing: .8px;
+}
+.profile-label{
+  color:#290074;
+  font-family:'Raleway','Arial', sans-serif;
+  padding-left: 27%;
+  margin-top: 1%;
+}
+
+/* End of styling Profile page */
+
+
 /* Styling the login page  */
 div#divLogin{
   background: url('../assets/bg.png') no-repeat center center fixed;
@@ -333,7 +387,7 @@ div#divLogin{
     }
 
     .example-sidenav {
-      background-color: #000051;
+      background-color: #290074;
     }
     .active{
       background-color:rgba(221,221,221,0.5);

@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['../app.component.css'],
-  providers: [ UserService ]
+  providers: [ UserService, AuthService ]
 })
 export class ProfileComponent implements OnInit {
 
@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit {
   // scoreAcumulado : number;
   profileForm: FormGroup;
   currentUser: string;
-  constructor(private formBuilder: FormBuilder,private router: Router, private userService: UserService) {
+  constructor(private formBuilder: FormBuilder,private router: Router, private userService: UserService, private authService: AuthService) {
     this.currentUser = localStorage.getItem('currentUser');
   }
 
@@ -53,6 +53,20 @@ export class ProfileComponent implements OnInit {
 
     alert('User updated successfully.');
     this.router.navigate(['painel']);
+  }
+  delete(id: number) {
+    const res = false;
+    if(res){
+      this.userService.delete(id);
+      alert('User deleted successfully.');
+      this.authService.logout();
+    }
+    else{
+      this.router.navigate(['profile']);
+    }
+
+
+
   }
 
 }
