@@ -1,7 +1,46 @@
 
-<mat-card *ngIf="currentUser">
-  <mat-card-title>Bem vindo!</mat-card-title>
-  <div *ngIf="barChart"  style="position: relative; height:auto; width:40%">
+<mat-card *ngIf="currentUser" class="formHome">
+  <div  class="row" style="padding-left:2%">
+    <img src="./assets/user.png" style="border-radius:60%;width:5%;height:5%;" > @{{currentUser}}
+    </div>
+    <div style="margin-top: -3%; margin-left: 6%; margin-bottom: 3%">
+    <i class="fa fa-star" aria-hidden="true"></i> {{currentScore}}
+  </div>
+  <div  class="row" style="padding-left:2%">
+    <div class="panel">
+    <div class="w3-container class1">
+        <div class="w3-left"><i class="fa fa-exclamation-triangle w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{count_class1}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Get it done</h4>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="w3-container class2">
+        <div class="w3-left"><i class="fa fa-send w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{count_class2}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Plan/Delegate</h4>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="w3-container class3">
+        <div class="w3-left"><i class="fa fa-clock-o  w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{count_class3}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>When possible</h4>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="barChart"  style="position: relative; height:auto; width:40%; margin-top: 2%; margin-left:2%;">
     <canvas id="barChart">{{ barChart }}</canvas>
   </div>
 </mat-card>

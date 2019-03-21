@@ -6,14 +6,17 @@ import { User } from '../user/user';
 import { Chart } from 'chart.js';
 import { AtividadeService } from '../atividade/atividade.service';
 import { Atividade } from '../atividade/atividade';
+import { UserService } from '../user/user.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['../app.component.css'],
-  providers: [ AtividadeService ]
+  providers: [ AtividadeService, UserService ]
 })
 export class HomeComponent implements OnInit{
   currentUser: string;
+  currentScore: number;
+
   //chart
   barChart=[];
   data = [];
@@ -29,39 +32,52 @@ export class HomeComponent implements OnInit{
   constructor(private http: HttpClient,
     private router: Router,
     private authService:AuthService,
-    private atividadeService: AtividadeService) {
+    private atividadeService: AtividadeService,
+    private userService: UserService) {
       //this.authService.currentUser.subscribe(x => this.currentUser = x);
       this.currentUser = localStorage.getItem('currentUser');
     }
 
     ngOnInit() {
+      this.userService.getScore(this.currentUser)
+      .subscribe(score => {
+        this.currentScore = score;
+      });
+
       var user = localStorage.getItem('usuario');
       this.atividadeService.getAtividade(user).subscribe(
         (atividades: Atividade[]) => {
           // slit the arrays according to the classification
-          this.atividades = atividades;
-          let classLabels = [1,2,3];
+          var filterStatus =  atividades.filter(function(atividade) {
+            return atividade.status == 'New' || atividade.status == 'Ongoing';
+          })
+          this.atividades = filterStatus;
 
-          var class1 =  atividades.filter(function(atividade) {
-            return atividade.classificacao == 1 && (atividade.status == 'New' || atividade.status == 'Ongoing');
+          let classLabels = ['Get it Done','Plan/Delegate','When possible'];
+
+          var class1 =  filterStatus.filter(function(atividade) {
+            return atividade.classificacao == 1;
           });
           this.class1 = class1;
-          var class2 =  atividades.filter(function(atividade) {
-            return atividade.classificacao == 2 && (atividade.status == 'New' || atividade.status == 'Ongoing');
+          var class2 =  filterStatus.filter(function(atividade) {
+            return atividade.classificacao == 2;
           });
           this.class2 = class2;
-          var class3 =  atividades.filter(function(atividade) {
-            return atividade.classificacao == 3 && (atividade.status == 'New' || atividade.status == 'Ongoing');
+          var class3 =  filterStatus.filter(function(atividade) {
+            return atividade.classificacao == 3;
           });
           this.class3 = class3;
 
           // lenght of each array
-          this.data.push(this.class1.length);
-          this.data.push(this.class2.length);
-          this.data.push(this.class3.length);
+          this.data.push((this.class1.length*100)/this.atividades.length);
+          this.data.push((this.class2.length*100)/this.atividades.length);
+          this.data.push((this.class3.length*100)/this.atividades.length);
 
-          console.log(this.data);
+          this.count_class1 = this.class1.length;
+          this.count_class2 = this.class2.length;
+          this.count_class3 = this.class3.length;
 
+          // Bar Chart creation using chart.js
           this.barChart  = new Chart('barChart', {
             type: 'bar',
             data: {

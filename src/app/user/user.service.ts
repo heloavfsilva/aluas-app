@@ -21,6 +21,10 @@ export class UserService {
     getByUsername(username: string): any {
         return this.http.get(this.baseUrl+'/'+username);
     }
+    getScore(username: string): any {
+        return this.http.get(this.baseUrl+'/score/'+username);
+    }
+
 
     register(user: any) {
         return this.http.post(this.baseUrl+'/register', user);

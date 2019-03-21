@@ -37,6 +37,13 @@ public class UserController {
     return user;
   }
 
+  @GetMapping("/auth/score/{username}")
+  @CrossOrigin(origins = "http://localhost:4200")
+  public int getScore(@PathVariable String username) {
+    User user = userRepository.findByUsername(username);
+    return user.getScoreAcumulado();
+  }
+
   public User somaScore(int id, int score) {
     User user = userRepository.findById(id);
     int scoreAcumulado = user.getScoreAcumulado() + score;
