@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
      ) {
          // redirect to home if already logged in
          if (localStorage.getItem('currentUser')) {
-             this.router.navigate(['/']);
+             this.router.navigate(['/home']);
          }
      }
 
@@ -35,6 +35,7 @@ export class RegisterComponent implements OnInit {
              firstName: ['', Validators.required],
              lastName: ['', Validators.required],
              username: ['', Validators.required],
+             email: ['', Validators.required],
              password: ['', [Validators.required, Validators.minLength(6)]]
 
          });
@@ -58,6 +59,7 @@ export class RegisterComponent implements OnInit {
            primeiroNome: formInfo.firstName,
            sobrenome: formInfo.lastName,
            username: formInfo.username,
+           email: formInfo.email,
            password: formInfo.password
          }
          this.userService.register(newUser)
