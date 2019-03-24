@@ -25,7 +25,7 @@ export class AddComponent{
   gravidadeLabel ='Sem gravidade';
   urgenciaLabel ='Pode esperar';
   tendenciaLabel ='Não irá mudar';
-  classificacaoLabel = 'Precisa ser feito';
+  classificacaoLabel = 'Quando possível';
 
   handleScore(){
     this.score = this.gravidade*this.urgencia*this.tendencia;

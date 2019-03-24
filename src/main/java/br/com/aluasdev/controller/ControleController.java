@@ -62,7 +62,6 @@ public class ControleController {
 
 
   public void deleteControle(int id, int usuario) {
-//    Atividade data = atividadeRepo.findById(id);
     Controle ctrl = new Controle();
     ctrl.setAtividade(id);
     ctrl.setUsuario(usuario);
@@ -71,6 +70,25 @@ public class ControleController {
 
     controleRepository.save(ctrl);
     System.out.println("Deleted");
+  }
+
+  public List<Controle> lastActions(int usuario) {
+    List<Controle> list = new ArrayList<>();
+    Iterable<Controle> controles = controleRepository.findByUsuarioOrderByDataDesc(usuario);
+
+    controles.forEach(list::add);
+
+    List<Controle> filter = new ArrayList<Controle>();
+    if (list.size() < 5){
+      filter = list.subList(0,list.size());
+    }
+    else{
+      filter = list.subList(0,5);
+    }
+
+    System.out.println(list);
+    System.out.println(filter);
+    return filter;
   }
 
 

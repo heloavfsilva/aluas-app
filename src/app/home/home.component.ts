@@ -16,6 +16,7 @@ import { UserService } from '../user/user.service';
 export class HomeComponent implements OnInit{
   currentUser: string;
   user: any = {};
+  currently: Atividade[];
 
   //chart
   barChart=[];
@@ -38,13 +39,22 @@ export class HomeComponent implements OnInit{
       this.currentUser = localStorage.getItem('currentUser');
     }
 
+    getCurrentAtividades(user: string){
+
+    }
+
     ngOnInit() {
+
       this.userService.getByUsername(this.currentUser)
       .subscribe(user => {
         this.user = user;
       });
 
       var user = localStorage.getItem('usuario');
+      this.atividadeService.getCurrentAtividades(user).subscribe((atividades: Atividade[]) =>  {
+        this.currently = atividades;
+      });
+
       this.atividadeService.getAtividade(user).subscribe(
         (atividades: Atividade[]) => {
           // slit the arrays according to the classification
@@ -83,7 +93,7 @@ export class HomeComponent implements OnInit{
             data: {
               labels: classLabels,
               datasets: [{
-                label: 'Atividades x Classificação',
+                label: '',
                 data: this.data,
                 backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
@@ -112,7 +122,7 @@ export class HomeComponent implements OnInit{
               scales: {
                 yAxes: [{
                   ticks: {
-                    beginAtZero:true
+                    beginAtZero:false
                   }
                 }]
               }

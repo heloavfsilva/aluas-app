@@ -109,18 +109,6 @@ export class EditComponent implements OnInit {
     }
     ngOnInit() {
       this.selectAtividade();
-      // console.log(this.atividade);
-      // this.gravidade  = this.atividade.gravidade;
-      // this.urgencia = this.atividade.urgencia;
-      // this.tendencia = this.atividade.tendencia;
-      // this.score = this.atividade.score;
-      // this.classificacao = this.atividade.classificacao;
-      //
-      // this.handleGravidadeLabel();
-      // this.handleUrgenciaLabel();
-      // this.handleTendenciaLabel();
-      // this.handleScore();
-
     }
 
     ngOnDestroy() {

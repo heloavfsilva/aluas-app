@@ -15,6 +15,6 @@ import java.util.List;
 public interface ControleRepository extends CrudRepository<Controle, Long> {
   Controle findByAtividade(int atividade);
   List<Controle> findByUsuario(int usuario);
-
+  List<Controle> findByUsuarioOrderByDataDesc(int usuario);
 }
 

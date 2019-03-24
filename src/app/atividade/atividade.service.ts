@@ -29,6 +29,10 @@ export class AtividadeService {
     return this.http.get(this.atividadeUrl +'/'+ usuario, httpOptions);
   }
 
+  getCurrentAtividades(usuario: string): Observable<any>{
+    return this.http.get(this.atividadeUrl+'/current/'+ usuario, httpOptions);
+  }
+
   /* GET atividade whose name contains search term */
   // searchAtividade(term: string): Observable<Atividade[]> {
   //   term = term.trim();

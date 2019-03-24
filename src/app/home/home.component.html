@@ -45,9 +45,21 @@
   </div>
 
   <div *ngIf="barChart"  style="position: relative; height:auto; width:40%; margin-top: 2%; margin-left:2%;">
+    <h3> Percentual por Classificação </h3>
     <canvas id="barChart">{{ barChart }}</canvas>
   </div>
+  <div class="pull-right" style="position: relative; height:auto; width:40%; margin-top:-25%;">
+    <h3> Últimas atualizações </h3>
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let atividade of currently">
+      {{atividade.status}}: {{atividade.titulo}}
+      <span class="badge badge-primary badge-pill">{{atividade.classificacao}}</span>
+    </li>
+  </ul>
+  </div>
 </mat-card>
+
+
 
 <mat-card *ngIf="!currentUser">
   <button mat-raised-button [routerLink]="['/info']">Login</button>

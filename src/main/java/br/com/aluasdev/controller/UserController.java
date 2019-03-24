@@ -3,6 +3,7 @@ package br.com.aluasdev.controller;
 
 import br.com.aluasdev.dao.AcessoRepository;
 import br.com.aluasdev.dao.UserRepository;
+import br.com.aluasdev.model.Atividade;
 import br.com.aluasdev.model.User;
 import br.com.aluasdev.model.Acesso;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,7 @@ public class UserController {
     atividades.forEach(list::add);
     return list;
   }
+
 
   @GetMapping("/auth/{username}")
   @CrossOrigin(origins = "http://localhost:4200")
