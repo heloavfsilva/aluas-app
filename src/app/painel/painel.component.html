@@ -1,9 +1,10 @@
 <!-- Header title and search box -->
 <!-- <i class="fa fa-dashboard"></i> -->
-<h3 style="padding-left:2%"><b>Painel de Controle </b></h3>
+<!-- <h3 style="padding-left:2%">Painel de Controle </h3> -->
   <!-- End of Header -->
 <!-- Columns with the card listed with priority-->
-<div class="row" style="padding-left:2%">
+<mat-card>
+ <div class="row" style="padding-left:2%; padding-top:3%;">
   <div class="panel">
     <div class="w3-container class1">
       <div class="w3-left"><i class="fa fa-exclamation-triangle w3-xxxlarge"></i></div>
@@ -17,7 +18,7 @@
         <div class="card-body">
           <p class="card-text">{{atividade.descricao}}</p>
         </div>
-        <div class="card-footer text-right"><a href="/edit"  [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit fa-2x"></i></a></div>
+        <div class="card-footer text-right"><a href="/edit" title="Editar Atividade" [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit fa-2x"></i></a></div>
       </div>
     </div>
     <div class="panel">
@@ -33,7 +34,7 @@
           <div class="card-body">
             <p class="card-text">{{atividade.descricao}}</p>
           </div>
-          <div class="card-footer text-right"><a href="/edit"  [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit fa-2x"></i></a></div>
+          <div class="card-footer text-right"><a href="/edit" title="Editar Atividade" [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit fa-2x"></i></a></div>
         </div>
       </div>
       <div class="panel">
@@ -49,7 +50,8 @@
             <div class="card-body">
               <p class="card-text">{{atividade.descricao}}</p>
             </div>
-            <div class="card-footer text-right"><a href="/edit"  [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit fa-2x"></i></a></div>
+            <div class="card-footer text-right"><a href="/edit" title="Editar Atividade"  [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit fa-2x"></i></a></div>
           </div>
         </div>
       </div>
+</mat-card>
