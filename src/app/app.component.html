@@ -9,11 +9,11 @@
   </div>
 
   <div class="w3-bar w3-light-grey w3-padding w3-card" style="letter-spacing:4px;" *ngIf="currentUser">
-    <a routerLink="/home" class="w3-bar-item">ALUAS</a>
+    <a routerLink="/home" class="w3-bar-item title" title="Home">ALUAS</a>
     <!-- Right-sided navbar links. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
-      <a routerLink="/add" class="w3-bar-item"><i class="fa fa-plus" aria-hidden="true"></i></a>
-      <a routerLink="/" (click)="logout()" class="w3-bar-item"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+      <a routerLink="/add" class="w3-bar-item title" title="Nova Atividade"><i class="fa fa-plus" aria-hidden="true"></i></a>
+      <a routerLink="/" (click)="logout()" class="w3-bar-item title" title="Sair"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
     </div>
   </div>
 

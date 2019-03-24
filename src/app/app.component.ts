@@ -4,7 +4,6 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTimes, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { without, findIndex } from 'lodash';
 library.add(faTimes, faPlus);
-
 import { Router } from '@angular/router';
 import { AuthService } from './shared/auth.service';
 import { User } from './user/user';

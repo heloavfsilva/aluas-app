@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule, MatFormFieldModule } from '@angular/material';
 import { MatSliderModule } from '@angular/material/slider';
 import { FlexLayoutModule } from '@angular/flex-layout';
+
 // Modulos criados
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

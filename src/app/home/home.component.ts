@@ -15,7 +15,7 @@ import { UserService } from '../user/user.service';
 })
 export class HomeComponent implements OnInit{
   currentUser: string;
-  currentScore: number;
+  user: any = {};
 
   //chart
   barChart=[];
@@ -39,9 +39,9 @@ export class HomeComponent implements OnInit{
     }
 
     ngOnInit() {
-      this.userService.getScore(this.currentUser)
-      .subscribe(score => {
-        this.currentScore = score;
+      this.userService.getByUsername(this.currentUser)
+      .subscribe(user => {
+        this.user = user;
       });
 
       var user = localStorage.getItem('usuario');
@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit{
           })
           this.atividades = filterStatus;
 
-          let classLabels = ['Get it Done','Plan/Delegate','When possible'];
+          let classLabels = ['Precisa ser feito','Planeje/Delegue','Quando possível'];
 
           var class1 =  filterStatus.filter(function(atividade) {
             return atividade.classificacao == 1;

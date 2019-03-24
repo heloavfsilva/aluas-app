@@ -25,22 +25,22 @@ export class AddComponent{
   gravidadeLabel ='Sem gravidade';
   urgenciaLabel ='Pode esperar';
   tendenciaLabel ='Não irá mudar';
-  classificacaoLabel = 'When possible';
+  classificacaoLabel = 'Precisa ser feito';
 
   handleScore(){
     this.score = this.gravidade*this.urgencia*this.tendencia;
 
     if (this.score >= 48 && this.score <=128){
       this.classificacao = 1;
-      this.classificacaoLabel = 'Get it done';
+      this.classificacaoLabel = 'Precisa ser feito';
     }
     if (this.score >=27 && this.score<=47){
       this.classificacao = 2;
-      this.classificacaoLabel = 'Plan or Delegate';
+      this.classificacaoLabel = 'Planeje ou Delegue';
     }
     if(this.score < 27) {
       this.classificacao = 3;
-      this.classificacaoLabel = 'When possible';
+      this.classificacaoLabel = 'Quando possível';
     }
   }
   add(formInfo: any): void {

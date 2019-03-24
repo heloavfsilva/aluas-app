@@ -19,26 +19,26 @@
       <div class="form-group">
         <label class="slider-label" name="gravidade">Gravidade: {{atividade.gravidade}}. {{gravidadeLabel}}</label>
         <div class="form-group slider">
-          <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="gravidade" name="gravidade" (input)="handleScore(); handleGravidadeLabel()">
+          <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="atividade.gravidade" name="gravidade" (input)="handleScore(); handleGravidadeLabel()">
         </div>
       </div>
 
       <div class="form-group">
         <label class="slider-label" name="gravidade">Urgencia: {{atividade.urgencia}}. {{urgenciaLabel}}</label>
         <div class="form-group slider">
-          <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="urgencia" name="urgencia" (input)="handleScore(); handleUrgenciaLabel()">
+          <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="atividade.urgencia" name="urgencia" (input)="handleScore(); handleUrgenciaLabel()">
         </div>
       </div>
 
       <div class="form-group">
         <label class="slider-label" name="tendencia">Tendencia: {{atividade.tendencia}}. {{tendenciaLabel}}</label>
         <div class="form-group slider">
-          <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="tendencia" name="tendencia" (input)="handleScore(); handleTendenciaLabel()">
+          <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="atividade.tendencia" name="tendencia" (input)="handleScore(); handleTendenciaLabel()">
         </div>
       </div>
 
       <div class="form-group">
-        <label class="slider-label"><i class="fa fa-star" aria-hidden="true"></i> Score: {{atividade.score}} <br> {{classificacaoLabel}}</label>
+        <label class="score-label"><i class="fa fa-star" aria-hidden="true"></i> Pontuação: {{atividade.score}} <br> {{classificacaoLabel}}</label>
       </div>
 
       <div class="form-group">
