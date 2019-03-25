@@ -5,6 +5,8 @@ import { AtividadeService } from '../atividade/atividade.service';
 import { Atividade } from '../atividade/atividade';
 import { NgForm } from '@angular/forms';
 import { coerceNumberProperty } from '@angular/cdk/coercion';
+import { MatDialog } from '@angular/material';
+import { ConfirmationDialogComponent } from '../shared/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-edit',
@@ -18,15 +20,7 @@ export class EditComponent implements OnInit {
   id: string;
   titulo: string;
   sub: Subscription;
-  // gravidade  = 1;
-  // urgencia = 1;
-  // tendencia = 1;
-  // score = 1;
-  // classificacao = 3;
-  // classificacaoLabel : string;
-  // gravidadeLabel : string;
-  // urgenciaLabel : string;
-  // tendenciaLabel : string;
+
   gravidadeLabel ='Sem gravidade';
   urgenciaLabel ='Pode esperar';
   tendenciaLabel ='Não irá mudar';
@@ -35,7 +29,8 @@ export class EditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private atividadeService: AtividadeService) { }
+    private atividadeService: AtividadeService,
+    public dialog: MatDialog) { }
 
     handleScore(){
       this.atividade.score = this.atividade.gravidade*this.atividade.urgencia*this.atividade.tendencia;
@@ -125,10 +120,25 @@ export class EditComponent implements OnInit {
       }, error => console.error(error));
     }
 
-    remove(id : number) {
-      this.atividadeService.deleteAtividade(id).subscribe(result => {
-        this.gotoList();
-      }, error => console.error(error));
+    openDialog() {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      // width: '350px',
+      data: "Você deseja deletar esta atividade?"
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        console.log('Yes clicked');
+        this.atividadeService.deleteAtividade(this.atividade.id).subscribe(result => {
+            this.gotoList();
+          }, error => console.error(error));
+      }
+    });
+
+      // if(true){
+      //   this.atividadeService.deleteAtividade(id).subscribe(result => {
+      //     this.gotoList();
+      //   }, error => console.error(error));
+      // }
     }
 
     complete(id : number) {

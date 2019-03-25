@@ -5,6 +5,7 @@ import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule, MatFormFieldModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatSliderModule } from '@angular/material/slider';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -29,6 +30,8 @@ import { ErrorInterceptor } from './shared/error.interceptor';
 //Modulo para sidenav
 import { MatSidenavModule } from '@angular/material';
 import { HelpComponent } from './help/help.component';
+import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +45,8 @@ import { HelpComponent } from './help/help.component';
     ProfileComponent,
     PainelComponent,
     InfoComponent,
-    HelpComponent
+    HelpComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +64,11 @@ import { HelpComponent } from './help/help.component';
     FlexLayoutModule,
     ReactiveFormsModule,
     MatSliderModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    ConfirmationDialogComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true },
