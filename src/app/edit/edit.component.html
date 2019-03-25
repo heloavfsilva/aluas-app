@@ -48,9 +48,12 @@
         <input type="submit" class="register pull-right" value="Salvar">
         <button type="button" mat-button title="Deletar Atividade" class="pull-right icon-edit"
         *ngIf="atividade.id"
-        (click)="openDialog()"
+        (click)="deleteDialog()"
         label="remover"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></button>
-        <a routerLink="/painel" title="Completar Atividade" class="pull-right icon-edit" *ngIf="atividade.id" (click)="complete(atividade.id)" label="completar"><i class="fa fa-check fa-2x" aria-hidden="true"></i></a>
+        <button type="button" mat-button title="Completar Atividade" class="pull-right icon-edit"
+        *ngIf="atividade.id"
+        (click)="completeDialog()"
+        label="completar"><i class="fa fa-check fa-2x" aria-hidden="true"></i></button>
 
       </div>
     </mat-card>

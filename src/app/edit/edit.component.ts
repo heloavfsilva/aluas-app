@@ -120,7 +120,7 @@ export class EditComponent implements OnInit {
       }, error => console.error(error));
     }
 
-    openDialog() {
+    deleteDialog() {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       // width: '350px',
       data: "Você deseja deletar esta atividade?"
@@ -133,20 +133,22 @@ export class EditComponent implements OnInit {
           }, error => console.error(error));
       }
     });
+}
+    completeDialog() {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      // width: '350px',
+      data: "Você deseja completar esta atividade?"
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        console.log('Yes clicked');
+        this.atividadeService.completeAtividade(this.atividade.id).subscribe(result => {
+          this.gotoList();
+        }, error => console.error(error));
+      }
+    });
 
-      // if(true){
-      //   this.atividadeService.deleteAtividade(id).subscribe(result => {
-      //     this.gotoList();
-      //   }, error => console.error(error));
-      // }
-    }
-
-    complete(id : number) {
-      this.atividadeService.completeAtividade(id).subscribe(result => {
-        this.gotoList();
-      }, error => console.error(error));
-    }
-
+}
     selectAtividade(){
       console.log('Edit here!')
       this.sub = this.route.params.subscribe(params => {

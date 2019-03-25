@@ -3,7 +3,7 @@
   <div  class="row" style="padding-left:2%">
     <img src="./assets/user.png" style="border-radius:60%;width:5%;height:5%;" >
     </div>
-    <div style="margin-top: -5%; margin-left: 6%; margin-bottom: 3%">
+    <div style="margin-top: -5%; margin-left: 6.3%; margin-bottom: 3%">
      {{user.primeiroNome}} {{user.sobrenome}} (@{{currentUser}})
   </div>
 
@@ -44,11 +44,11 @@
 
   </div>
 
-  <div *ngIf="barChart"  style="position: relative; height:auto; width:40%; margin-top: 2%; margin-left:2%;">
+  <div *ngIf="barChart"  style="position: relative; height:auto; width:37%; margin-top: 1%; margin-left:2%;">
     <h3> Percentual por Classificação </h3>
     <canvas id="barChart">{{ barChart }}</canvas>
   </div>
-  <div class="pull-right" style="position: relative; height:auto; width:40%; margin-top:-25%;">
+  <div class="pull-right" style="position: relative; height:auto; width:40%; margin-top:-23%;">
     <h3> Últimas atualizações </h3>
   <ul class="list-group">
     <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let atividade of currently">

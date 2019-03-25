@@ -7,6 +7,7 @@ import {
 import { Atividade } from '../atividade/atividade';
 import { AtividadeService } from '../atividade/atividade.service';
 import { coerceNumberProperty } from '@angular/cdk/coercion';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add',
@@ -57,12 +58,17 @@ export class AddComponent{
       status: 'New'
     }
     this.atividadeService.save(newAtividade)
-    .subscribe();
-    alert("Atividade criada com sucesso!");
-
+    .subscribe(result => {
+      alert("Atividade criada com sucesso!");
+      this.gotoList();
+    }, error => console.error(error));
   }
 
-  constructor(private atividadeService: AtividadeService) { }
+  gotoList() {
+    this.router.navigate(['/painel']);
+  }
+
+  constructor(private atividadeService: AtividadeService,private router: Router) { }
 
   handleGravidadeLabel (){
     if (this.gravidade==1){
