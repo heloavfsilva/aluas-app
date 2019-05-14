@@ -1,0 +1,4 @@
+Acontece que aplicações em java são somente possíveis de serem adicionadas em Servidores Dedicados e VPS e atualmente o seu plano é um plano P (Plano compartilhado) onde não seria possível realizar esse procedimento, você consegue confirmar essa informação através deste link sobre as compatibilidades => https://suporte.hostgator.com.br/hc/pt-br/articles/115000384693-Quais-s%C3%A3o-as-compatibilidades-da-HostGator-
+Servidores Dedicado => https://www.hostgator.com.br/servidor-dedicado
+Servidores VPS => https://www.hostgator.com.br/servidor-vps 	 
+Você consegue solicitar a contratação de um Servidor Dedicado ou VPS conosco e apontar o seu dominio para esse novo servidor
