@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "controle")
-public class Controle {
+public class    Controle {
 
   @Id
   @Column(name = "ctrl_id")

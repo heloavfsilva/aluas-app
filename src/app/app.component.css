@@ -47,7 +47,7 @@ a:hover{color:#ffbd59; }
 
 /* Styling the home page */
 #barChart{
-  width: 25%;
+  width: 22%;
 }
 
 /* End of styling Home */
@@ -105,7 +105,7 @@ a:hover{color:#ffbd59; }
   border:1px solid #ccc;
   min-height: 20px;
   margin: .05%;
-  width: 463px ;
+  width: 416px ;
 }
 /* End of styling Dashboard page */
 
