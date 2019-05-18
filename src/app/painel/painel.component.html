@@ -3,31 +3,16 @@
 <!-- <h3 style="padding-left:2%">Painel de Controle </h3> -->
   <!-- End of Header -->
 <!-- Columns with the card listed with priority-->
-<mat-card>
- <div class="row" style="padding-left:2%; padding-top:3%;">
-  <div class="panel">
-    <div class="w3-container class1">
-      <div class="w3-left"><i class="fa fa-exclamation-triangle w3-xxxlarge"></i></div>
-      <div class="w3-clear"></div>
-      <h4>Precisa ser feito</h4>
-    </div>
-    <div class="card text-white bg-class1 mb-3" style="max-width: 100%;" *ngFor="let atividade of class1">
-      <div class="card-header">
-        {{atividade.titulo}}
-      </div>
-        <div class="card-body">
-          <p class="card-text">{{atividade.descricao}}</p>
-        </div>
-        <div class="card-footer text-right"><a href="/edit" title="Editar Atividade" [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit fa-2x"></i></a></div>
-      </div>
-    </div>
+<div class="divPainel">
+  <mat-card>
+   <div class="row" style="padding-left:2%; padding-top:3%;">
     <div class="panel">
-      <div class="w3-container class2">
-        <div class="w3-left"><i class="fa fa-send w3-xxxlarge"></i></div>
+      <div class="w3-container class1">
+        <div class="w3-left"><i class="fa fa-exclamation-triangle w3-xxxlarge"></i></div>
         <div class="w3-clear"></div>
-        <h4>Planeje/Delegue</h4>
+        <h4>Precisa ser feito</h4>
       </div>
-      <div class="card text-white bg-class2 mb-3" style="max-width: 100%;" *ngFor="let atividade of class2">
+      <div class="card text-white bg-class1 mb-3" style="max-width: 100%;" *ngFor="let atividade of class1">
         <div class="card-header">
           {{atividade.titulo}}
         </div>
@@ -38,20 +23,37 @@
         </div>
       </div>
       <div class="panel">
-        <div class="w3-container class3">
-          <div class="w3-left"><i class="fa fa-clock-o  w3-xxxlarge"></i></div>
+        <div class="w3-container class2">
+          <div class="w3-left"><i class="fa fa-send w3-xxxlarge"></i></div>
           <div class="w3-clear"></div>
-          <h4>Quando possível</h4>
+          <h4>Planeje/Delegue</h4>
         </div>
-        <div class="card text-white bg-class3 mb-3" style="max-width: 100%;" *ngFor="let atividade of class3">
+        <div class="card text-white bg-class2 mb-3" style="max-width: 100%;" *ngFor="let atividade of class2">
           <div class="card-header">
-            <!-- <div class="w3-left"><i class="fa fa-clock-o"></i></div> -->
-            {{atividade.titulo}}</div>
+            {{atividade.titulo}}
+          </div>
             <div class="card-body">
               <p class="card-text">{{atividade.descricao}}</p>
             </div>
-            <div class="card-footer text-right"><a href="/edit" title="Editar Atividade"  [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit fa-2x"></i></a></div>
+            <div class="card-footer text-right"><a href="/edit" title="Editar Atividade" [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit fa-2x"></i></a></div>
           </div>
         </div>
-      </div>
-</mat-card>
+        <div class="panel">
+          <div class="w3-container class3">
+            <div class="w3-left"><i class="fa fa-clock-o  w3-xxxlarge"></i></div>
+            <div class="w3-clear"></div>
+            <h4>Quando possível</h4>
+          </div>
+          <div class="card text-white bg-class3 mb-3" style="max-width: 100%;" *ngFor="let atividade of class3">
+            <div class="card-header">
+              <!-- <div class="w3-left"><i class="fa fa-clock-o"></i></div> -->
+              {{atividade.titulo}}</div>
+              <div class="card-body">
+                <p class="card-text">{{atividade.descricao}}</p>
+              </div>
+              <div class="card-footer text-right"><a href="/edit" title="Editar Atividade"  [routerLink]="['/edit', atividade.id]"> <i class="fa fa-edit fa-2x"></i></a></div>
+            </div>
+          </div>
+        </div>
+  </mat-card>
+</div>

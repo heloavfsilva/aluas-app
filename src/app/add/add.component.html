@@ -1,53 +1,55 @@
-  <div class="col-sm-4 offset-sm-4" id="formAdd">
-  <mat-card>
-    <form id="atividadeForm" name="atividadeForm" novalidate
-    #atividadeForm="ngForm"
-    (ngSubmit)="add(atividadeForm.value);">
+<div id="divAdd">
+    <div class="col-sm-4 offset-sm-4" id="formAdd">
+      <mat-card>
+        <form id="atividadeForm" name="atividadeForm" novalidate
+        #atividadeForm="ngForm"
+        (ngSubmit)="add(atividadeForm.value);">
 
-    <div class="form-group">
-      <div class="form-group">
-        <input type="text" class="form-control-add-title" name="titulo" id="titulo" placeholder="Título da Atividade" [(ngModel)]="titulo">
-      </div>
-    </div>
+        <div class="form-group">
+          <div class="form-group">
+            <input type="text" class="form-control-add-title" name="titulo" id="titulo" placeholder="Título da Atividade" [(ngModel)]="titulo">
+          </div>
+        </div>
 
-    <div class="form-group">
-      <div class="form-group">
-        <input type="text" class="form-control-add-desc" name="descricao"
-        id="descricao" placeholder="Descrição" [(ngModel)]="descricao">
-      </div>
-    </div>
+        <div class="form-group">
+          <div class="form-group">
+            <input type="text" class="form-control-add-desc" name="descricao"
+            id="descricao" placeholder="Descrição" [(ngModel)]="descricao">
+          </div>
+        </div>
 
-    <div class="form-group">
-      <label class="slider-label" name="gravidade">Gravidade: {{gravidade}}. {{gravidadeLabel}}</label>
-      <div class="form-group slider">
-        <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="gravidade" name="gravidade" (input)="handleScore(); handleGravidadeLabel()">
-      </div>
-    </div>
+        <div class="form-group">
+          <label class="slider-label" name="gravidade">Gravidade: {{gravidade}}. {{gravidadeLabel}}</label>
+          <div class="form-group slider">
+            <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="gravidade" name="gravidade" (input)="handleScore(); handleGravidadeLabel()">
+          </div>
+        </div>
 
-    <div class="form-group">
-      <label class="slider-label" name="gravidade">Urgencia: {{urgencia}}. {{urgenciaLabel}}</label>
-      <div class="form-group slider">
-        <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="urgencia" name="urgencia" (input)="handleScore(); handleUrgenciaLabel()">
-      </div>
-    </div>
+        <div class="form-group">
+          <label class="slider-label" name="gravidade">Urgencia: {{urgencia}}. {{urgenciaLabel}}</label>
+          <div class="form-group slider">
+            <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="urgencia" name="urgencia" (input)="handleScore(); handleUrgenciaLabel()">
+          </div>
+        </div>
 
-    <div class="form-group">
-      <label class="slider-label" name="tendencia">Tendencia: {{tendencia}}. {{tendenciaLabel}}</label>
-      <div class="form-group slider">
-        <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="tendencia" name="tendencia" (input)="handleScore(); handleTendenciaLabel()">
-      </div>
-    </div>
+        <div class="form-group">
+          <label class="slider-label" name="tendencia">Tendencia: {{tendencia}}. {{tendenciaLabel}}</label>
+          <div class="form-group slider">
+            <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="tendencia" name="tendencia" (input)="handleScore(); handleTendenciaLabel()">
+          </div>
+        </div>
 
-    <div>
-      <label class="score-label"><i class="fa fa-star" aria-hidden="true"></i> Pontuação: {{score}} <br> {{classificacaoLabel}}</label>
-    </div>
+        <div>
+          <label class="score-label"><i class="fa fa-star" aria-hidden="true"></i> Pontuação: {{score}} <br> {{classificacaoLabel}}</label>
+        </div>
 
-    <div>
-      <a class="pull-left" routerLink="/painel"><small>Cancelar</small></a>
-    </div>
-    <div class="form-group w3-right">
-    <input type="submit" class="register pull-right" value="Adicionar">
-    </div>
-  </form>
-</mat-card>
+        <div>
+          <a class="pull-left" routerLink="/painel"><small>Cancelar</small></a>
+        </div>
+        <div class="form-group w3-right">
+          <input type="submit" class="register pull-right" value="Adicionar">
+        </div>
+      </form>
+    </mat-card>
+  </div>
 </div>
