@@ -30,16 +30,17 @@
 
       <div class="row row-profile overview">
              <div class="col-md-4 user-pad text-center">
-                 <h3><i class="fa fa-star" aria-hidden="true"></i>  Pontuação Acumulada</h3>
-                 <h4>{{user.scoreAcumulado}}</h4>
+                 <h3 title="Pontos acumulados por finalizar atividadas!"><i class="fa fa-star" aria-hidden="true"></i>  Pontuação Acumulada</h3>
+                 <h4 title="Pontos acumulados por finalizar atividadas!">{{user.scoreAcumulado}}</h4>
              </div>
              <div class="col-md-4 user-pad text-center">
-                 <h3><i class="fa fa-bullseye" aria-hidden="true"></i> Meta Semana</h3>
-                 <h4>20</h4>
+                 <h3 title="Defina uma meta para sua semana!"><i class="fa fa-bullseye" aria-hidden="true"></i> Meta Semana</h3>
+                 <h4><input type="text" class="form-control-profile text-center" title="Defina uma meta para sua semana!"
+                   name="meta" id="meta" placeholder="20" [(ngModel)]="meta"></h4>
              </div>
              <div class="col-md-4 user-pad text-center">
-                 <h3><i class="fa fa-star-o" aria-hidden="true"></i> Falta</h3>
-                 <h4>20</h4>
+                 <h3 title="Quanto falta para completar sua meta!"><i class="fa fa-star-o" aria-hidden="true"></i> Falta</h3>
+                 <h4 title="Quanto falta para completar sua meta!">{{metaFalta}}</h4>
              </div>
       </div>
 

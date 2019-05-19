@@ -2,8 +2,10 @@ package br.com.aluasdev.controller;
 
 
 import br.com.aluasdev.dao.AcessoRepository;
+import br.com.aluasdev.dao.MetaRepository;
 import br.com.aluasdev.dao.UserRepository;
 import br.com.aluasdev.model.Atividade;
+import br.com.aluasdev.model.Meta;
 import br.com.aluasdev.model.User;
 import br.com.aluasdev.model.Acesso;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ public class UserController {
   private UserRepository userRepository;
   @Autowired
   private AcessoController acessoController = new AcessoController();
+  @Autowired
+  private MetaRepository metaRepository;
+
 
   @GetMapping("/auth")
   @CrossOrigin(origins = "http://localhost:4200")
@@ -45,6 +50,17 @@ public class UserController {
     User user = userRepository.findByUsername(username);
     return user.getScoreAcumulado();
   }
+
+  @GetMapping("/auth/meta/{usuario}")
+  @CrossOrigin(origins = "http://localhost:4200")
+  public int getMeta(@PathVariable int usuario) {
+    Meta meta = metaRepository.findByUsuario(usuario);
+    int metaScore = meta.getMetaScore();
+    System.out.println(metaScore);
+    return metaScore;
+  }
+
+
 
   public User somaScore(int id, int score) {
     User user = userRepository.findById(id);
@@ -107,6 +123,15 @@ public class UserController {
     usernew.setFoto(atividade.getFoto());
     System.out.println("Atualizado");
     userRepository.save(usernew);
+  }
+
+  @PutMapping("/meta/{meta}")
+  @CrossOrigin(origins = "http://localhost:4200")
+  public void updateMeta(@PathVariable("meta") int meta, @RequestBody int usuario) {
+    Meta metaup = metaRepository.findByUsuario(usuario);
+    metaup.setMetaScore(meta);
+    System.out.println("Atualizado");
+    metaRepository.save(metaup);
   }
 
 }

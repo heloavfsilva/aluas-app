@@ -17,6 +17,8 @@ export class ProfileComponent implements OnInit {
   user: User={};
   profileForm: FormGroup;
   currentUser: string;
+  meta = 0
+  metaFalta = 0;
   constructor(private formBuilder: FormBuilder,private router: Router, private userService: UserService, private authService: AuthService) {
     this.currentUser = localStorage.getItem('currentUser');
   }
@@ -26,12 +28,18 @@ export class ProfileComponent implements OnInit {
   }
 
   selectProfile(){
-    console.log('profile here!')
     this.userService.getByUsername(this.currentUser)
     .pipe(first())
     .subscribe(user => {
       this.user = user;
     });
+
+    this.userService.getMeta()
+    .pipe(first())
+    .subscribe(meta => {
+      this.meta = meta;
+    });
+
   }
   //   this.editForm = this.formBuilder.group({
   //     id: [''],
@@ -49,6 +57,7 @@ export class ProfileComponent implements OnInit {
   //
   save() {
     this.userService.update(this.user)
+    this.userService.updateMeta(this.meta)
 
     alert('User updated successfully.');
     this.router.navigate(['painel']);

@@ -12,8 +12,6 @@ Data		Responsável			Descrição
 
 CREATE TABLE meta (
     meta_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    meta_titulo VARCHAR(50),
-    meta_descricao VARCHAR(150),
     meta_score INTEGER,
     usu_id integer
 );

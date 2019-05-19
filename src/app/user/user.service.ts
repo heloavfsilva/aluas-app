@@ -7,8 +7,11 @@ import { User } from './user';
 @Injectable({ providedIn: 'root' })
 export class UserService {
     baseUrl = 'http://localhost:8080/auth';
+    user;
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {
+    this.user = localStorage.getItem('usuario');
+   }
 
     getAll() {
         return this.http.get<User[]>(this.baseUrl);
@@ -25,6 +28,9 @@ export class UserService {
         return this.http.get(this.baseUrl+'/score/'+username);
     }
 
+    getMeta(): any {
+        return this.http.get(this.baseUrl+'/meta/'+this.user);
+    }
 
     register(user: any) {
         return this.http.post(this.baseUrl+'/register', user);
@@ -32,6 +38,10 @@ export class UserService {
 
     update(user: User) {
         return this.http.put(this.baseUrl+'/'+user.id, user);
+    }
+
+    updateMeta(meta: any) {
+      return this.http.put(this.baseUrl+'/meta/'+meta, this.user)
     }
 
     delete(id: number) {
