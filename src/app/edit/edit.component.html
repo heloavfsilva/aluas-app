@@ -1,61 +1,63 @@
-<div class="col-sm-4 offset-sm-4" id="formAdd">
+<div id="divAdd">
+  <div class="col-sm-4 offset-sm-4" id="formAdd">
 
-  <form #atividadeForm="ngForm" (ngSubmit)="save()">
+    <form #atividadeForm="ngForm" (ngSubmit)="save()">
 
-    <mat-card>
-      <div class="form-group">
+      <mat-card>
         <div class="form-group">
-          <input type="text" class="form-control-add-title" name="titulo" id="titulo" placeholder="Título da Atividade" [(ngModel)]="atividade.titulo">
+          <div class="form-group">
+            <input type="text" class="form-control-add-title" name="titulo" id="titulo" placeholder="Título da Atividade" [(ngModel)]="atividade.titulo">
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
         <div class="form-group">
-          <input type="text" class="form-control-add-desc" name="descricao"
-          id="descricao" placeholder="Descrição" [(ngModel)]="atividade.descricao">
+          <div class="form-group">
+            <input type="text" class="form-control-add-desc" name="descricao"
+            id="descricao" placeholder="Descrição" [(ngModel)]="atividade.descricao">
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label class="slider-label" name="gravidade">Gravidade: {{atividade.gravidade}}. {{gravidadeLabel}}</label>
-        <div class="form-group slider">
-          <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="atividade.gravidade" name="gravidade" (input)="handleScore(); handleGravidadeLabel()">
+        <div class="form-group">
+          <label class="slider-label" name="gravidade">Gravidade: {{atividade.gravidade}}. {{gravidadeLabel}}</label>
+          <div class="form-group slider">
+            <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="atividade.gravidade" name="gravidade" (input)="handleScore(); handleGravidadeLabel()">
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label class="slider-label" name="gravidade">Urgencia: {{atividade.urgencia}}. {{urgenciaLabel}}</label>
-        <div class="form-group slider">
-          <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="atividade.urgencia" name="urgencia" (input)="handleScore(); handleUrgenciaLabel()">
+        <div class="form-group">
+          <label class="slider-label" name="gravidade">Urgencia: {{atividade.urgencia}}. {{urgenciaLabel}}</label>
+          <div class="form-group slider">
+            <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="atividade.urgencia" name="urgencia" (input)="handleScore(); handleUrgenciaLabel()">
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label class="slider-label" name="tendencia">Tendencia: {{atividade.tendencia}}. {{tendenciaLabel}}</label>
-        <div class="form-group slider">
-          <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="atividade.tendencia" name="tendencia" (input)="handleScore(); handleTendenciaLabel()">
+        <div class="form-group">
+          <label class="slider-label" name="tendencia">Tendencia: {{atividade.tendencia}}. {{tendenciaLabel}}</label>
+          <div class="form-group slider">
+            <input type="range" class="slider" min="1" max="5" value="1" [(ngModel)]="atividade.tendencia" name="tendencia" (input)="handleScore(); handleTendenciaLabel()">
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label class="score-label"><i class="fa fa-star" aria-hidden="true"></i> Pontuação: {{atividade.score}} <br> {{classificacaoLabel}}</label>
-      </div>
+        <div class="form-group">
+          <label class="score-label"><i class="fa fa-star" aria-hidden="true"></i> Pontuação: {{atividade.score}} <br> {{classificacaoLabel}}</label>
+        </div>
 
-      <div class="form-group">
-        <a class="pull-left" routerLink="/painel"><small>Cancelar</small></a>
-      </div>
-      <div class="form-group">
-        <input type="submit" class="register pull-right" value="Salvar">
-        <button type="button" mat-button title="Deletar Atividade" class="pull-right icon-edit"
-        *ngIf="atividade.id"
-        (click)="deleteDialog()"
-        label="remover"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></button>
-        <button type="button" mat-button title="Completar Atividade" class="pull-right icon-edit"
-        *ngIf="atividade.id"
-        (click)="completeDialog()"
-        label="completar"><i class="fa fa-check fa-2x" aria-hidden="true"></i></button>
+        <div class="form-group">
+          <a class="pull-left" routerLink="/painel"><small>Cancelar</small></a>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="register pull-right" value="Salvar">
+          <button type="button" mat-button title="Deletar Atividade" class="pull-right icon-edit"
+          *ngIf="atividade.id"
+          (click)="deleteDialog()"
+          label="remover"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></button>
+          <button type="button" mat-button title="Completar Atividade" class="pull-right icon-edit"
+          *ngIf="atividade.id"
+          (click)="completeDialog()"
+          label="completar"><i class="fa fa-check fa-2x" aria-hidden="true"></i></button>
 
-      </div>
-    </mat-card>
-  </form>
+        </div>
+      </mat-card>
+    </form>
+  </div>
 </div>

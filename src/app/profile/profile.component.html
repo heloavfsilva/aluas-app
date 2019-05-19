@@ -1,8 +1,7 @@
 <div id="formProfile">
 
   <form #formProfile="ngForm" (ngSubmit)="save()">
-    <img src="./assets/user.png" style="border-radius:60%;width:9%;" >
-
+    <img src="./assets/photo.JPG" class="profile-img" style="border-radius:60%;width:20%;margin-left:70%;" >
     <div class="form-group-profile-header">
       <div class="form-group-profile">
         <label class="profile-label"> Nome: </label>
@@ -29,9 +28,21 @@
         id="email" placeholder="email" [(ngModel)]="user.email">
       </div>
 
-      <div class="form-group-profile">
-        <label class="profile-label"><i class="fa fa-star" aria-hidden="true"></i> Pontuação Acumulada: {{user.scoreAcumulado}}</label>
+      <div class="row row-profile overview">
+             <div class="col-md-4 user-pad text-center">
+                 <h3><i class="fa fa-star" aria-hidden="true"></i>  Pontuação Acumulada</h3>
+                 <h4>{{user.scoreAcumulado}}</h4>
+             </div>
+             <div class="col-md-4 user-pad text-center">
+                 <h3><i class="fa fa-bullseye" aria-hidden="true"></i> Meta Semana</h3>
+                 <h4>20</h4>
+             </div>
+             <div class="col-md-4 user-pad text-center">
+                 <h3><i class="fa fa-star-o" aria-hidden="true"></i> Falta</h3>
+                 <h4>20</h4>
+             </div>
       </div>
+
     </div>
 
     <div class="form-group-profile">
