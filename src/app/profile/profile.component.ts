@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
   user: User={};
   profileForm: FormGroup;
   currentUser: string;
-  meta = 0
+  meta = 0;
   metaFalta = 0;
   constructor(private formBuilder: FormBuilder,private router: Router, private userService: UserService, private authService: AuthService) {
     this.currentUser = localStorage.getItem('currentUser');
@@ -56,8 +56,7 @@ export class ProfileComponent implements OnInit {
   // }
   //
   save() {
-    this.userService.update(this.user)
-    this.userService.updateMeta(this.meta)
+    this.userService.update(this.user);
 
     alert('User updated successfully.');
     this.router.navigate(['painel']);

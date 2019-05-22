@@ -40,8 +40,9 @@ export class UserService {
         return this.http.put(this.baseUrl+'/'+user.id, user);
     }
 
-    updateMeta(meta: any) {
-      return this.http.put(this.baseUrl+'/meta/'+meta, this.user)
+    updateMeta(meta: number) {
+      alert('chamou o user service!'+ meta + this.user);
+      return this.http.put('http://localhost:8080/meta/'+meta, this.user)
     }
 
     delete(id: number) {

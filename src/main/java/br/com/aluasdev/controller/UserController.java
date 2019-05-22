@@ -55,8 +55,17 @@ public class UserController {
   @CrossOrigin(origins = "http://localhost:4200")
   public int getMeta(@PathVariable int usuario) {
     Meta meta = metaRepository.findByUsuario(usuario);
-    int metaScore = meta.getMetaScore();
-    System.out.println(metaScore);
+    int metaScore;
+    if (meta != null){
+      metaScore = meta.getMetaScore();
+    } else {
+      meta = new Meta();
+      meta.setUsuario(usuario);
+      meta.setMetaScore(0);
+      metaRepository.save(meta);
+      metaScore = 0;
+    }
+
     return metaScore;
   }
 
@@ -129,7 +138,12 @@ public class UserController {
   @CrossOrigin(origins = "http://localhost:4200")
   public void updateMeta(@PathVariable("meta") int meta, @RequestBody int usuario) {
     Meta metaup = metaRepository.findByUsuario(usuario);
-    metaup.setMetaScore(meta);
+    if (metaup != null){
+      metaup.setMetaScore(meta);
+    }else {
+      metaup.setUsuario(usuario);
+      metaup.setMetaScore(meta);
+    }
     System.out.println("Atualizado");
     metaRepository.save(metaup);
   }
